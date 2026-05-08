@@ -15,5 +15,4 @@ MonoBehaviour:
   namaWilayah: Dataran Rendah
   kelembapan: 50
   nutrisi: 50
-  statusSuhu: SEDANG
-  warnaSuhu: {r: 0, g: 1, b: 0.4980392, a: 1}
+  suhu: 30
