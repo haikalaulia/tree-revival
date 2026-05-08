@@ -3,13 +3,14 @@ using UnityEngine;
 public class UIManagerToko : MonoBehaviour
 {
 	public GameObject panelToko;
-	public int uangPemain = 1000;
+	public GameObject panelAnalisis;
+	public int uangPemain = 10000;
 	private SoilClick tanahTerakhir;
 
 	public void SetTanahAktif(SoilClick tanah)
 	{
 		tanahTerakhir = tanah;
-		Debug.Log("Target tanah diupdate ke: " + tanah.name);
+		Debug.Log("Grid aktif diupdate.");
 	}
 
 	public void BukaTokoTengah()
@@ -24,29 +25,27 @@ public class UIManagerToko : MonoBehaviour
 
 	public void ProsesTanam(TombolBibit infoTombol)
 	{
-		// Jika tidak ada tanah yang dipilih atau tanahnya sudah ada pohon, batalkan
-		if (tanahTerakhir == null || tanahTerakhir.sudahDitanami)
+		if (tanahTerakhir == null)
 		{
-			TutupToko();
+			TutupSemuaMenu();
 			return;
 		}
 
 		if (uangPemain < infoTombol.harga)
 		{
 			Debug.Log("Uang tidak cukup!");
-			TutupToko();
+			TutupSemuaMenu();
 			return;
 		}
 
 		SoilProperty dataTanah = tanahTerakhir.dataTanah;
 
-		// Syarat Suhu
+		// Logika Syarat (Sesuai kode asli kamu)
 		string kategoriTanah = dataTanah.statusSuhu;
 		string katMinBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.minSuhuDerajat);
 		string katMaxBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.maxSuhuDerajat);
-
-		// Syarat Lainnya
 		string wilayahBibit = infoTombol.wilayahHarus.ToString().Replace("Rendah", " Rendah").Replace("Tinggi", " Tinggi").ToUpper();
+
 		bool wilayahOk = (dataTanah.namaWilayah.Trim().ToUpper() == wilayahBibit);
 		bool lembapOk = (dataTanah.kelembapan >= infoTombol.minLembap && dataTanah.kelembapan <= infoTombol.maxLembap);
 		bool nutrisiOk = (dataTanah.nutrisi >= infoTombol.minNutrisi && dataTanah.nutrisi <= infoTombol.maxNutrisi);
@@ -61,24 +60,34 @@ public class UIManagerToko : MonoBehaviour
 		{
 			uangPemain -= infoTombol.harga;
 			if (infoTombol.prefabMati != null)
-				Instantiate(infoTombol.prefabMati, tanahTerakhir.transform.position, Quaternion.identity);
-
-			tanahTerakhir.sudahDitanami = true; // Anggap gagal & petak terisi prefab mati
+			{
+				// Tanam di koordinat grid yang pas
+				Instantiate(infoTombol.prefabMati, tanahTerakhir.posisiGridTanam, Quaternion.identity);
+			}
 		}
 
-		TutupToko();
-		tanahTerakhir = null; // RESET: Agar klik grid selanjutnya bisa terbaca
+		TutupSemuaMenu();
+	}
+
+	public void TutupSemuaMenu()
+	{
+		if (panelToko != null) panelToko.SetActive(false);
+		if (panelAnalisis != null) panelAnalisis.SetActive(false);
+		tanahTerakhir = null;
+		Debug.Log("Sistem Reset. Siap klik grid lain.");
 	}
 
 	void TanamSukses(TombolBibit info)
 	{
-		GameObject bibit = Instantiate(info.prefabBibit, tanahTerakhir.transform.position, Quaternion.identity);
+		// Menggunakan posisiGridTanam agar pohon pas di tengah kotak grid
+		GameObject bibit = Instantiate(info.prefabBibit, tanahTerakhir.posisiGridTanam, Quaternion.identity);
 
 		GameObject folder = GameObject.Find("pohon");
 		if (folder != null) bibit.transform.SetParent(folder.transform);
 
-		bibit.AddComponent<BibitPertumbuhan>().MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
-
-		tanahTerakhir.sudahDitanami = true;
+		if (bibit.GetComponent<BibitPertumbuhan>() == null)
+			bibit.AddComponent<BibitPertumbuhan>().MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
+		else
+			bibit.GetComponent<BibitPertumbuhan>().MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
 	}
 }

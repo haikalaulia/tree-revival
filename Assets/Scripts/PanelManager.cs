@@ -27,5 +27,12 @@ public class PanelManager : MonoBehaviour
 		txtSuhu.color = data.warnaSuhu;
 	}
 
-	public void TutupPanel() { panelObj.SetActive(false); }
+	public void TutupPanel()
+	{
+		panelObj.SetActive(false);
+
+		// Memberitahu Manager untuk melepas referensi tanah
+		UIManagerToko uiToko = Object.FindFirstObjectByType<UIManagerToko>();
+		if (uiToko != null) uiToko.TutupSemuaMenu();
+	}
 }
