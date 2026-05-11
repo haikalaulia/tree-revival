@@ -1,11 +1,55 @@
 using UnityEngine;
+using UnityEngine.UI; // Tambahkan ini agar bisa mengontrol tombol
 
 public class UIManagerToko : MonoBehaviour
 {
+	[Header("UI Panels")]
 	public GameObject panelToko;
 	public GameObject panelAnalisis;
+
+	[Header("Ekonomi & Stats")]
 	public int uangPemain = 10000;
+	public int jumlahPohon = 0;
+	public int hariKe = 1;
+
+	[Header("Sistem Waktu")]
+	public float durasiSatuHari = 60f; // Uji coba 1 menit (Ganti 600f untuk 10 menit nanti)
+	private float timerDetik;
+
+	[Header("Daftar Tombol Toko")]
+	public Button[] tombolBibit; // Masukkan semua tombol beli di sini lewat Inspector
+
 	private SoilClick tanahTerakhir;
+
+	void Update()
+	{
+		JalankanWaktu();
+		CekKemampuanBeli();
+	}
+
+	void JalankanWaktu()
+	{
+		timerDetik += Time.deltaTime;
+		if (timerDetik >= durasiSatuHari)
+		{
+			hariKe++;
+			timerDetik = 0;
+			Debug.Log("Hari berganti ke: " + hariKe);
+		}
+	}
+
+	void CekKemampuanBeli()
+	{
+		// Meloop semua tombol yang didaftarkan, jika uang kurang, tombol jadi mati (abu-abu)
+		foreach (Button btn in tombolBibit)
+		{
+			TombolBibit info = btn.GetComponent<TombolBibit>();
+			if (info != null)
+			{
+				btn.interactable = (uangPemain >= info.harga);
+			}
+		}
+	}
 
 	public void SetTanahAktif(SoilClick tanah)
 	{
@@ -40,7 +84,6 @@ public class UIManagerToko : MonoBehaviour
 
 		SoilProperty dataTanah = tanahTerakhir.dataTanah;
 
-		// Logika Syarat (Sesuai kode asli kamu)
 		string kategoriTanah = dataTanah.statusSuhu;
 		string katMinBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.minSuhuDerajat);
 		string katMaxBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.maxSuhuDerajat);
@@ -61,7 +104,6 @@ public class UIManagerToko : MonoBehaviour
 			uangPemain -= infoTombol.harga;
 			if (infoTombol.prefabMati != null)
 			{
-				// Tanam di koordinat grid yang pas
 				Instantiate(infoTombol.prefabMati, tanahTerakhir.posisiGridTanam, Quaternion.identity);
 			}
 		}
@@ -79,15 +121,16 @@ public class UIManagerToko : MonoBehaviour
 
 	void TanamSukses(TombolBibit info)
 	{
-		// Menggunakan posisiGridTanam agar pohon pas di tengah kotak grid
 		GameObject bibit = Instantiate(info.prefabBibit, tanahTerakhir.posisiGridTanam, Quaternion.identity);
+
+		jumlahPohon++; // Menambah jumlah pohon saat berhasil tanam
 
 		GameObject folder = GameObject.Find("pohon");
 		if (folder != null) bibit.transform.SetParent(folder.transform);
 
-		if (bibit.GetComponent<BibitPertumbuhan>() == null)
-			bibit.AddComponent<BibitPertumbuhan>().MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
-		else
-			bibit.GetComponent<BibitPertumbuhan>().MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
+		BibitPertumbuhan bp = bibit.GetComponent<BibitPertumbuhan>();
+		if (bp == null) bp = bibit.AddComponent<BibitPertumbuhan>();
+
+		bp.MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
 	}
 }
