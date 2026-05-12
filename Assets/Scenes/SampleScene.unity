@@ -36847,9 +36847,9 @@ MonoBehaviour:
   namaPohon: Mahoni
   harga: 150
   jenisPohon: 0
-  luasTajuk: 35
-  co2PerPohon: 45
-  airPerPohon: 25
+  luasTajuk: 50
+  co2PerPohon: 290
+  airPerPohon: 1200
   lapanganKerja: 1
   wilayahHarus: 0
   minLembap: 40
@@ -37442,8 +37442,8 @@ MonoBehaviour:
   harga: 1500
   jenisPohon: 1
   luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 8
+  co2PerPohon: 40
+  airPerPohon: 250
   lapanganKerja: 1
   wilayahHarus: 0
   minLembap: 45
