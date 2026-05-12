@@ -11,7 +11,6 @@ public class UIManagerToko : MonoBehaviour
 	public GameObject panelAnalisis;
 	public GameObject panelDashboard; // Slot untuk Panel Baru Fase 5
 	public TMP_Text txtAnggaranDiToko;
-	public GameObject panelDashboard;
 
 	[Header("Ekonomi & Stats")]
 	public int uangPemain = 10000;
