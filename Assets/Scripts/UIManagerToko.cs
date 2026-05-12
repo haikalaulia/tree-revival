@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps; // Tambahan agar sistem mengenali Tilemap
 
 public class UIManagerToko : MonoBehaviour
 {
 	[Header("UI Panels")]
 	public GameObject panelToko;
 	public GameObject panelAnalisis;
-	public GameObject panelDashboard; // Slot untuk Panel Baru Fase 5
+	public GameObject panelDashboard;
 
 	[Header("Ekonomi & Stats")]
 	public int uangPemain = 10000;
@@ -19,7 +20,11 @@ public class UIManagerToko : MonoBehaviour
 	public int totalLapanganKerja = 0;
 	public int jmlPenjagaHutan = 0;
 	public int jmlBerbuah = 0;
-	public int targetTutupanHutan = 50; // Target pohon untuk 100%
+
+	[Header("Sistem Luas Lahan (m2)")]
+	public float luasLahanTotal = 1000f;
+	public float totalLuasTajuk = 0f;
+	public float targetSerapanAir;
 
 	[Header("Sistem Waktu")]
 	public float durasiSatuHari = 60f;
@@ -30,13 +35,52 @@ public class UIManagerToko : MonoBehaviour
 
 	private SoilClick tanahTerakhir;
 
+	void Start()
+	{
+		// JALANKAN HITUNGAN OTOMATIS BERDASARKAN TILEMAP SAAT GAME MULAI
+		HitungLuasLahanOtomatis();
+	}
+
+	void HitungLuasLahanOtomatis()
+	{
+		GameObject objekGround = GameObject.Find("ground");
+		if (objekGround != null)
+		{
+			Tilemap tilemapGround = objekGround.GetComponent<Tilemap>();
+			if (tilemapGround != null)
+			{
+				int jumlahTile = 0;
+				tilemapGround.CompressBounds();
+				BoundsInt bounds = tilemapGround.cellBounds;
+
+				foreach (var pos in bounds.allPositionsWithin)
+				{
+					if (tilemapGround.HasTile(pos)) jumlahTile++;
+				}
+
+				// KUNCI NILAI PER TILE: 1 tile = 3.1427 meter persegi
+				// Dengan nilai ini, 3182 tile = tepat 1.00 Hektar
+				float skalaPerTile = 3.1427f;
+
+				// Sekarang luas akan BERTAMBAH jika jumlahTile bertambah
+				luasLahanTotal = jumlahTile * skalaPerTile;
+
+				// Update Target Air (Misal 2 Liter per m2)
+				targetSerapanAir = luasLahanTotal * 2f;
+
+				Debug.Log("<color=orange><b>[SISTEM SKALA DINAMIS]</b></color>");
+				Debug.Log("Jumlah Tile Terdeteksi: " + jumlahTile);
+				Debug.Log("Total Luas Lahan: " + (luasLahanTotal / 10000f).ToString("F2") + " Ha");
+			}
+		}
+	}
+
 	void Update()
 	{
 		JalankanWaktu();
 		CekKemampuanBeli();
 	}
 
-	// --- FUNGSI TAMBAHAN FASE 5 ---
 	public float AmbilPersenPenjaga()
 	{
 		if (jumlahPohon == 0) return 0;
@@ -45,7 +89,9 @@ public class UIManagerToko : MonoBehaviour
 
 	public string AmbilStatusWilayah()
 	{
-		float persen = ((float)jumlahPohon / targetTutupanHutan) * 100f;
+		if (luasLahanTotal <= 0) return "DATA ERROR";
+
+		float persen = (totalLuasTajuk / luasLahanTotal) * 100f;
 		if (persen < 25 || AmbilPersenPenjaga() < 60) return "KRITIS";
 		if (persen < 50) return "WASPADA";
 		if (persen < 75) return "AMAN";
@@ -56,7 +102,6 @@ public class UIManagerToko : MonoBehaviour
 	{
 		if (panelDashboard != null) panelDashboard.SetActive(status);
 	}
-	// ------------------------------
 
 	void JalankanWaktu()
 	{
@@ -72,6 +117,7 @@ public class UIManagerToko : MonoBehaviour
 	{
 		foreach (Button btn in tombolBibit)
 		{
+			if (btn == null) continue;
 			TombolBibit info = btn.GetComponent<TombolBibit>();
 			if (info != null) btn.interactable = (uangPemain >= info.harga);
 		}
@@ -83,10 +129,12 @@ public class UIManagerToko : MonoBehaviour
 
 	public void ProsesTanam(TombolBibit infoTombol)
 	{
-		if (tanahTerakhir == null) { TutupSemuaMenu(); return; }
+		if (tanahTerakhir == null || infoTombol == null) { TutupSemuaMenu(); return; }
 		if (uangPemain < infoTombol.harga) { TutupSemuaMenu(); return; }
 
 		SoilProperty dataTanah = tanahTerakhir.dataTanah;
+		if (dataTanah == null) return;
+
 		string kategoriTanah = dataTanah.statusSuhu;
 		string katMinBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.minSuhuDerajat);
 		string katMaxBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.maxSuhuDerajat);
@@ -122,9 +170,9 @@ public class UIManagerToko : MonoBehaviour
 	{
 		GameObject bibit = Instantiate(info.prefabBibit, tanahTerakhir.posisiGridTanam, Quaternion.identity);
 
-		// --- UPDATE KALKULASI FASE 5 ---
 		jumlahPohon++;
 		totalLapanganKerja += info.lapanganKerja;
+		totalLuasTajuk += info.luasTajuk;
 
 		if (info.jenisPohon == JenisPohon.PenjagaHutan)
 		{
@@ -136,7 +184,6 @@ public class UIManagerToko : MonoBehaviour
 		{
 			jmlBerbuah++;
 		}
-		// ------------------------------
 
 		GameObject folder = GameObject.Find("pohon");
 		if (folder != null) bibit.transform.SetParent(folder.transform);
