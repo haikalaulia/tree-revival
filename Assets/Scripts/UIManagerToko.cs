@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Tilemaps; // Tambahan agar sistem mengenali Tilemap
+using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 public class UIManagerToko : MonoBehaviour
 {
@@ -21,8 +22,8 @@ public class UIManagerToko : MonoBehaviour
 	public int jmlPenjagaHutan = 0;
 	public int jmlBerbuah = 0;
 
-	[Header("Sistem Luas Lahan (m2)")]
-	public float luasLahanTotal = 1000f;
+	[Header("Sistem Luas Lahan (Dinamis: 3000 Tile = 1 Ha)")]
+	public float luasLahanTotal = 0f;
 	public float totalLuasTajuk = 0f;
 	public float targetSerapanAir;
 
@@ -37,12 +38,13 @@ public class UIManagerToko : MonoBehaviour
 
 	void Start()
 	{
-		// JALANKAN HITUNGAN OTOMATIS BERDASARKAN TILEMAP SAAT GAME MULAI
+		// JALANKAN HITUNGAN BERDASARKAN RUMUS 3000 TILE = 1 HEKTAR
 		HitungLuasLahanOtomatis();
 	}
 
 	void HitungLuasLahanOtomatis()
 	{
+		// Mencari objek bernama "ground" di Hierarchy
 		GameObject objekGround = GameObject.Find("ground");
 		if (objekGround != null)
 		{
@@ -53,25 +55,34 @@ public class UIManagerToko : MonoBehaviour
 				tilemapGround.CompressBounds();
 				BoundsInt bounds = tilemapGround.cellBounds;
 
+				// Menghitung jumlah tile yang terisi di Tilemap
 				foreach (var pos in bounds.allPositionsWithin)
 				{
 					if (tilemapGround.HasTile(pos)) jumlahTile++;
 				}
 
-				// KUNCI NILAI PER TILE: 1 tile = 3.1427 meter persegi
-				// Dengan nilai ini, 3182 tile = tepat 1.00 Hektar
-				float skalaPerTile = 3.1427f;
+				// LOGIKA: 3000 Tile = 10.000 m2 (1 Hektar)
+				// Maka 1 Tile = 10.000 / 3000 = 3.333333f
+				float nilaiPerTile = 10000f / 3000f;
 
-				// Sekarang luas akan BERTAMBAH jika jumlahTile bertambah
-				luasLahanTotal = jumlahTile * skalaPerTile;
+				// Total Luas akan otomatis menyesuaikan jumlah tile
+				luasLahanTotal = jumlahTile * nilaiPerTile;
 
-				// Update Target Air (Misal 2 Liter per m2)
+				// Target Air menyesuaikan luas lahan (misal 2 liter per m2)
 				targetSerapanAir = luasLahanTotal * 2f;
 
-				Debug.Log("<color=orange><b>[SISTEM SKALA DINAMIS]</b></color>");
-				Debug.Log("Jumlah Tile Terdeteksi: " + jumlahTile);
-				Debug.Log("Total Luas Lahan: " + (luasLahanTotal / 10000f).ToString("F2") + " Ha");
+				Debug.Log("<color=green><b>[SISTEM TILE DINAMIS]</b></color>");
+				Debug.Log("Tile Terdeteksi: " + jumlahTile);
+				Debug.Log("Luas Lahan: " + (luasLahanTotal / 10000f).ToString("F2") + " Ha (" + luasLahanTotal.ToString("F1") + " m2)");
 			}
+			else
+			{
+				Debug.LogWarning("Objek 'ground' tidak punya komponen Tilemap!");
+			}
+		}
+		else
+		{
+			Debug.LogWarning("Objek bernama 'ground' tidak ditemukan di scene!");
 		}
 	}
 
@@ -91,7 +102,9 @@ public class UIManagerToko : MonoBehaviour
 	{
 		if (luasLahanTotal <= 0) return "DATA ERROR";
 
+		// Status Berdasarkan Persentase Tutupan Hutan (Luas Tajuk / Luas Lahan)
 		float persen = (totalLuasTajuk / luasLahanTotal) * 100f;
+
 		if (persen < 25 || AmbilPersenPenjaga() < 60) return "KRITIS";
 		if (persen < 50) return "WASPADA";
 		if (persen < 75) return "AMAN";
@@ -177,7 +190,7 @@ public class UIManagerToko : MonoBehaviour
 		if (info.jenisPohon == JenisPohon.PenjagaHutan)
 		{
 			jmlPenjagaHutan++;
-			totalCO2 += info.co2PerPohon;
+			totalCO2 += (info.co2PerPohon / 1000f); // Konversi KG ke Ton
 			totalAir += info.airPerPohon;
 		}
 		else
