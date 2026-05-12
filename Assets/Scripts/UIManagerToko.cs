@@ -161,26 +161,39 @@ public class UIManagerToko : MonoBehaviour
 		SoilProperty dataTanah = tanahTerakhir.dataTanah;
 		if (dataTanah == null) return;
 
-		string kategoriTanah = dataTanah.statusSuhu;
-		string katMinBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.minSuhuDerajat);
-		string katMaxBibit = infoTombol.AmbilKategoriDariAngka(infoTombol.maxSuhuDerajat);
-		string wilayahBibit = infoTombol.wilayahHarus.ToString().Replace("Rendah", " Rendah").Replace("Tinggi", " Tinggi").ToUpper();
+		// 1. Sinkronisasi Nama Wilayah (Biar gak sensitif spasi/huruf besar kecil)
+		string wilayahBibit = infoTombol.wilayahHarus.ToString().Replace("Rendah", " Rendah").Replace("Tinggi", " Tinggi").ToUpper().Trim();
+		string wilayahTanah = dataTanah.namaWilayah.ToUpper().Trim();
 
-		bool wilayahOk = (dataTanah.namaWilayah.Trim().ToUpper() == wilayahBibit);
+		// 2. Pengecekan Syarat Tumbuh (Menggunakan Range Min & Max)
+		bool wilayahOk = (wilayahTanah == wilayahBibit);
 		bool lembapOk = (dataTanah.kelembapan >= infoTombol.minLembap && dataTanah.kelembapan <= infoTombol.maxLembap);
 		bool nutrisiOk = (dataTanah.nutrisi >= infoTombol.minNutrisi && dataTanah.nutrisi <= infoTombol.maxNutrisi);
-		bool suhuOk = (kategoriTanah == katMinBibit || kategoriTanah == katMaxBibit);
+
+		// Perbaikan: Sudah menggunakan nama variabel 'suhu' sesuai permintaanmu
+		bool suhuOk = (dataTanah.suhu >= infoTombol.minSuhuDerajat && dataTanah.suhu <= infoTombol.maxSuhuDerajat);
 
 		if (wilayahOk && lembapOk && nutrisiOk && suhuOk)
 		{
 			uangPemain -= infoTombol.harga;
 			TanamSukses(infoTombol);
+			Debug.Log("<color=green><b>[BERHASIL]</b></color> " + infoTombol.namaPohon + " tumbuh di kondisi yang sesuai.");
 		}
 		else
 		{
+			// Gagal tumbuh: Uang tetap berkurang, muncul prefab mati
 			uangPemain -= infoTombol.harga;
 			if (infoTombol.prefabMati != null)
+			{
 				Instantiate(infoTombol.prefabMati, tanahTerakhir.posisiGridTanam, Quaternion.identity);
+			}
+
+			// Cek log ini di Console Unity untuk tahu syarat mana yang tidak terpenuhi (False)
+			Debug.Log("<color=red><b>[GAGAL]</b></color> " + infoTombol.namaPohon +
+					  " | Wilayah: " + wilayahOk +
+					  " | Lembap: " + lembapOk +
+					  " | Nutrisi: " + nutrisiOk +
+					  " | Suhu: " + suhuOk);
 		}
 		TutupSemuaMenu();
 	}

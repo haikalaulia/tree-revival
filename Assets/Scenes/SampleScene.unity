@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 23110434}
   - component: {fileID: 23110436}
   - component: {fileID: 23110435}
+  - component: {fileID: 23110437}
   m_Layer: 5
   m_Name: Bibit_Mangrove
   m_TagString: Untagged
@@ -275,6 +276,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23110433}
   m_CullTransparentMesh: 1
+--- !u!114 &23110437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23110433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
+  textNama: {fileID: 1668908319}
+  textHarga: {fileID: 1825476292}
+  textCO2: {fileID: 61240726}
+  textAir: {fileID: 1833099318}
 --- !u!1 &51216258
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +539,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
-  m_SizeDelta: {x: 53.6837, y: 10.985}
+  m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61240726
 MonoBehaviour:
@@ -1651,6 +1668,7 @@ GameObject:
   - component: {fileID: 292969102}
   - component: {fileID: 292969101}
   - component: {fileID: 292969100}
+  - component: {fileID: 292969103}
   m_Layer: 5
   m_Name: Button_Beli
   m_TagString: Untagged
@@ -1721,7 +1739,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 292969101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1046033859}
+        m_TargetAssemblyTypeName: UIManagerToko, Assembly-CSharp
+        m_MethodName: ProsesTanam
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 292969103}
+          m_ObjectArgumentAssemblyTypeName: TombolBibit, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &292969101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,6 +1790,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292969098}
   m_CullTransparentMesh: 1
+--- !u!114 &292969103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292969098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
+  namaPohon: Kelapa
+  harga: 500
+  jenisPohon: 1
+  luasTajuk: 35
+  co2PerPohon: 1500
+  airPerPohon: 10
+  lapanganKerja: 1
+  wilayahHarus: 2
+  minLembap: 70
+  maxLembap: 90
+  minNutrisi: 30
+  maxNutrisi: 80
+  minSuhuDerajat: 24
+  maxSuhuDerajat: 32
+  prefabBibit: {fileID: 8007981087855944155, guid: 4de8a164349624e49a6ab83b09914e1a, type: 3}
+  prefabSedang: {fileID: 1106466482906245067, guid: 6f7dd845eab65d24ca3c4fd67e9b0fab, type: 3}
+  prefabDewasa: {fileID: 1898992169551366309, guid: 48324a9bfac84db4998474550ee46d89, type: 3}
+  prefabMati: {fileID: 172345060795434978, guid: 7806db03460efed4dbcb274420e9f823, type: 3}
 --- !u!1 &296390250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2283,7 @@ GameObject:
   - component: {fileID: 367913213}
   - component: {fileID: 367913212}
   - component: {fileID: 367913211}
+  - component: {fileID: 367913214}
   m_Layer: 5
   m_Name: Button_Beli
   m_TagString: Untagged
@@ -2293,7 +2354,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 367913212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1046033859}
+        m_TargetAssemblyTypeName: UIManagerToko, Assembly-CSharp
+        m_MethodName: ProsesTanam
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 367913214}
+          m_ObjectArgumentAssemblyTypeName: TombolBibit, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &367913212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,6 +2405,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367913209}
   m_CullTransparentMesh: 1
+--- !u!114 &367913214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367913209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
+  namaPohon: Rambutan
+  harga: 350
+  jenisPohon: 1
+  luasTajuk: 40
+  co2PerPohon: 120.5
+  airPerPohon: 1200
+  lapanganKerja: 1
+  wilayahHarus: 0
+  minLembap: 40
+  maxLembap: 85
+  minNutrisi: 40
+  maxNutrisi: 90
+  minSuhuDerajat: 22
+  maxSuhuDerajat: 35
+  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
+  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
+  prefabDewasa: {fileID: 7970651105001286700, guid: 7d71fe6d403e28540a567c84023fa4a8, type: 3}
+  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
 --- !u!1 &426361150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,6 +3289,7 @@ GameObject:
   - component: {fileID: 525515602}
   - component: {fileID: 525515601}
   - component: {fileID: 525515600}
+  - component: {fileID: 525515603}
   m_Layer: 5
   m_Name: Button_Beli
   m_TagString: Untagged
@@ -3256,7 +3360,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 525515601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1046033859}
+        m_TargetAssemblyTypeName: UIManagerToko, Assembly-CSharp
+        m_MethodName: ProsesTanam
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 525515603}
+          m_ObjectArgumentAssemblyTypeName: TombolBibit, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &525515601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3295,6 +3411,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525515598}
   m_CullTransparentMesh: 1
+--- !u!114 &525515603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525515598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
+  namaPohon: Mahoni
+  harga: 250
+  jenisPohon: 0
+  luasTajuk: 40
+  co2PerPohon: 295.73
+  airPerPohon: 1700
+  lapanganKerja: 1
+  wilayahHarus: 0
+  minLembap: 40
+  maxLembap: 90
+  minNutrisi: 50
+  maxNutrisi: 100
+  minSuhuDerajat: 20
+  maxSuhuDerajat: 30
+  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
+  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
+  prefabDewasa: {fileID: 5745174440478971801, guid: bad36dd546f459f40a3be706923ef470, type: 3}
+  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
 --- !u!1 &557593402
 GameObject:
   m_ObjectHideFlags: 0
@@ -37813,7 +37959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rp 100
+  m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -38390,6 +38536,7 @@ GameObject:
   - component: {fileID: 1005770373}
   - component: {fileID: 1005770375}
   - component: {fileID: 1005770374}
+  - component: {fileID: 1005770376}
   m_Layer: 5
   m_Name: Bibit_Kelapa
   m_TagString: Untagged
@@ -38460,6 +38607,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005770372}
   m_CullTransparentMesh: 1
+--- !u!114 &1005770376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005770372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
+  textNama: {fileID: 1463731268}
+  textHarga: {fileID: 570704281}
+  textCO2: {fileID: 1950315079}
+  textAir: {fileID: 1459047396}
 --- !u!1 &1008357898
 GameObject:
   m_ObjectHideFlags: 0
@@ -38638,7 +38801,9 @@ MonoBehaviour:
   totalLapanganKerja: 0
   jmlPenjagaHutan: 0
   jmlBerbuah: 0
-  targetTutupanHutan: 50
+  luasLahanTotal: 0
+  totalLuasTajuk: 0
+  targetSerapanAir: 0
   durasiSatuHari: 60
   tombolBibit:
   - {fileID: 1925336996}
@@ -39892,7 +40057,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Air    : 1200L'
+  m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -40339,7 +40504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: -7465404000900338223, guid: 22d271777f5af994db6e95a4a820c24a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40910,6 +41075,7 @@ GameObject:
   - component: {fileID: 1640101423}
   - component: {fileID: 1640101425}
   - component: {fileID: 1640101424}
+  - component: {fileID: 1640101426}
   m_Layer: 5
   m_Name: Bibit_Rambutan
   m_TagString: Untagged
@@ -40980,6 +41146,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640101422}
   m_CullTransparentMesh: 1
+--- !u!114 &1640101426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640101422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
+  textNama: {fileID: 296390252}
+  textHarga: {fileID: 1942214122}
+  textCO2: {fileID: 1811552718}
+  textAir: {fileID: 1579711460}
 --- !u!1 &1660180060
 GameObject:
   m_ObjectHideFlags: 0
@@ -41176,7 +41358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mangrove
+  m_text: Tembakau
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -41319,6 +41501,7 @@ MonoBehaviour:
   barCO2: {fileID: 594732162}
   barAir: {fileID: 680217352}
   barPekerjaan: {fileID: 200551987}
+  txtPersenTutupan: {fileID: 0}
   txtCO2: {fileID: 193905413}
   txtAir: {fileID: 426361152}
   txtPekerjaan: {fileID: 1425015898}
@@ -41546,6 +41729,7 @@ GameObject:
   - component: {fileID: 1782408706}
   - component: {fileID: 1782408708}
   - component: {fileID: 1782408707}
+  - component: {fileID: 1782408709}
   m_Layer: 5
   m_Name: 'Bibit_Mahoni '
   m_TagString: Untagged
@@ -41616,6 +41800,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782408705}
   m_CullTransparentMesh: 1
+--- !u!114 &1782408709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782408705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
+  textNama: {fileID: 1933026361}
+  textHarga: {fileID: 947343333}
+  textCO2: {fileID: 2041964678}
+  textAir: {fileID: 1458159175}
 --- !u!1 &1783633268
 GameObject:
   m_ObjectHideFlags: 0
@@ -42471,7 +42671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: 556388359115899683, guid: a324bdbcbf1404540a2d3b7aeecf3f2d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -42636,22 +42836,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
   namaPohon: Mangrove
-  harga: 100
+  harga: 150
   jenisPohon: 0
-  co2PerPohon: 25.5
-  airPerPohon: 10
+  luasTajuk: 25
+  co2PerPohon: 12.5
+  airPerPohon: 450
   lapanganKerja: 1
-  wilayahHarus: 0
-  minLembap: 0
-  maxLembap: 100
-  minNutrisi: 0
+  wilayahHarus: 2
+  minLembap: 60
+  maxLembap: 80
+  minNutrisi: 50
   maxNutrisi: 100
   minSuhuDerajat: 20
   maxSuhuDerajat: 30
-  prefabBibit: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
-  prefabSedang: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
+  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
+  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
-  prefabMati: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
+  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
 --- !u!1 &1933026359
 GameObject:
   m_ObjectHideFlags: 0
@@ -42709,7 +42910,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mahoni
+  m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -43851,8 +44052,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
-  m_SizeDelta: {x: 53.6837, y: 10.985}
+  m_AnchoredPosition: {x: 0, y: 0.00000095367}
+  m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041964678
 MonoBehaviour:
@@ -43874,7 +44075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CO2 : 8000'
+  m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -44223,7 +44424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: -4648403380970281300, guid: 865e17dfe3495de4fbde798471357cc4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
