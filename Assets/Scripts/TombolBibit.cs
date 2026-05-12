@@ -1,12 +1,20 @@
 using UnityEngine;
 
 public enum TipeWilayah { DataranRendah, DataranTinggi, Pesisir }
+// TAMBAHAN FASE 5
+public enum JenisPohon { PenjagaHutan, Berbuah }
 
 public class TombolBibit : MonoBehaviour
 {
 	[Header("Identitas & Ekonomi")]
 	public string namaPohon;
 	public int harga;
+	public JenisPohon jenisPohon; // Pilih Penjaga atau Berbuah di Inspector
+
+	[Header("Dampak Lingkungan (Fase 5)")]
+	public float co2PerPohon = 25.5f; // kg CO2
+	public float airPerPohon = 10.0f; // Liter air
+	public int lapanganKerja = 1;     // Orang
 
 	[Header("Syarat Tumbuh")]
 	public TipeWilayah wilayahHarus;
@@ -16,8 +24,8 @@ public class TombolBibit : MonoBehaviour
 	public float maxNutrisi = 100;
 
 	[Header("Syarat Suhu (Input Derajat)")]
-	public float minSuhuDerajat = 20; // Contoh: 20 derajat (Dingin)
-	public float maxSuhuDerajat = 30; // Contoh: 30 derajat (Sedang)
+	public float minSuhuDerajat = 20;
+	public float maxSuhuDerajat = 30;
 
 	[Header("Visual Tahapan")]
 	public GameObject prefabBibit;
@@ -25,7 +33,6 @@ public class TombolBibit : MonoBehaviour
 	public GameObject prefabDewasa;
 	public GameObject prefabMati;
 
-	// Fungsi konversi angka ke string kategori agar sama dengan SoilProperty
 	public string AmbilKategoriDariAngka(float derajat)
 	{
 		if (derajat <= 22) return "DINGIN";

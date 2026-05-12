@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: f806b565ae2249648a35b8c6bfa25bf9
+guid: 865e17dfe3495de4fbde798471357cc4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6853316077166303748
-    second: Tree_0
-  - first:
-      213: 4134985361545656292
-    second: Tree_1
-  - first:
-      213: -1566730818833404899
-    second: Tree_2
-  - first:
-      213: -7301469273254094464
-    second: Tree_3
-  - first:
-      213: 4246777929600769233
-    second: Tree_4
-  - first:
-      213: -1089773682390131457
-    second: Tree_5
+      213: -4648403380970281300
+    second: Rambutan-frame0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree_0
+      name: Rambutan-frame0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 82
-        width: 33
-        height: 43
+        x: 5
+        y: 6
+        width: 22
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,118 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40a98f869aedb1f50800000000000000
-      internalID: 6853316077166303748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tree_1
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 82
-        width: 28
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4e77e5a374b626930800000000000000
-      internalID: 4134985361545656292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tree_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 34
-        width: 33
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d1c27c40f9ad14ae0800000000000000
-      internalID: -1566730818833404899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tree_3
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 34
-        width: 28
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 089924d7168fbaa90800000000000000
-      internalID: -7301469273254094464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tree_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 31
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1dc92ddc6069fea30800000000000000
-      internalID: 4246777929600769233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tree_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 1
-        width: 31
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ffc11971c9850e0f0800000000000000
-      internalID: -1089773682390131457
+      spriteID: ca6aa88d0cd8d7fb0800000000000000
+      internalID: -4648403380970281300
       vertices: []
       indices: 
       edges: []
@@ -273,12 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tree_0: 6853316077166303748
-      Tree_1: 4134985361545656292
-      Tree_2: -1566730818833404899
-      Tree_3: -7301469273254094464
-      Tree_4: 4246777929600769233
-      Tree_5: -1089773682390131457
+      Rambutan-frame0_0: -4648403380970281300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
