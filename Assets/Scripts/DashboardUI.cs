@@ -13,6 +13,7 @@ public class DashboardUI : MonoBehaviour
 	public Slider barPekerjaan;
 
 	[Header("Angka & Status")]
+	public TextMeshProUGUI txtPersenTutupan; // Taruh di samping Bar Tutupan (biar tidak stuck 60%)
 	public TextMeshProUGUI txtCO2;
 	public TextMeshProUGUI txtAir;
 	public TextMeshProUGUI txtPekerjaan;
@@ -31,9 +32,16 @@ public class DashboardUI : MonoBehaviour
 	{
 		if (ui == null) return;
 
-		// 1. Update Bar (Slider)
-		barTutupan.value = (float)ui.jumlahPohon / ui.targetTutupanHutan;
-		barCO2.value = ui.totalCO2 / 1000f; // Sesuaikan pembagi dengan max targetmu
+		// 1. UPDATE BAR TUTUPAN (MENGGUNAKAN LUAS M2)
+		// Kita hitung persentase real-nya di sini
+		float persenReal = (ui.totalLuasTajuk / ui.luasLahanTotal);
+		barTutupan.value = persenReal; // Slider (0 sampai 1)
+
+		// Update teks persentase yang ada di UI kamu agar sinkron dengan bar
+		if (txtPersenTutupan != null)
+			txtPersenTutupan.text = (persenReal * 100f).ToString("F0") + "%";
+
+		barCO2.value = ui.totalCO2 / 1000f;
 		barAir.value = ui.totalAir / 100000f;
 		barPekerjaan.value = (float)ui.totalLapanganKerja / 50f;
 
@@ -42,7 +50,7 @@ public class DashboardUI : MonoBehaviour
 		txtAir.text = ui.totalAir.ToString("N0") + " L";
 		txtPekerjaan.text = ui.totalLapanganKerja + " Orang";
 
-		// 3. Update Persentase VS (Yang kamu minta)
+		// 3. Update Persentase VS
 		float pPenjaga = ui.AmbilPersenPenjaga();
 		float pBuah = (ui.jumlahPohon == 0) ? 0 : 100f - pPenjaga;
 
@@ -55,6 +63,6 @@ public class DashboardUI : MonoBehaviour
 		// Warna Status
 		if (txtStatus.text.Contains("KRITIS")) txtStatus.color = Color.red;
 		else if (txtStatus.text.Contains("WASPADA")) txtStatus.color = Color.yellow;
-		else txtStatus.color = Color.white;
+		else txtStatus.color = Color.green;
 	}
 }

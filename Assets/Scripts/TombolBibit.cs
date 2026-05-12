@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public enum TipeWilayah { DataranRendah, DataranTinggi, Pesisir }
-// TAMBAHAN FASE 5
 public enum JenisPohon { PenjagaHutan, Berbuah }
 
 public class TombolBibit : MonoBehaviour
@@ -9,12 +8,13 @@ public class TombolBibit : MonoBehaviour
 	[Header("Identitas & Ekonomi")]
 	public string namaPohon;
 	public int harga;
-	public JenisPohon jenisPohon; // Pilih Penjaga atau Berbuah di Inspector
+	public JenisPohon jenisPohon;
 
 	[Header("Dampak Lingkungan (Fase 5)")]
-	public float co2PerPohon = 25.5f; // kg CO2
-	public float airPerPohon = 10.0f; // Liter air
-	public int lapanganKerja = 1;     // Orang
+	public float luasTajuk = 25.0f;  // TAMBAHAN: Luas tajuk dalam m2
+	public float co2PerPohon = 25.5f;
+	public float airPerPohon = 10.0f;
+	public int lapanganKerja = 1;
 
 	[Header("Syarat Tumbuh")]
 	public TipeWilayah wilayahHarus;
