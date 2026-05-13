@@ -5530,12 +5530,12 @@ TextureImporter:
       name: ALL props seasons_137
       rect:
         serializedVersion: 2
-        x: 50
-        y: 104
-        width: 14
-        height: 8
+        x: 49
+        y: 98
+        width: 15
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
@@ -5568,12 +5568,12 @@ TextureImporter:
       name: ALL props seasons_138
       rect:
         serializedVersion: 2
-        x: 58
-        y: 100
-        width: 5
-        height: 4
+        x: 66
+        y: 97
+        width: 14
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
@@ -5592,46 +5592,6 @@ TextureImporter:
       bones: []
       spriteID: dbb0a2ff9b302f650800000000000000
       internalID: 6265074129010559933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL props seasons_139
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 103
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: 5.5, y: 4}
-        - {x: -3.5, y: 4}
-        - {x: -5.5, y: 2}
-        - {x: -5.5, y: -4}
-        - {x: 5.5, y: -4}
-      physicsShape:
-      - - {x: 5.5, y: 3}
-        - {x: 4.5, y: 4}
-        - {x: 2.5, y: 3}
-        - {x: 2.5, y: 1}
-        - {x: 5.5, y: 1}
-      - - {x: 3.5, y: -3}
-        - {x: 3.5, y: -1}
-        - {x: 0.5, y: 3}
-        - {x: -2.5, y: 3}
-        - {x: -5.5, y: 1}
-        - {x: -5.5, y: -2}
-        - {x: -4.5, y: -4}
-        - {x: 2.5, y: -4}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b0eaba7f9e997960800000000000000
-      internalID: 7600280253960478905
       vertices: []
       indices: 
       edges: []
@@ -5960,72 +5920,6 @@ TextureImporter:
       bones: []
       spriteID: 2113e5a26a7d625e0800000000000000
       internalID: -1934621881233690350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL props seasons_149
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 98
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: 3.5, y: 1.5}
-        - {x: 2.5, y: 2.5}
-        - {x: -3.5, y: 2.5}
-        - {x: -3.5, y: -2.5}
-        - {x: 3.5, y: -2.5}
-      physicsShape:
-      - - {x: 3.5, y: -0.5}
-        - {x: 0.5, y: 2.5}
-        - {x: -1.5, y: 2.5}
-        - {x: -3.5, y: -1.5}
-        - {x: -3.5, y: -2.5}
-        - {x: 3.5, y: -2.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fa2e5f27bdcbdff0800000000000000
-      internalID: -10188387480884490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL props seasons_150
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 97
-        width: 14
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: 7, y: 2.5}
-        - {x: -7, y: 2.5}
-        - {x: -7, y: -2.5}
-        - {x: 7, y: -2.5}
-      physicsShape:
-      - - {x: -1, y: -1.5}
-        - {x: 6, y: -0.5}
-        - {x: 7, y: 0.5}
-        - {x: 7, y: 2.5}
-        - {x: -7, y: 2.5}
-        - {x: -7, y: -2.5}
-        - {x: -2, y: -2.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3b3fb2516da75690800000000000000
-      internalID: -7613426011534836929
       vertices: []
       indices: 
       edges: []
@@ -9160,9 +9054,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 49
-        height: 16
+        y: 16
+        width: 96
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9257,94 +9151,6 @@ TextureImporter:
       bones: []
       spriteID: 5ec80f6a340130c90800000000000000
       internalID: -7204897096113025819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL props seasons_244
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 32
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f0cb6587c4e43e4b879058214ec33e8
-      internalID: -1316402780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL props seasons_245
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4209d35da2923b049a19dbb34b199b48
-      internalID: 780099895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL props seasons_246
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 32
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ed9d073ee3a2864598913bdbcd813b4
-      internalID: -1365274047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALL props seasons_247
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 48
-        width: 16
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e58196edc7aa44c4c893922630863e3e
-      internalID: -1960253467
       vertices: []
       indices: 
       edges: []
@@ -9527,10 +9333,6 @@ TextureImporter:
       ALL props seasons_241: -6183365480780683843
       ALL props seasons_242: 6524194185276827097
       ALL props seasons_243: -7204897096113025819
-      ALL props seasons_244: -1316402780
-      ALL props seasons_245: 780099895
-      ALL props seasons_246: -1365274047
-      ALL props seasons_247: -1960253467
       ALL props seasons_25: -4452668348732539899
       ALL props seasons_26: 5702065853144450107
       ALL props seasons_27: 5325126792339210782
