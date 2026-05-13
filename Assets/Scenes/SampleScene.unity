@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 23110434}
   - component: {fileID: 23110436}
   - component: {fileID: 23110435}
-  - component: {fileID: 23110437}
   m_Layer: 5
   m_Name: Bibit_Tembakau
   m_TagString: Untagged
@@ -312,22 +311,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23110433}
   m_CullTransparentMesh: 1
---- !u!114 &23110437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23110433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
-  textNama: {fileID: 1668908319}
-  textHarga: {fileID: 1825476292}
-  textCO2: {fileID: 61240726}
-  textAir: {fileID: 1833099318}
 --- !u!1 &36634887
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35294, y: 14.4}
+  m_AnchoredPosition: {x: 13.2, y: 13.9}
   m_SizeDelta: {x: 48.3661, y: 12.2556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36634889
@@ -385,7 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tembakau
+  m_text: Apel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -551,9 +534,8 @@ GameObject:
   - component: {fileID: 52716699}
   - component: {fileID: 52716702}
   - component: {fileID: 52716701}
-  - component: {fileID: 52716700}
   m_Layer: 5
-  m_Name: Bibit_Tembakau (5)
+  m_Name: Bibit_Jati
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,22 +566,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &52716700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52716698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
-  textNama: {fileID: 75130165}
-  textHarga: {fileID: 2091042083}
-  textCO2: {fileID: 881806364}
-  textAir: {fileID: 1507229827}
 --- !u!114 &52716701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,7 +775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
+  m_AnchoredPosition: {x: 6.3, y: 1.3}
   m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61240726
@@ -982,7 +948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35294, y: 14.4}
+  m_AnchoredPosition: {x: 14.8, y: 14.4}
   m_SizeDelta: {x: 48.3661, y: 12.2556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75130165
@@ -1005,7 +971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tembakau
+  m_text: Jati
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2425,8 +2391,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.576, y: -16.4}
-  m_SizeDelta: {x: 74.836, y: 18.0603}
+  m_AnchoredPosition: {x: 0.1, y: -14.047}
+  m_SizeDelta: {x: 59.515, y: 13.355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219619375
 MonoBehaviour:
@@ -5242,8 +5208,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.576, y: -16.4}
-  m_SizeDelta: {x: 74.836, y: 18.0603}
+  m_AnchoredPosition: {x: 3.3, y: -14.047}
+  m_SizeDelta: {x: 66.842, y: 13.355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540707509
 MonoBehaviour:
@@ -39680,7 +39646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
+  m_AnchoredPosition: {x: 5, y: 0.00000095367}
   m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764647439
@@ -40748,7 +40714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
+  m_AnchoredPosition: {x: 5, y: 0.00000095367}
   m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881806364
@@ -40987,9 +40953,8 @@ GameObject:
   - component: {fileID: 917919940}
   - component: {fileID: 917919943}
   - component: {fileID: 917919942}
-  - component: {fileID: 917919941}
   m_Layer: 5
-  m_Name: Bibit_Tembakau (2)
+  m_Name: Bibit_Alpukat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41020,22 +40985,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &917919941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917919939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
-  textNama: {fileID: 36634889}
-  textHarga: {fileID: 1911957149}
-  textCO2: {fileID: 1440564864}
-  textAir: {fileID: 540707509}
 --- !u!114 &917919942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41108,7 +41057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.36219, y: 40.1}
+  m_AnchoredPosition: {x: -0.36219, y: 38.8}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939601918
@@ -41131,7 +41080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: -7465404000900338223, guid: 22d271777f5af994db6e95a4a820c24a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -42243,7 +42192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35294, y: 14.4}
+  m_AnchoredPosition: {x: -2.8, y: 13.9}
   m_SizeDelta: {x: 48.3661, y: 12.2556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1075716525
@@ -42266,7 +42215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tembakau
+  m_text: Cemara Laut
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42332,7 +42281,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -15.373962, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -42450,7 +42399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: -6805647678786049570, guid: b9dc5676c8a95e0418a2e8c6c47ee0d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44141,7 +44090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35294, y: 14.4}
+  m_AnchoredPosition: {x: 9, y: 14}
   m_SizeDelta: {x: 48.3661, y: 12.2556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318502692
@@ -44164,7 +44113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tembakau
+  m_text: Kelapa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -45202,7 +45151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
+  m_AnchoredPosition: {x: 5, y: 0.00000095367}
   m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440564864
@@ -46238,9 +46187,8 @@ GameObject:
   - component: {fileID: 1515424612}
   - component: {fileID: 1515424615}
   - component: {fileID: 1515424614}
-  - component: {fileID: 1515424613}
   m_Layer: 5
-  m_Name: Bibit_Tembakau (4)
+  m_Name: Bibit_Durian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46271,22 +46219,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1515424613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515424611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
-  textNama: {fileID: 2145043649}
-  textHarga: {fileID: 767005111}
-  textCO2: {fileID: 1749829682}
-  textAir: {fileID: 219619375}
 --- !u!114 &1515424614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46496,7 +46428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.576, y: -16.4}
+  m_AnchoredPosition: {x: 8.8, y: -16.4}
   m_SizeDelta: {x: 74.836, y: 18.0603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545727253
@@ -46585,7 +46517,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 2.6618042, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -46907,8 +46839,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.576, y: -16.4}
-  m_SizeDelta: {x: 74.836, y: 18.0603}
+  m_AnchoredPosition: {x: 6.4956, y: -14.047}
+  m_SizeDelta: {x: 73.0273, y: 13.355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1595614452
 MonoBehaviour:
@@ -46996,7 +46928,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 2.7130127, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -47659,7 +47591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
+  m_AnchoredPosition: {x: 5, y: -1.8773}
   m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1749829682
@@ -48258,9 +48190,8 @@ GameObject:
   - component: {fileID: 1805321371}
   - component: {fileID: 1805321374}
   - component: {fileID: 1805321373}
-  - component: {fileID: 1805321372}
   m_Layer: 5
-  m_Name: Bibit_Tembakau (1)
+  m_Name: Bibit_Kelapa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48291,22 +48222,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1805321372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805321370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
-  textNama: {fileID: 1318502692}
-  textHarga: {fileID: 1490409100}
-  textCO2: {fileID: 1833028006}
-  textAir: {fileID: 1545727253}
 --- !u!114 &1805321373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48653,7 +48568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.00000095367}
+  m_AnchoredPosition: {x: 6.3, y: 1.3}
   m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833028006
@@ -48790,8 +48705,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.576, y: -16.4}
-  m_SizeDelta: {x: 74.836, y: 18.0603}
+  m_AnchoredPosition: {x: 6.241006, y: -11.817012}
+  m_SizeDelta: {x: 70.118, y: 11.4943}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833099318
 MonoBehaviour:
@@ -49087,7 +49002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: -8950125104038269859, guid: 399d586ae59ebad43a63aae1adf7a704, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -49139,7 +49054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.36219, y: 40.1}
+  m_AnchoredPosition: {x: -0.36219, y: 38.028}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852954826
@@ -49162,7 +49077,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: -7245832272325168284, guid: 1cac89d59005dd34ca2e1da4bd43f701, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -49239,7 +49154,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861260335}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -49568,9 +49483,8 @@ GameObject:
   - component: {fileID: 1914992426}
   - component: {fileID: 1914992429}
   - component: {fileID: 1914992428}
-  - component: {fileID: 1914992427}
   m_Layer: 5
-  m_Name: Bibit_Tembakau (3)
+  m_Name: Bibit_Cemara Laut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49601,22 +49515,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1914992427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914992425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b0027ef112dd41b5764f811401c2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpdateUIToko
-  textNama: {fileID: 1075716525}
-  textHarga: {fileID: 433433658}
-  textCO2: {fileID: 764647439}
-  textAir: {fileID: 1595614452}
 --- !u!114 &1914992428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50690,7 +50588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9147220476526807092, guid: 3709ec2fdf543774cb9abfd235aabc95, type: 3}
+  m_Sprite: {fileID: -2881285456459123556, guid: a046e49c4f96c6a49ab687832a739c84, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -52572,7 +52470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.35294, y: 14.4}
+  m_AnchoredPosition: {x: 9.5, y: 11.62}
   m_SizeDelta: {x: 48.3661, y: 12.2556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145043649
@@ -52595,7 +52493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tembakau
+  m_text: Durian
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
