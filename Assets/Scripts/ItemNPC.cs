@@ -8,13 +8,16 @@ public class ItemNPC : MonoBehaviour
     public GameObject prefabNPC; // Masukkan Prefab NPC dari folder
     public Transform lokasiMuncul; // Titik di mana NPC akan muncul (misal: gerbang masuk)
 
-    private UIManagerToko manager;
+    public Button tombolRekrut; // Tombol untuk merekrut NPC ini
+    private UIManagerToko manager; 
 
     void Start() {
         manager = FindFirstObjectByType<UIManagerToko>();
     }
 
     public void KlikRekrut() {
+        if (manager == null) return;
+        
         if (manager.uangPemain >= hargaRekrut) {
             manager.uangPemain -= hargaRekrut;
 
@@ -32,6 +35,19 @@ public class ItemNPC : MonoBehaviour
             manager.TutupToko(); 
         } else {
             Debug.Log("Uang tidak cukup untuk merekrut " + namaNPC);
+        }
+    }
+
+    void Update()
+    {
+    if (manager == null) return;
+    if (namaNPC == "Penjaga")
+        {
+        // Hitung persen tutupan (Luas Tajuk / Luas Lahan)
+        float persen = (manager.totalLuasTajuk / manager.luasLahanTotal) * 100f;
+        
+        // Tombol hanya menyala jika tutupan hutan sudah > 40%
+        tombolRekrut.interactable = (persen >= 40 && manager.uangPemain >= hargaRekrut);
         }
     }
 }

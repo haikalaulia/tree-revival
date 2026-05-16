@@ -7,10 +7,18 @@ public class NPCResearcher : MonoBehaviour
     public float multiplierCO2 = 1.5f; // Bonus serapan karbon 1.5x lipat
 
     void Start()
-    {
-        if(dialogCanvas != null) dialogCanvas.SetActive(false);
-        if(globalManager == null) globalManager = FindFirstObjectByType<UIManagerToko>();
+{
+    if(dialogCanvas != null) dialogCanvas.SetActive(false);
+    
+    // Cari GlobalManager secara otomatis
+    if(globalManager == null) globalManager = FindFirstObjectByType<UIManagerToko>();
+
+    // Begitu peneliti muncul, dia langsung mengaktifkan bonus CO2 di Global Manager
+    if(globalManager != null) {
+        globalManager.adaPeneliti = true; 
+        Debug.Log("Bonus Peneliti Aktif!");
     }
+}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
