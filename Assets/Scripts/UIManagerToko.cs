@@ -23,6 +23,7 @@ public class UIManagerToko : MonoBehaviour
 	public int totalLapanganKerja = 0;
 	public int jmlPenjagaHutan = 0;
 	public int jmlBerbuah = 0;
+	public bool adaPeneliti = false;
 
 	[Header("Sistem Luas Lahan (Dinamis: 3000 Tile = 1 Ha)")]
 	public float luasLahanTotal = 0f;
@@ -217,6 +218,9 @@ public class UIManagerToko : MonoBehaviour
 		{
 			jmlPenjagaHutan++;
 			totalCO2 += (info.co2PerPohon / 1000f); // Konversi KG ke Ton
+			// Jika ada peneliti, bonus serapan CO2 jadi 1.5x lebih besar (150%)
+        	float multiplier = adaPeneliti ? 1.5f : 1f; 
+        	totalCO2 += (info.co2PerPohon / 1000f) * multiplier; 
 			totalAir += info.airPerPohon;
 		}
 		else

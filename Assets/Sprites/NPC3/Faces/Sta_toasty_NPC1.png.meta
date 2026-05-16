@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: dc1cb7b2c4644dc41973a5a4e3e95a6d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4430214583791944886
+    second: Sta_toasty_NPC1_0
+  - first:
+      213: 2494204429393049432
+    second: Sta_toasty_NPC1_1
+  - first:
+      213: -6923272627633399082
+    second: Sta_toasty_NPC1_2
+  - first:
+      213: -5029788375990605402
+    second: Sta_toasty_NPC1_3
+  - first:
+      213: -3026155333322271215
+    second: Sta_toasty_NPC1_4
+  - first:
+      213: 8319182546448768177
+    second: Sta_toasty_NPC1_5
+  - first:
+      213: 530524743681964917
+    second: Sta_toasty_NPC1_6
+  - first:
+      213: -3067405094452301836
+    second: Sta_toasty_NPC1_7
+  - first:
+      213: -103004863885676267
+    second: Sta_toasty_NPC1_8
+  - first:
+      213: 5230856388194364445
+    second: Sta_toasty_NPC1_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 143
+        width: 142
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b48ca111b84b7d30800000000000000
+      internalID: 4430214583791944886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_1
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 143
+        width: 132
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857bd23b6b13d9220800000000000000
+      internalID: 2494204429393049432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_2
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 143
+        width: 146
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dad9bae9389bef90800000000000000
+      internalID: -6923272627633399082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_3
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 262
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9e0b9fe1a923ab0800000000000000
+      internalID: -5029788375990605402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_4
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 143
+        width: 132
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1161c22f1cfe006d0800000000000000
+      internalID: -3026155333322271215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc55b6f27ca37370800000000000000
+      internalID: 8319182546448768177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 142
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57bf7bb817dcc5700800000000000000
+      internalID: 530524743681964917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_7
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 142
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff62f281536e65d0800000000000000
+      internalID: -3067405094452301836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_8
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 0
+        width: 132
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511f4fd3f9d029ef0800000000000000
+      internalID: -103004863885676267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sta_toasty_NPC1_9
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 0
+        width: 132
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c6869bb2cb79840800000000000000
+      internalID: 5230856388194364445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sta_toasty_NPC1_0: 4430214583791944886
+      Sta_toasty_NPC1_1: 2494204429393049432
+      Sta_toasty_NPC1_2: -6923272627633399082
+      Sta_toasty_NPC1_3: -5029788375990605402
+      Sta_toasty_NPC1_4: -3026155333322271215
+      Sta_toasty_NPC1_5: 8319182546448768177
+      Sta_toasty_NPC1_6: 530524743681964917
+      Sta_toasty_NPC1_7: -3067405094452301836
+      Sta_toasty_NPC1_8: -103004863885676267
+      Sta_toasty_NPC1_9: 5230856388194364445
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
