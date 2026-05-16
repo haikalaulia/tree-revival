@@ -10,7 +10,7 @@ public class UIManagerToko : MonoBehaviour
 	public GameObject panelToko;
 	public GameObject panelAnalisis;
 	public GameObject panelDashboard; // Slot untuk Panel Baru Fase 5
-	public TMP_Text txtAnggaranDiToko;
+	public TMP_Text[] daftarTeksAnggaran;
 
 	[Header("Ekonomi & Stats")]
 	public int uangPemain = 10000;
@@ -131,17 +131,11 @@ public class UIManagerToko : MonoBehaviour
 
 	void CekKemampuanBeli()
 	{
-		foreach (Button btn in tombolBibit)
-		{
-			if (btn == null) continue;
-			TombolBibit info = btn.GetComponent<TombolBibit>();
-			if (info != null) btn.interactable = (uangPemain >= info.harga);
-		}
-
-		if(txtAnggaranDiToko != null) 
-    	{
-        txtAnggaranDiToko.text = "ANGGARAN: Rp " + uangPemain.ToString("N0");
-    	}
+		foreach (TMP_Text t in daftarTeksAnggaran)
+    {
+        if (t != null) 
+            t.text = "ANGGARAN: Rp " + uangPemain.ToString("N0");
+    }
 
 		foreach (Button btn in tombolBibit)
     	{
