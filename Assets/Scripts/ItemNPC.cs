@@ -17,7 +17,7 @@ public class ItemNPC : MonoBehaviour
 
     public void KlikRekrut() {
         if (manager == null) return;
-        
+
         if (manager.uangPemain >= hargaRekrut) {
             manager.uangPemain -= hargaRekrut;
 
@@ -41,13 +41,20 @@ public class ItemNPC : MonoBehaviour
     void Update()
     {
     if (manager == null) return;
+
     if (namaNPC == "Penjaga")
         {
-        // Hitung persen tutupan (Luas Tajuk / Luas Lahan)
         float persen = (manager.totalLuasTajuk / manager.luasLahanTotal) * 100f;
-        
-        // Tombol hanya menyala jika tutupan hutan sudah > 40%
-        tombolRekrut.interactable = (persen >= 40 && manager.uangPemain >= hargaRekrut);
+        if(tombolRekrut != null)
+            tombolRekrut.interactable = (persen >= 40 && manager.uangPemain >= hargaRekrut);
+        }
+    
+    else if (namaNPC == "Pemandu")
+        {
+        string status = manager.AmbilStatusWilayah();
+        // Tombol hanya menyala jika status AMAN atau OPTIMAL
+        if(tombolRekrut != null)
+            tombolRekrut.interactable = (status == "AMAN" || status == "OPTIMAL") && manager.uangPemain >= hargaRekrut;
         }
     }
 }
