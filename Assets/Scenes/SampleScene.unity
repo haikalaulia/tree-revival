@@ -1651,10 +1651,10 @@ RectTransform:
   - {fileID: 420667828}
   m_Father: {fileID: 1748837626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -202}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86206023
 MonoBehaviour:
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5597b6460bf8a45a999b8a57bc6365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemNPC
-  namaNPC: Penjaga Hutan
+  namaNPC: Penjaga
   hargaRekrut: 3000
   prefabNPC: {fileID: 8190646364365268440, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
   lokasiMuncul: {fileID: 577418307}
@@ -3032,7 +3032,7 @@ GameObject:
   - component: {fileID: 186509644}
   - component: {fileID: 186509643}
   m_Layer: 5
-  m_Name: Item_Peneliti (3)
+  m_Name: Item_PemanduEkowisata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3053,14 +3053,15 @@ RectTransform:
   - {fileID: 236085520}
   - {fileID: 467424892}
   - {fileID: 1103451899}
+  - {fileID: 1845819974}
   - {fileID: 340929304}
   - {fileID: 371224417}
   m_Father: {fileID: 1748837626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -202}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &186509643
 MonoBehaviour:
@@ -3074,11 +3075,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5597b6460bf8a45a999b8a57bc6365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemNPC
-  namaNPC: Peneliti Lingkungan
-  hargaRekrut: 2000
-  prefabNPC: {fileID: 283559322854013802, guid: a6ed45876fe5fcd408a88e0b9414bbec, type: 3}
-  lokasiMuncul: {fileID: 1956337405}
-  tombolRekrut: {fileID: 0}
+  namaNPC: Pemandu
+  hargaRekrut: 2500
+  prefabNPC: {fileID: 9066498279912612198, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
+  lokasiMuncul: {fileID: 527471125}
+  tombolRekrut: {fileID: 371224418}
 --- !u!114 &186509644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3889,8 +3890,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.36219, y: 40.1}
-  m_SizeDelta: {x: 35, y: 35}
+  m_AnchoredPosition: {x: -0.36219, y: 39.738335}
+  m_SizeDelta: {x: 35, y: 35.7233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236085521
 MonoBehaviour:
@@ -3912,7 +3913,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4189724599680316640, guid: b3f787af617f6f146b42b7b9ccfefe84, type: 3}
+  m_Sprite: {fileID: 5641169176825984823, guid: 8bb65691e432ade4d936ea7b37fc1d7d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4808,7 +4809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rp 2.000
+  m_text: Rp 2.500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5315,7 +5316,7 @@ GameObject:
   - component: {fileID: 371224419}
   - component: {fileID: 371224418}
   m_Layer: 5
-  m_Name: Button_RekrutNPC1
+  m_Name: Button_RekrutPemanduEkowisata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6901,7 +6902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18.6, y: 14.4}
+  m_AnchoredPosition: {x: -21.8, y: 16.1}
   m_SizeDelta: {x: 48.3661, y: 12.2556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467424893
@@ -6924,7 +6925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Peneliti Lingkungan
+  m_text: Pemandu Ekowisata
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7021,7 +7022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &471228315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8223,6 +8224,37 @@ MonoBehaviour:
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 5745174440478971801, guid: bad36dd546f459f40a3be706923ef470, type: 3}
   prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
+--- !u!1 &527471124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527471125}
+  m_Layer: 0
+  m_Name: Titik_Muncul_NPC_PemanduEkowisata
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527471125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527471124}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.55, y: 4.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &537602254
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,9 +8949,9 @@ RectTransform:
   m_Father: {fileID: 40679824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &563633447
 MonoBehaviour:
@@ -10458,7 +10490,7 @@ RectTransform:
   m_Father: {fileID: 1867831765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11657,10 +11689,10 @@ RectTransform:
   - {fileID: 2009127829}
   m_Father: {fileID: 1748837626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -62}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &722814500
 MonoBehaviour:
@@ -11674,7 +11706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5597b6460bf8a45a999b8a57bc6365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemNPC
-  namaNPC: Petani Agroforestry
+  namaNPC: Petani
   hargaRekrut: 1500
   prefabNPC: {fileID: 5990260537048033093, guid: a1cc1a6b710e8e84d8d8aac5757a6dc0, type: 3}
   lokasiMuncul: {fileID: 1520542269}
@@ -98608,7 +98640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.3, y: -6.8}
+  m_AnchoredPosition: {x: -30.3, y: 6.5}
   m_SizeDelta: {x: 70, y: 10.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103451900
@@ -98631,7 +98663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Efek: +50% Serapan CO2'
+  m_text: 'Efek: Pendapatan Pasif dari Wisatawan'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -98665,7 +98697,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -98697,7 +98729,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -61.172546, w: 0}
+  m_margin: {x: 0, y: 0, z: -62.58014, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -106566,10 +106598,10 @@ RectTransform:
   - {fileID: 1399777487}
   m_Father: {fileID: 1748837626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -62}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1617824820
 MonoBehaviour:
@@ -106583,7 +106615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5597b6460bf8a45a999b8a57bc6365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemNPC
-  namaNPC: Peneliti Lingkungan
+  namaNPC: Peneliti
   hargaRekrut: 2000
   prefabNPC: {fileID: 283559322854013802, guid: a6ed45876fe5fcd408a88e0b9414bbec, type: 3}
   lokasiMuncul: {fileID: 1956337405}
@@ -107483,7 +107515,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.100006, y: 0}
-  m_SizeDelta: {x: 100, y: 264}
+  m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748837627
 MonoBehaviour:
@@ -109247,6 +109279,143 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842906135}
+  m_CullTransparentMesh: 1
+--- !u!1 &1845819973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845819974}
+  - component: {fileID: 1845819976}
+  - component: {fileID: 1845819975}
+  m_Layer: 5
+  m_Name: Text_Stat2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1845819974
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845819973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 186509642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -34.6, y: -15.1}
+  m_SizeDelta: {x: 70, y: 10.985}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1845819975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845819973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Syarat: Status Wilayah AMAN'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 10
+  m_fontSizeBase: 10
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -69.063416, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1845819976
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845819973}
   m_CullTransparentMesh: 1
 --- !u!1 &1847276368
 GameObject:
@@ -118899,6 +119068,7 @@ SceneRoots:
   - {fileID: 1956337405}
   - {fileID: 1520542269}
   - {fileID: 577418307}
+  - {fileID: 527471125}
   - {fileID: 433657852}
   - {fileID: 1453991727}
   - {fileID: 1046033860}
