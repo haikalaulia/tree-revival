@@ -12,7 +12,7 @@ public class TutorialManager : MonoBehaviour
 
 	[Header("Target Positions")]
 	public Transform targetTanah;
-	public RectTransform targetBtnToko;
+	public RectTransform targetBtnToko; // Pasangkan objek Tombol Tanam di Inspector
 
 	private int currentStep = 0;
 	private Camera mainCamera;
@@ -37,6 +37,26 @@ public class TutorialManager : MonoBehaviour
 			// Offset 120 pixel ke atas supaya tidak menutupi tanahnya
 			tutorialGuideObject.transform.position = screenPos + new Vector3(0, 120, 0);
 		}
+
+		// ========================================================
+		// PERBAIKAN UTAMA: Mengunci posisi panah di atas tombol UI saat Step 2
+		// ========================================================
+		if (currentStep == 2 && targetBtnToko != null && tutorialGuideObject.activeSelf)
+		{
+			// KODE LAMA KAMU:
+			// tutorialGuideObject.transform.position = targetBtnToko.position + new Vector3(0, 100f, 0);
+
+			// ========================================================
+			// CARA PERBAIKAN: Modifikasi nilai X dan Y di bawah ini
+			// ========================================================
+			// Sumbu X: Minus (-) untuk geser ke kiri, Plus (+) untuk geser ke kanan
+			// Sumbu Y: Minus (-) untuk geser ke bawah, Plus (+) untuk geser ke atas
+
+			float geserHorizontalX = -80f; // Silakan ubah angka ini jika kurang kiri / terlalu kiri
+			float geserVertikalY = 0f;     // Silakan ubah angka ini jika kurang bawah / terlalu bawah
+
+			tutorialGuideObject.transform.position = targetBtnToko.position + new Vector3(geserHorizontalX, geserVertikalY, 0);
+		}
 	}
 
 	public void MulaiStep1()
@@ -51,22 +71,28 @@ public class TutorialManager : MonoBehaviour
 		if (currentStep == 1)
 		{
 			currentStep = 2;
-			if (tutorialGuideObject != null && targetBtnToko != null)
+
+			// Mengubah teks instruksi agar sesuai dengan alur panel analisis kelompokmu
+			if (textInstruksi != null)
 			{
-				// Pindah posisi tepat di atas Tombol Toko (UI Space Canvas)
-				tutorialGuideObject.transform.position = targetBtnToko.position + new Vector3(0, 150, 0);
+				textInstruksi.text = "Klik Tanam untuk merestorasi lahan ini!";
 			}
-			if (textInstruksi != null) textInstruksi.text = "Buka Toko untuk memilih bibit pohon yang cocok!";
+
+			Debug.Log("Langkah 1 Selesai: Masuk ke Step 2 (Kunci posisi di Tombol Tanam)");
 		}
 	}
 
 	public void SelesaiStep2Dan3()
 	{
-		if (currentStep == 2)
+		// Mengubah currentStep ke 3 (Selesai)
+		currentStep = 3;
+
+		// LANGSUNG PAKSA MATI: Tanpa cek syarat berbelit, langsung matikan UI panduan
+		if (tutorialGuideObject != null)
 		{
-			currentStep = 3;
-			if (tutorialGuideObject != null) tutorialGuideObject.SetActive(false);
-			Debug.Log("Tutorial Selesai!");
+			tutorialGuideObject.SetActive(false);
 		}
+
+		Debug.Log("<color=yellow><b>[TUTORIAL]</b></color> Tutorial selesai dan objek panduan telah dimatikan!");
 	}
 }

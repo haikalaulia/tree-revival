@@ -4317,6 +4317,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250246502}
   m_CullTransparentMesh: 1
+--- !u!1 &263055182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263055183}
+  m_Layer: 0
+  m_Name: Target_TanahGersangTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263055183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263055182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.15, y: -4.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292969098
 GameObject:
   m_ObjectHideFlags: 0
@@ -96955,7 +96986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
   tutorialGuideObject: {fileID: 1121478017}
   textInstruksi: {fileID: 1453873636}
-  targetTanah: {fileID: 745146783}
+  targetTanah: {fileID: 263055183}
   targetBtnToko: {fileID: 682572110}
 --- !u!4 &881626810
 Transform:
@@ -120102,3 +120133,4 @@ SceneRoots:
   - {fileID: 231493900}
   - {fileID: 1564088078}
   - {fileID: 881626810}
+  - {fileID: 263055183}

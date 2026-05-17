@@ -46,7 +46,6 @@ public class UIManagerToko : MonoBehaviour
 
 	void HitungLuasLahanOtomatis()
 	{
-		// Mencari objek bernama "ground" di Hierarchy
 		GameObject objekGround = GameObject.Find("ground");
 		if (objekGround != null)
 		{
@@ -57,26 +56,17 @@ public class UIManagerToko : MonoBehaviour
 				tilemapGround.CompressBounds();
 				BoundsInt bounds = tilemapGround.cellBounds;
 
-				// Menghitung jumlah tile yang terisi di Tilemap
 				foreach (var pos in bounds.allPositionsWithin)
 				{
 					if (tilemapGround.HasTile(pos)) jumlahTile++;
 				}
 
-				// LOGIKA: 3000 Tile = 10.000 m2 (1 Hektar)
-				// Maka 1 Tile = 10.000 / 3000 = 3.333333f
 				float nilaiPerTile = 1000f / 3000f;
-
-				// Total Luas akan otomatis menyesuaikan jumlah tile
 				luasLahanTotal = jumlahTile * nilaiPerTile;
-
-				// Target Air menyesuaikan luas lahan (misal 2 liter per m2)
 				targetSerapanAir = luasLahanTotal * 2f;
 
 				Debug.Log("<color=green><b>[SISTEM TILE DINAMIS]</b></color>");
 				Debug.Log("Tile Terdeteksi: " + jumlahTile);
-
-				// PERBAIKAN DI SINI: Mengubah .ToString("m2") menjadi .ToString("F1") + " m2"
 				Debug.Log("Luas Lahan: " + (luasLahanTotal / 10000f).ToString("F2") + " Ha (" + luasLahanTotal.ToString("F1") + " m2)");
 			}
 			else
@@ -145,7 +135,22 @@ public class UIManagerToko : MonoBehaviour
 	}
 
 	public void SetTanahAktif(SoilClick tanah) { tanahTerakhir = tanah; }
-	public void BukaTokoTengah() { if (panelToko != null) panelToko.SetActive(true); }
+
+	// ========================================================
+	// PERBAIKAN DI SINI: Saat tombol Tanam ditekan & Toko dibuka, 
+	// matikan panah tutorial seketika!
+	// ========================================================
+	public void BukaTokoTengah()
+	{
+		if (panelToko != null) panelToko.SetActive(true);
+
+		// Sikat panahnya di sini agar pas masuk Toko, panah sudah hilang bersih
+		if (TutorialManager.Instance != null)
+		{
+			TutorialManager.Instance.SelesaiStep2Dan3();
+		}
+	}
+
 	public void TutupToko() { if (panelToko != null) panelToko.SetActive(false); }
 
 	public void ProsesTanam(TombolBibit infoTombol)
@@ -184,6 +189,7 @@ public class UIManagerToko : MonoBehaviour
 					  " | Nutrisi: " + nutrisiOk +
 					  " | Suhu: " + suhuOk);
 		}
+
 		TutupSemuaMenu();
 	}
 
@@ -220,13 +226,5 @@ public class UIManagerToko : MonoBehaviour
 		BibitPertumbuhan bp = bibit.GetComponent<BibitPertumbuhan>();
 		if (bp == null) bp = bibit.AddComponent<BibitPertumbuhan>();
 		bp.MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
-
-		// ==========================================
-		// ISI BARU: Hubungkan ke Sistem Tutorial
-		// ==========================================
-		if (TutorialManager.Instance != null)
-		{
-			TutorialManager.Instance.SelesaiStep2Dan3();
-		}
 	}
 }
