@@ -9,10 +9,10 @@ public class IntroManager : MonoBehaviour
 
 	void Start()
 	{
-		// 1. Cek dulu, apakah di "buku catatan" (PlayerPrefs) sudah ada tanda 'PernahBaca'?
-		// Jika nilainya 0 (berarti belum pernah), maka panel muncul.
+		// 1. Cek apakah di PlayerPrefs sudah ada tanda 'PernahBaca'?
 		if (PlayerPrefs.GetInt("PernahBaca", 0) == 0)
 		{
+			// Jika BELUM PERNAH (0), munculkan panel intro di awal
 			if (panelIntro != null)
 			{
 				panelIntro.SetActive(true);
@@ -20,8 +20,14 @@ public class IntroManager : MonoBehaviour
 		}
 		else
 		{
-			// Jika sudah pernah baca (nilainya 1), panel langsung dimatikan
-			panelIntro.SetActive(false);
+			// Jika SUDAH PERNAH (1), panel intro langsung dimatikan
+			if (panelIntro != null)
+			{
+				panelIntro.SetActive(false);
+			}
+
+			// PERBAIKAN: Baris pemicu TutorialManager.Instance.MulaiStep1() di sini SUDAH DIHAPUS.
+			// Dengan begitu, saat game dimainkan ulang, panah tidak akan muncul lagi secara otomatis.
 		}
 
 		// 2. Hubungkan tombol ke fungsi ClosePanel
@@ -33,12 +39,21 @@ public class IntroManager : MonoBehaviour
 
 	void ClosePanel()
 	{
-		panelIntro.SetActive(false);
+		if (panelIntro != null)
+		{
+			panelIntro.SetActive(false);
+		}
 
-		// TULIS CATATAN: Set 'PernahBaca' jadi 1 agar tidak muncul lagi selamanya
+		// HUBUNGKAN KE TUTORIAL: Pemicu Langkah Pertama (Hanya berjalan saat tombol diklik pertama kali)
+		if (TutorialManager.Instance != null)
+		{
+			TutorialManager.Instance.MulaiStep1();
+		}
+
+		// Set 'PernahBaca' jadi 1 agar panel intro & tutorial tidak memicu lagi di kemudian hari
 		PlayerPrefs.SetInt("PernahBaca", 1);
 		PlayerPrefs.Save();
 
-		Debug.Log("Game Dimulai: Misi M1 Aktif!");
+		Debug.Log("Game Dimulai: Misi M1 Aktif & Tutorial Dimulai!");
 	}
 }

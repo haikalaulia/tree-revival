@@ -11,20 +11,32 @@ public class SoilClick : MonoBehaviour
 
 	private void OnMouseDown()
 	{
+		// ========================================================
+		// PERBAIKAN: CEK APAKAH PANEL INTRO SEDANG TERBUKA
+		// ========================================================
+		// Menggunakan nama objek "Penugasan" berdasarkan judul panel visualmu
+		GameObject panelIntroObj = GameObject.Find("Penugasan");
+
+		// Backup cek jika nama di hierarchy kamu masih pakai nama default "PanelIntro"
+		if (panelIntroObj == null)
+		{
+			panelIntroObj = GameObject.Find("PanelIntro");
+		}
+
+		// Jika panelnya ketemu dan lagi aktif di layar, batalkan klik tanah agar tidak tembus!
+		if (panelIntroObj != null && panelIntroObj.activeInHierarchy)
+		{
+			return;
+		}
+
 		// 1. CEK PRESISI TOMBOL DASHBOARD
-		// Kita cari objek tombol berdasarkan namanya di hierarki
 		GameObject btnDashboard = GameObject.Find("Btn_ToggleStatus");
 
 		if (btnDashboard != null)
 		{
-			// Ambil posisi tombol di layar
 			Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(null, btnDashboard.transform.position);
-
-			// Hitung jarak antara mouse dan tengah tombol (dalam pixel)
 			float jarak = Vector2.Distance(Input.mousePosition, screenPoint);
 
-			// Jika klik sangat dekat dengan tombol (radius 40-50 pixel), batalkan klik tanah
-			// Kamu bisa ubah angka 50f ini sesuai besarnya tombolmu
 			if (jarak < 50f)
 			{
 				return;
@@ -36,7 +48,6 @@ public class SoilClick : MonoBehaviour
 		UIManagerToko uiToko = Object.FindFirstObjectByType<UIManagerToko>();
 		if (uiToko != null)
 		{
-			// Cek jika panel toko atau analisis sedang terbuka
 			if (uiToko.panelToko.activeInHierarchy ||
 			   (uiToko.panelAnalisis != null && uiToko.panelAnalisis.activeInHierarchy))
 			{
@@ -62,6 +73,14 @@ public class SoilClick : MonoBehaviour
 		if (pm != null)
 		{
 			pm.TampilkanPanel(dataTanah);
+		}
+
+		// ==========================================
+		// HUBUNGKAN KE SISTEM TUTORIAL
+		// ==========================================
+		if (TutorialManager.Instance != null)
+		{
+			TutorialManager.Instance.SelesaiStep1();
 		}
 	}
 }
