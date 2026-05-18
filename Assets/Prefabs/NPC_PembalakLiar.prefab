@@ -275,6 +275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCWoodcutter
   speed: 2
   waktuTebang: 3
+  waktuSabar: 10
+  jarakPandangLawan: 6
 --- !u!95 &2163351033129195949
 Animator:
   serializedVersion: 7
