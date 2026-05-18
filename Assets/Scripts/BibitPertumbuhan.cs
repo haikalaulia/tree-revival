@@ -5,7 +5,11 @@ public class BibitPertumbuhan : MonoBehaviour
 	private GameObject prefabSedang;
 	private GameObject prefabDewasa;
 	public float waktuTumbuh = 5f;
-	public int bonusUangDewasa = 500; // Jumlah uang yang didapat saat pohon dewasa
+	public int bonusUangDewasa = 500; 
+
+    // --- TAMBAHKAN VARIABEL INI ---
+    public bool sudahDewasa = false; 
+    // ------------------------------
 
 	public void MulaiTumbuh(GameObject sedang, GameObject dewasa)
 	{
@@ -19,6 +23,7 @@ public class BibitPertumbuhan : MonoBehaviour
 		if (prefabSedang != null)
 		{
 			GameObject sedang = Instantiate(prefabSedang, transform.position, Quaternion.identity, transform.parent);
+            // Pohon sedang belum dianggap dewasa (sudahDewasa tetap false secara default)
 			sedang.AddComponent<BibitPertumbuhan>().LanjutKeDewasa(prefabDewasa);
 		}
 		Destroy(gameObject);
@@ -34,9 +39,15 @@ public class BibitPertumbuhan : MonoBehaviour
 	{
 		if (prefabDewasa != null)
 		{
-			Instantiate(prefabDewasa, transform.position, Quaternion.identity, transform.parent);
+            // --- MODIFIKASI BAGIAN INI ---
+			GameObject pohonBaru = Instantiate(prefabDewasa, transform.position, Quaternion.identity, transform.parent);
+            
+            // Pasang kembali script ini ke pohon dewasa agar si Pembalak bisa mengecek variabelnya
+            BibitPertumbuhan status = pohonBaru.AddComponent<BibitPertumbuhan>();
+            status.sudahDewasa = true; // INI TANDANYA!
+            // -----------------------------
 
-			// TAMBAHAN: Kasih uang ke pemain saat pohon sudah dewasa
+			// Kasih uang ke pemain
 			UIManagerToko uiManager = Object.FindFirstObjectByType<UIManagerToko>();
 			if (uiManager != null)
 			{
