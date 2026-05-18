@@ -10,10 +10,8 @@ public class NPCGuard : MonoBehaviour
         manager = FindFirstObjectByType<UIManagerToko>();
         if(dialogCanvas != null) dialogCanvas.SetActive(false);
 
-        // SAAT MUNCUL: Langsung menambah jumlah penjaga di sistem
         if(manager != null)
         {
-            manager.jmlPenjagaHutan++;
             Debug.Log("Penjaga Hutan: Saya siap berpatroli!");
         }
     }

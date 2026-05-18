@@ -15,26 +15,32 @@ public class ItemNPC : MonoBehaviour
         manager = FindFirstObjectByType<UIManagerToko>();
     }
 
-    public void KlikRekrut() {
+   public void KlikRekrut() {
         if (manager == null) return;
 
-        if (manager.uangPemain >= hargaRekrut) {
+        // Tentukan apakah kuota masih ada berdasarkan nama NPC
+        bool kuotaTersedia = false;
+        if (namaNPC == "Peneliti" && manager.jmlPeneliti < manager.maxPeneliti) kuotaTersedia = true;
+        else if (namaNPC == "Petani" && manager.jmlPetani < manager.maxPetani) kuotaTersedia = true;
+        else if (namaNPC == "Penjaga" && manager.jmlPenjaga < manager.maxPenjaga) kuotaTersedia = true;
+        else if (namaNPC == "Pemandu" && manager.jmlPemandu < manager.maxPemandu) kuotaTersedia = true;
+
+        if (manager.uangPemain >= hargaRekrut && kuotaTersedia) {
             manager.uangPemain -= hargaRekrut;
 
-            // MUNCULKAN NPC DI DUNIA
-            // Muncul di lokasi tertentu (misal: di pos jaga atau dekat player)
+            // Tambah angka ke manager sesuai jenis
+            if(namaNPC == "Peneliti") { manager.jmlPeneliti++; manager.adaPeneliti = true; }
+            else if(namaNPC == "Petani") manager.jmlPetani++;
+            else if(namaNPC == "Penjaga") manager.jmlPenjaga++;
+            else if(namaNPC == "Pemandu") manager.jmlPemandu++;
+
+            // Munculkan NPC
             Vector3 posisi = (lokasiMuncul != null) ? lokasiMuncul.position : Vector3.zero;
             Instantiate(prefabNPC, posisi, Quaternion.identity);
 
-            // Aktifkan efek spesial (misal: Peneliti)
-            if(namaNPC == "Peneliti") manager.adaPeneliti = true;
-
-            Debug.Log(namaNPC + " Telah Didatangkan!");
-            
-            // Opsional: Tutup panel setelah beli
             manager.TutupToko(); 
         } else {
-            Debug.Log("Uang tidak cukup untuk merekrut " + namaNPC);
+            Debug.Log("Gagal Rekrut: Uang tidak cukup atau Kuota Penuh!");
         }
     }
 
