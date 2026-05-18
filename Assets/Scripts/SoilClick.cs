@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System; // Tetap dipertahankan untuk sistem callback Action pergerakan otomatis
 
 public class SoilClick : MonoBehaviour
 {
@@ -45,7 +46,8 @@ public class SoilClick : MonoBehaviour
 
 		if (sudahDitanami) return;
 
-		UIManagerToko uiToko = Object.FindFirstObjectByType<UIManagerToko>();
+		// SOLUSI ERROR CS0104: Mengganti Object.FindFirstObjectByType menjadi FindFirstObjectByType bawaan UnityEngine langsung
+		UIManagerToko uiToko = FindFirstObjectByType<UIManagerToko>();
 		if (uiToko != null)
 		{
 			if (uiToko.panelToko.activeInHierarchy ||
@@ -69,7 +71,8 @@ public class SoilClick : MonoBehaviour
 			uiToko.SetTanahAktif(this);
 		}
 
-		PanelManager pm = Object.FindFirstObjectByType<PanelManager>();
+		// SOLUSI ERROR CS0104: Mengganti Object.FindFirstObjectByType menjadi FindFirstObjectByType bawaan UnityEngine langsung
+		PanelManager pm = FindFirstObjectByType<PanelManager>();
 		if (pm != null)
 		{
 			pm.TampilkanPanel(dataTanah);
@@ -81,6 +84,40 @@ public class SoilClick : MonoBehaviour
 		if (TutorialManager.Instance != null)
 		{
 			TutorialManager.Instance.SelesaiStep1();
+		}
+	}
+
+	// ==================================================================================
+	// FUNGSI UTAMA: Dipanggil oleh UIManagerToko kelompokmu saat tombol "Tanam" ditekan
+	// ==================================================================================
+	public void EksekusiJalanLaluTanam(Action fungsiAsliTanamPohon)
+	{
+		// Cari komponen pergerakan player di scene menggunakan Tag "Player" yang sudah dipasang
+		PlayerMovement player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+
+		if (player != null)
+		{
+			// Perintahkan player jalan otomatis ke koordinat grid tanah yang baru saja diklik
+			player.PerintahJalanKeTanah(posisiGridTanam, () => {
+
+				// Setelah player menginjak lokasi, tandai tanah sudah terisi
+				sudahDitanami = true;
+
+				// Eksekusi fungsi instan memunculkan pohon milik kawanmu dari UIManagerToko
+				if (fungsiAsliTanamPohon != null)
+				{
+					fungsiAsliTanamPohon.Invoke();
+				}
+
+				Debug.Log("Player sampai di tilemap! Pohon berhasil ditanam otomatis.");
+			});
+		}
+		else
+		{
+			// Jaga-jaga kalau player belum diberi tag di Inspector, pohon tetap ditanam instan agar game tidak macet
+			sudahDitanami = true;
+			if (fungsiAsliTanamPohon != null) fungsiAsliTanamPohon.Invoke();
+			Debug.LogWarning("Player dengan Tag 'Player' tidak ditemukan! Pohon ditanam instan.");
 		}
 	}
 }
