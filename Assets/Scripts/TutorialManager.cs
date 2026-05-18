@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro; // WAJIB ADA untuk menggunakan TextMeshPro
+using UnityEngine.SceneManagement; // WAJIB ADA untuk memindahkan Scene di akhir tutorial
 
 public class TutorialManager : MonoBehaviour
 {
@@ -43,12 +44,6 @@ public class TutorialManager : MonoBehaviour
 		// ========================================================
 		if (currentStep == 2 && targetBtnToko != null && tutorialGuideObject.activeSelf)
 		{
-			// KODE LAMA KAMU:
-			// tutorialGuideObject.transform.position = targetBtnToko.position + new Vector3(0, 100f, 0);
-
-			// ========================================================
-			// CARA PERBAIKAN: Modifikasi nilai X dan Y di bawah ini
-			// ========================================================
 			// Sumbu X: Minus (-) untuk geser ke kiri, Plus (+) untuk geser ke kanan
 			// Sumbu Y: Minus (-) untuk geser ke bawah, Plus (+) untuk geser ke atas
 
@@ -82,17 +77,31 @@ public class TutorialManager : MonoBehaviour
 		}
 	}
 
+	// ========================================================
+	// MODIFIKASI AKHIR: Dipanggil saat Tombol Tanam diklik & Panel Toko Terbuka
+	// ========================================================
 	public void SelesaiStep2Dan3()
 	{
-		// Mengubah currentStep ke 3 (Selesai)
 		currentStep = 3;
 
-		// LANGSUNG PAKSA MATI: Tanpa cek syarat berbelit, langsung matikan UI panduan
+		// Langsung panggil fungsi penutup dan pindah scene
+		AkhiriSeluruhTutorial();
+	}
+
+	public void AkhiriSeluruhTutorial()
+	{
+		currentStep = 4;
+
+		// Langsung matikan UI panduan panah tutorial
 		if (tutorialGuideObject != null)
 		{
 			tutorialGuideObject.SetActive(false);
 		}
 
-		Debug.Log("<color=yellow><b>[TUTORIAL]</b></color> Tutorial selesai dan objek panduan telah dimatikan!");
+		Debug.Log("<color=yellow><b>[TUTORIAL BERES]</b></color> Masuk Panel Toko, Mengalihkan pemain ke Game Utama...");
+
+		// Pindah secara bersih ke SampleScene asli tempat kawanmu bekerja agar pemain bisa main bebas
+		// PENTING: Pastikan kata "SampleScene" ini sama persis dengan nama file scene utamamu di folder Assets
+		SceneManager.LoadScene("SampleScene");
 	}
 }
