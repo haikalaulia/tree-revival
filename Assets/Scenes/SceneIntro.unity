@@ -98841,10 +98841,21 @@ MonoBehaviour:
   uangPemain: 10000
   jumlahPohon: 0
   hariKe: 1
+  jmlPeneliti: 0
+  jmlPetani: 0
+  jmlPenjaga: 0
+  jmlPemandu: 0
+  maxPeneliti: 2
+  maxPetani: 3
+  maxPenjaga: 5
+  maxPemandu: 2
+  txtPenelitiHUD: {fileID: 0}
+  txtPetaniHUD: {fileID: 0}
+  txtPenjagaHUD: {fileID: 0}
+  txtPemanduHUD: {fileID: 0}
   totalCO2: 0
   totalAir: 0
   totalLapanganKerja: 0
-  jmlPenjagaHutan: 0
   jmlBerbuah: 0
   adaPeneliti: 0
   luasLahanTotal: 0
@@ -103706,6 +103717,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1370311919}
           m_ObjectArgumentAssemblyTypeName: TombolBibit, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 881626809}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: SelesaiStep2Dan3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
