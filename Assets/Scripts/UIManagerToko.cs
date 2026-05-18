@@ -8,8 +8,8 @@ public class UIManagerToko : MonoBehaviour
 	[Header("UI Panels")]
 	public GameObject panelToko;
 	public GameObject panelAnalisis;
-	public GameObject panelDashboard; // Slot untuk Panel Baru Fase 5
-	public TMP_Text[] daftarTeksAnggaran;
+	public GameObject panelDashboard; 
+	public TMP_Text[] daftarTeksAnggaran; // Untuk sinkronisasi semua teks uang
 
     [Header("Ekonomi & Stats")]
     public int uangPemain = 10000;
@@ -55,13 +55,74 @@ public class UIManagerToko : MonoBehaviour
 
 	void Start()
 	{
-		// JALANKAN HITUNGAN BERDASARKAN RUMUS 3000 TILE = 1 HEKTAR
 		HitungLuasLahanOtomatis();
+	}
+
+	void Update()
+	{
+		JalankanWaktu();
+		CekKemampuanBeli();
+        UpdatePopulasiHUD(); // Pastikan ini dipanggil agar HUD terupdate
+	}
+
+    void UpdatePopulasiHUD()
+    {
+        // Menampilkan angka "Sekarang / Maksimal" untuk masing-masing profesi
+        if (txtPenelitiHUD != null) txtPenelitiHUD.text = "Peneliti: " + jmlPeneliti + " / " + maxPeneliti;
+        if (txtPetaniHUD != null) txtPetaniHUD.text = "Petani: " + jmlPetani + " / " + maxPetani;
+        if (txtPenjagaHUD != null) txtPenjagaHUD.text = "Penjaga: " + jmlPenjaga + " / " + maxPenjaga;
+        if (txtPemanduHUD != null) txtPemanduHUD.text = "Pemandu: " + jmlPemandu + " / " + maxPemandu;
+    }
+
+	void CekKemampuanBeli()
+	{
+        // 1. Update semua teks anggaran agar nilainya sama di seluruh layar
+		foreach (TMP_Text t in daftarTeksAnggaran)
+        {
+            if (t != null) t.text = "ANGGARAN: Rp " + uangPemain.ToString("N0");
+        }
+
+        // 2. Cek apakah tombol beli pohon bisa diklik atau tidak
+		foreach (Button btn in tombolBibit)
+    	{
+            if (btn == null) continue;
+            TombolBibit info = btn.GetComponent<TombolBibit>();
+            if (info != null) btn.interactable = (uangPemain >= info.harga);
+    	}
+	}
+
+    public float AmbilPersenPenjaga()
+    {
+        if (jumlahPohon == 0) return 0;
+        // Menggunakan jmlPenjaga yang direkrut untuk Dashboard
+        return ((float)jmlPenjaga / jumlahPohon) * 100f; 
+    }
+
+	public string AmbilStatusWilayah()
+	{
+		if (luasLahanTotal <= 0) return "DATA ERROR";
+		float persen = (totalLuasTajuk / luasLahanTotal) * 100f;
+
+		if (persen < 25 || AmbilPersenPenjaga() < 60) return "KRITIS";
+		if (persen < 50) return "WASPADA";
+		if (persen < 75) return "AMAN";
+		return "OPTIMAL";
+	}
+
+    // --- FUNGSI UI & SISTEM ---
+	public void BukaTutupDashboard(bool status) { if (panelDashboard != null) panelDashboard.SetActive(status); }
+	public void SetTanahAktif(SoilClick tanah) { tanahTerakhir = tanah; }
+	public void BukaTokoTengah() { if (panelToko != null) panelToko.SetActive(true); }
+	public void TutupToko() { if (panelToko != null) panelToko.SetActive(false); }
+
+	void JalankanWaktu()
+	{
+		timerDetik += Time.deltaTime;
+		if (timerDetik >= durasiSatuHari) { hariKe++; timerDetik = 0; }
 	}
 
 	void HitungLuasLahanOtomatis()
 	{
-		// Mencari objek bernama "ground" di Hierarchy
 		GameObject objekGround = GameObject.Find("ground");
 		if (objekGround != null)
 		{
@@ -71,97 +132,16 @@ public class UIManagerToko : MonoBehaviour
 				int jumlahTile = 0;
 				tilemapGround.CompressBounds();
 				BoundsInt bounds = tilemapGround.cellBounds;
-
-				// Menghitung jumlah tile yang terisi di Tilemap
 				foreach (var pos in bounds.allPositionsWithin)
 				{
 					if (tilemapGround.HasTile(pos)) jumlahTile++;
 				}
-
-				// LOGIKA: 3000 Tile = 10.000 m2 (1 Hektar)
-				// Maka 1 Tile = 10.000 / 3000 = 3.333333f
 				float nilaiPerTile = 10000f / 3000f;
-
-				// Total Luas akan otomatis menyesuaikan jumlah tile
 				luasLahanTotal = jumlahTile * nilaiPerTile;
-
-				// Target Air menyesuaikan luas lahan (misal 2 liter per m2)
 				targetSerapanAir = luasLahanTotal * 2f;
-
-				Debug.Log("<color=green><b>[SISTEM TILE DINAMIS]</b></color>");
-				Debug.Log("Tile Terdeteksi: " + jumlahTile);
-				Debug.Log("Luas Lahan: " + (luasLahanTotal / 10000f).ToString("F2") + " Ha (" + luasLahanTotal.ToString("F1") + " m2)");
-			}
-			else
-			{
-				Debug.LogWarning("Objek 'ground' tidak punya komponen Tilemap!");
 			}
 		}
-		else
-		{
-			Debug.LogWarning("Objek bernama 'ground' tidak ditemukan di scene!");
-		}
 	}
-
-	void Update()
-	{
-		JalankanWaktu();
-		CekKemampuanBeli();
-	}
-
-    public float AmbilPersenPenjaga()
-    {
-        if (jumlahPohon == 0) return 0;
-        // Gunakan jmlPenjaga yang dari HUD tadi
-        return ((float)jmlPenjaga / jumlahPohon) * 100f; 
-    }
-
-	public string AmbilStatusWilayah()
-	{
-		if (luasLahanTotal <= 0) return "DATA ERROR";
-
-		// Status Berdasarkan Persentase Tutupan Hutan (Luas Tajuk / Luas Lahan)
-		float persen = (totalLuasTajuk / luasLahanTotal) * 100f;
-
-		if (persen < 25 || AmbilPersenPenjaga() < 60) return "KRITIS";
-		if (persen < 50) return "WASPADA";
-		if (persen < 75) return "AMAN";
-		return "OPTIMAL";
-	}
-
-	public void BukaTutupDashboard(bool status)
-	{
-		if (panelDashboard != null) panelDashboard.SetActive(status);
-	}
-
-	void JalankanWaktu()
-	{
-		timerDetik += Time.deltaTime;
-		if (timerDetik >= durasiSatuHari)
-		{
-			hariKe++;
-			timerDetik = 0;
-		}
-	}
-
-	void CekKemampuanBeli()
-	{
-		foreach (TMP_Text t in daftarTeksAnggaran)
-    {
-        if (t != null) 
-            t.text = "ANGGARAN: Rp " + uangPemain.ToString("N0");
-    }
-
-		foreach (Button btn in tombolBibit)
-    	{
-        TombolBibit info = btn.GetComponent<TombolBibit>();
-        if (info != null) btn.interactable = (uangPemain >= info.harga);
-    	}
-	}
-
-	public void SetTanahAktif(SoilClick tanah) { tanahTerakhir = tanah; }
-	public void BukaTokoTengah() { if (panelToko != null) panelToko.SetActive(true); }
-	public void TutupToko() { if (panelToko != null) panelToko.SetActive(false); }
 
     public void ProsesTanam(TombolBibit infoTombol)
     {
@@ -171,39 +151,23 @@ public class UIManagerToko : MonoBehaviour
         SoilProperty dataTanah = tanahTerakhir.dataTanah;
         if (dataTanah == null) return;
 
-		// 1. Sinkronisasi Nama Wilayah (Biar gak sensitif spasi/huruf besar kecil)
 		string wilayahBibit = infoTombol.wilayahHarus.ToString().Replace("Rendah", " Rendah").Replace("Tinggi", " Tinggi").ToUpper().Trim();
 		string wilayahTanah = dataTanah.namaWilayah.ToUpper().Trim();
 
-		// 2. Pengecekan Syarat Tumbuh (Menggunakan Range Min & Max)
 		bool wilayahOk = (wilayahTanah == wilayahBibit);
 		bool lembapOk = (dataTanah.kelembapan >= infoTombol.minLembap && dataTanah.kelembapan <= infoTombol.maxLembap);
 		bool nutrisiOk = (dataTanah.nutrisi >= infoTombol.minNutrisi && dataTanah.nutrisi <= infoTombol.maxNutrisi);
-
-		// Perbaikan: Sudah menggunakan nama variabel 'suhu' sesuai permintaanmu
 		bool suhuOk = (dataTanah.suhu >= infoTombol.minSuhuDerajat && dataTanah.suhu <= infoTombol.maxSuhuDerajat);
 
 		if (wilayahOk && lembapOk && nutrisiOk && suhuOk)
 		{
 			uangPemain -= infoTombol.harga;
 			TanamSukses(infoTombol);
-			Debug.Log("<color=green><b>[BERHASIL]</b></color> " + infoTombol.namaPohon + " tumbuh di kondisi yang sesuai.");
 		}
 		else
 		{
-			// Gagal tumbuh: Uang tetap berkurang, muncul prefab mati
 			uangPemain -= infoTombol.harga;
-			if (infoTombol.prefabMati != null)
-			{
-				Instantiate(infoTombol.prefabMati, tanahTerakhir.posisiGridTanam, Quaternion.identity);
-			}
-
-			// Cek log ini di Console Unity untuk tahu syarat mana yang tidak terpenuhi (False)
-			Debug.Log("<color=red><b>[GAGAL]</b></color> " + infoTombol.namaPohon +
-					  " | Wilayah: " + wilayahOk +
-					  " | Lembap: " + lembapOk +
-					  " | Nutrisi: " + nutrisiOk +
-					  " | Suhu: " + suhuOk);
+			if (infoTombol.prefabMati != null) Instantiate(infoTombol.prefabMati, tanahTerakhir.posisiGridTanam, Quaternion.identity);
 		}
 		TutupSemuaMenu();
 	}
@@ -217,35 +181,27 @@ public class UIManagerToko : MonoBehaviour
 
     void TanamSukses(TombolBibit info)
     {
-    // 1. Munculkan bibit pohon di lokasi tanah yang diklik
-    GameObject bibit = Instantiate(info.prefabBibit, tanahTerakhir.posisiGridTanam, Quaternion.identity);
+        GameObject bibit = Instantiate(info.prefabBibit, tanahTerakhir.posisiGridTanam, Quaternion.identity);
 
-    // 2. Update statistik hutan
-    jumlahPohon++;
-    totalLapanganKerja += info.lapanganKerja;
-    totalLuasTajuk += info.luasTajuk;
+        jumlahPohon++;
+        totalLapanganKerja += info.lapanganKerja;
+        totalLuasTajuk += info.luasTajuk;
 
-		if (info.jenisPohon == JenisPohon.PenjagaHutan)
-		{
-			jmlPenjagaHutan++;
-			totalCO2 += (info.co2PerPohon / 1000f); // Konversi KG ke Ton
-			// Jika ada peneliti, bonus serapan CO2 jadi 1.5x lebih besar (150%)
-        	float multiplier = adaPeneliti ? 1.5f : 1f; 
-        	totalCO2 += (info.co2PerPohon / 1000f) * multiplier; 
-			totalAir += info.airPerPohon;
-		}
-		else
+        // KALKULASI LINGKUNGAN (Hanya untuk pohon, bukan NPC)
+        float multiplier = adaPeneliti ? 1.5f : 1f; 
+        totalCO2 += (info.co2PerPohon / 1000f) * multiplier; 
+        totalAir += info.airPerPohon;
+
+		if (info.jenisPohon == JenisPohon.Berbuah)
 		{
 			jmlBerbuah++;
 		}
 
-    // 5. Merapikan Hierarchy (masukkan pohon ke dalam object 'pohon')
-    GameObject folder = GameObject.Find("pohon");
-    if (folder != null) bibit.transform.SetParent(folder.transform);
+        GameObject folder = GameObject.Find("pohon");
+        if (folder != null) bibit.transform.SetParent(folder.transform);
 
-    // 6. Jalankan sistem pertumbuhan pohon
-    BibitPertumbuhan bp = bibit.GetComponent<BibitPertumbuhan>();
-    if (bp == null) bp = bibit.AddComponent<BibitPertumbuhan>();
-    bp.MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
+        BibitPertumbuhan bp = bibit.GetComponent<BibitPertumbuhan>();
+        if (bp == null) bp = bibit.AddComponent<BibitPertumbuhan>();
+        bp.MulaiTumbuh(info.prefabSedang, info.prefabDewasa);
     }
 }
