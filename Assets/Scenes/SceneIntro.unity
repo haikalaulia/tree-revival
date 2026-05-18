@@ -11518,6 +11518,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 881626809}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: SelesaiStep2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &682572112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96780,6 +96792,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 881626809}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: KlikTombolDashboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &865700461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96988,6 +97012,9 @@ MonoBehaviour:
   textInstruksi: {fileID: 1453873636}
   targetTanah: {fileID: 263055183}
   targetBtnToko: {fileID: 682572110}
+  targetBtnBeliBibit: {fileID: 0}
+  targetBtnBukaDashboard: {fileID: 865700459}
+  targetIsiDashboard: {fileID: 1678272712}
 --- !u!4 &881626810
 Transform:
   m_ObjectHideFlags: 0
@@ -98968,6 +98995,7 @@ GameObject:
   - component: {fileID: 1056441636}
   - component: {fileID: 1056441638}
   - component: {fileID: 1056441637}
+  - component: {fileID: 1056441639}
   m_Layer: 5
   m_Name: Img_Panah
   m_TagString: Untagged
@@ -99032,6 +99060,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056441635}
   m_CullTransparentMesh: 1
+--- !u!114 &1056441639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056441635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1056441637}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 881626808}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1075716523
 GameObject:
   m_ObjectHideFlags: 0
@@ -103648,23 +103732,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
+  namaPohon: Mahoni
   harga: 150
   jenisPohon: 0
   luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
+  co2PerPohon: 8000
+  airPerPohon: 1200
   lapanganKerja: 1
-  wilayahHarus: 2
-  minLembap: 60
+  wilayahHarus: 0
+  minLembap: 40
   maxLembap: 80
-  minNutrisi: 50
-  maxNutrisi: 100
+  minNutrisi: 40
+  maxNutrisi: 60
   minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  maxSuhuDerajat: 40
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
-  prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
+  prefabDewasa: {fileID: 5745174440478971801, guid: bad36dd546f459f40a3be706923ef470, type: 3}
   prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
 --- !u!114 &1370311920
 MonoBehaviour:
@@ -103724,7 +103808,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 881626809}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: SelesaiStep2Dan3
+        m_MethodName: SelesaiStep3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -104894,7 +104978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1453873635
