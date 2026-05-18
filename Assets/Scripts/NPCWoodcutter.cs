@@ -6,16 +6,17 @@ public class NPCWoodcutter : MonoBehaviour
     public float speed = 2f;
     public float waktuTebang = 3f; 
     public float waktuSabar = 10f; 
-    private float timerSabar;
+    
+    // --- TAMBAHAN BARU: SENSOR JARAK ---
+    public float jarakPandangLawan = 5f; // Dia baru lari kalau penjaga berjarak 5 meter
+    // ------------------------------------
 
+    private float timerSabar;
     private UIManagerToko manager;
     private Transform targetPohon;
     private bool sedangMenebang = false;
-    
-    // --- LOGIKA PULANG ---
     private Vector3 posisiAwal; 
     private bool sedangKabur = false;
-    // ------------------------------------------
 
     private Animator anim;
     private SpriteRenderer spriteRenderer;
@@ -25,11 +26,7 @@ public class NPCWoodcutter : MonoBehaviour
         manager = FindFirstObjectByType<UIManagerToko>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
-        // --- SIMPAN POSISI SAAT DIA BARU MUNCUL ---
         posisiAwal = transform.position;
-        // ------------------------------------------
-
         CariPohonPintar();
     }
 
@@ -37,13 +34,28 @@ public class NPCWoodcutter : MonoBehaviour
     {
         if (manager == null) return;
 
-        // 1. LOGIKA KABUR/PULANG
-        if (sedangKabur || manager.jmlPenjaga > 0)
+        // --- 1. MODIFIKASI LOGIKA DETEKSI PENJAGA (BERDASARKAN JARAK) ---
+        // Cari semua penjaga yang ada di peta
+        NPCGuard[] semuaPenjaga = Object.FindObjectsByType<NPCGuard>(FindObjectsSortMode.None);
+        
+        foreach (NPCGuard p in semuaPenjaga)
         {
-            sedangKabur = true; // Kunci status sedang kabur
+            float jarakKePenjaga = Vector2.Distance(transform.position, p.transform.position);
+            
+            // Jika ada satu saja penjaga yang masuk radius jarak pandang
+            if (jarakKePenjaga < jarakPandangLawan)
+            {
+                sedangKabur = true;
+            }
+        }
+
+        // Jika status sudah "Kabur", laksanakan fungsi pulang
+        if (sedangKabur)
+        {
             JalanPulang();
             return;
         }
+        // ----------------------------------------------------------------
 
         // 2. LOGIKA MENCARI POHON
         if (targetPohon == null)
@@ -55,8 +67,7 @@ public class NPCWoodcutter : MonoBehaviour
                 timerSabar += Time.deltaTime;
                 if(timerSabar >= waktuSabar)
                 {
-                    Debug.Log("Pembalak: Gak ada pohon, saya pulang!");
-                    sedangKabur = true; // Mulai proses pulang
+                    sedangKabur = true;
                 }
                 return; 
             }
@@ -84,17 +95,15 @@ public class NPCWoodcutter : MonoBehaviour
 
     void JalanPulang()
     {
+        // Gunakan kecepatan lari 1.5x lebih cepat saat kabur
+        float lariCepat = speed * 1.5f;
         float jarakKeGerbang = Vector2.Distance(transform.position, posisiAwal);
 
         if (jarakKeGerbang > 0.1f)
         {
-            // Hitung arah ke titik awal
             Vector2 arahPulang = (posisiAwal - transform.position).normalized;
-            
-            // Gerak menuju titik awal
-            transform.position = Vector2.MoveTowards(transform.position, posisiAwal, speed * 1.5f * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, posisiAwal, lariCepat * Time.deltaTime);
 
-            // Update Animasi sesuai arah pulang
             if(anim != null) {
                 anim.SetFloat("moveX", arahPulang.x);
                 anim.SetFloat("moveY", arahPulang.y);
@@ -103,11 +112,18 @@ public class NPCWoodcutter : MonoBehaviour
         }
         else
         {
-            // Jika sudah sampai di titik awal, hilangkan objek
             Destroy(gameObject);
         }
     }
 
+    // Fungsi tambahan untuk membantu visualisasi di Editor Unity
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, jarakPandangLawan);
+    }
+
+    // Fungsi lainnya (Menebang, CariPohon, Berhenti) tetap sama
     System.Collections.IEnumerator ProsesMenebang()
     {
         sedangMenebang = true;

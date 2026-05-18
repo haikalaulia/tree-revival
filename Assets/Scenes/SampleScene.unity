@@ -230,6 +230,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &17695738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.15954
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.48214
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221877562464682868, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190646364365268440, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
+      propertyPath: m_Name
+      value: NPC_PenjagaHutan
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
 --- !u!1 &19098102
 GameObject:
   m_ObjectHideFlags: 0
@@ -119466,79 +119523,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101068719}
   m_CullTransparentMesh: 1
---- !u!1001 &2109340012
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.09226
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.65774
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937981289884416345, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5911342798605840965, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_Name
-      value: NPC_PembalakLiar
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194905419528397625, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971549729936893314, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
-      propertyPath: m_Radius
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2b0da1c881f847247bcadab39563e5eb, type: 3}
 --- !u!1 &2112722049
 GameObject:
   m_ObjectHideFlags: 0
@@ -119961,12 +119945,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 619394802}
+  - {fileID: 1956337405}
   - {fileID: 1263082571}
   - {fileID: 1104410491}
   - {fileID: 894424358}
   - {fileID: 570914982}
-  - {fileID: 2109340012}
-  - {fileID: 1956337405}
   - {fileID: 1520542269}
   - {fileID: 577418307}
   - {fileID: 527471125}
@@ -119975,3 +119958,4 @@ SceneRoots:
   - {fileID: 1453991727}
   - {fileID: 1046033860}
   - {fileID: 231493900}
+  - {fileID: 17695738}
