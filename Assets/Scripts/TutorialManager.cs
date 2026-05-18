@@ -9,11 +9,14 @@ public class TutorialManager : MonoBehaviour
 
 	[Header("UI Guide Components")]
 	public GameObject tutorialGuideObject;
-	public TextMeshProUGUI textInstruksi; // Menggunakan TextMeshProUGUI
+	public TextMeshProUGUI textInstruksi;
 
 	[Header("Target Positions")]
 	public Transform targetTanah;
-	public RectTransform targetBtnToko; // Pasangkan objek Tombol Tanam di Inspector
+	public RectTransform targetBtnToko;        // Tombol Tanam (Panel Analisis)
+	public RectTransform targetBtnBeliBibit;    // Tombol Beli Mangrove (Panel Toko)
+	public RectTransform targetBtnBukaDashboard;// Tombol untuk membuka Dashboard (Hijau di pojok kanan atas)
+	public RectTransform targetIsiDashboard;    // Panel Informasi Dashboard yang muncul setelah diklik
 
 	private int currentStep = 0;
 	private Camera mainCamera;
@@ -26,31 +29,41 @@ public class TutorialManager : MonoBehaviour
 	void Start()
 	{
 		mainCamera = Camera.main;
-		// MulaiStep1() DI SERINGKAS/DIHAPUS DARI SINI agar panah tidak curi start muncul di awal game
 	}
 
 	void Update()
 	{
-		// Step 1: Mengikuti posisi tanah di World Space (Scene)
-		if (currentStep == 1 && targetTanah != null && tutorialGuideObject.activeSelf)
+		if (!tutorialGuideObject.activeSelf) return;
+
+		// Step 1: Mengikuti posisi tanah di World Space
+		if (currentStep == 1 && targetTanah != null)
 		{
 			Vector3 screenPos = mainCamera.WorldToScreenPoint(targetTanah.position);
-			// Offset 120 pixel ke atas supaya tidak menutupi tanahnya
 			tutorialGuideObject.transform.position = screenPos + new Vector3(0, 120, 0);
 		}
 
-		// ========================================================
-		// PERBAIKAN UTAMA: Mengunci posisi panah di atas tombol UI saat Step 2
-		// ========================================================
-		if (currentStep == 2 && targetBtnToko != null && tutorialGuideObject.activeSelf)
+		// Step 2: Mengunci posisi di Tombol Tanam (Panel Analisis)
+		if (currentStep == 2 && targetBtnToko != null)
 		{
-			// Sumbu X: Minus (-) untuk geser ke kiri, Plus (+) untuk geser ke kanan
-			// Sumbu Y: Minus (-) untuk geser ke bawah, Plus (+) untuk geser ke atas
+			tutorialGuideObject.transform.position = targetBtnToko.position + new Vector3(-80f, 0f, 0);
+		}
 
-			float geserHorizontalX = -80f; // Silakan ubah angka ini jika kurang kiri / terlalu kiri
-			float geserVertikalY = 0f;     // Silakan ubah angka ini jika kurang bawah / terlalu bawah
+		// Step 3: Mengunci posisi di Tombol Beli Mangrove (Panel Toko)
+		if (currentStep == 3 && targetBtnBeliBibit != null)
+		{
+			tutorialGuideObject.transform.position = targetBtnBeliBibit.position + new Vector3(0f, 60f, 0);
+		}
 
-			tutorialGuideObject.transform.position = targetBtnToko.position + new Vector3(geserHorizontalX, geserVertikalY, 0);
+		// Step 4: Menunjuk Tombol Buka Dashboard (Pojok Kanan Atas)
+		if (currentStep == 4 && targetBtnBukaDashboard != null)
+		{
+			tutorialGuideObject.transform.position = targetBtnBukaDashboard.position + new Vector3(-80f, 0f, 0);
+		}
+
+		// Step 5: Menunjuk ke Isi Informasi Dashboard (Menggunakan koordinat pas dari kamu)
+		if (currentStep == 5 && targetIsiDashboard != null)
+		{
+			tutorialGuideObject.transform.position = targetIsiDashboard.position + new Vector3(-200f, -60f, 0);
 		}
 	}
 
@@ -66,42 +79,50 @@ public class TutorialManager : MonoBehaviour
 		if (currentStep == 1)
 		{
 			currentStep = 2;
-
-			// Mengubah teks instruksi agar sesuai dengan alur panel analisis kelompokmu
-			if (textInstruksi != null)
-			{
-				textInstruksi.text = "Klik Tanam untuk merestorasi lahan ini!";
-			}
-
-			Debug.Log("Langkah 1 Selesai: Masuk ke Step 2 (Kunci posisi di Tombol Tanam)");
+			if (textInstruksi != null) textInstruksi.text = "Klik Tanam untuk merestorasi lahan ini!";
 		}
 	}
 
-	// ========================================================
-	// MODIFIKASI AKHIR: Dipanggil saat Tombol Tanam diklik & Panel Toko Terbuka
-	// ========================================================
-	public void SelesaiStep2Dan3()
+	public void SelesaiStep2()
 	{
-		currentStep = 3;
-
-		// Langsung panggil fungsi penutup dan pindah scene
-		AkhiriSeluruhTutorial();
-	}
-
-	public void AkhiriSeluruhTutorial()
-	{
-		currentStep = 4;
-
-		// Langsung matikan UI panduan panah tutorial
-		if (tutorialGuideObject != null)
+		if (currentStep == 2)
 		{
-			tutorialGuideObject.SetActive(false);
+			currentStep = 3;
+			if (textInstruksi != null) textInstruksi.text = "Pilih bibit pohon Mangrove untuk memulai restorasi lingkungan!";
+		}
+	}
+
+	// Dipanggil saat Tombol Beli Mangrove diklik
+	public void SelesaiStep3()
+	{
+		if (currentStep == 3)
+		{
+			currentStep = 4;
+			if (textInstruksi != null) textInstruksi.text = "Pohon berhasil ditanam! Sekarang, klik tombol <b>Dashboard</b> untuk melihat status kondisi lingkungan lahanmu!";
+			Debug.Log("Masuk ke Step 4: Suruh klik Dashboard");
+		}
+	}
+
+	// SINKRONISASI BARU: Fungsi tunggal untuk mengontrol klik tombol Dashboard
+	public void KlikTombolDashboard()
+	{
+		// KLIK PERTAMA (Saat masih Step 4): Membuka panel & mengubah instruksi ke edukasi bencana
+		if (currentStep == 4)
+		{
+			currentStep = 5;
+			if (textInstruksi != null)
+				textInstruksi.text = "Perhatikan Dashboard! Pastikan Rasio Pohon Penjaga tetap 60% dan Total Air memenuhi target lahan agar tidak terjadi Bencana Alam! \n\n<b>(Klik tombol Dashboard sekali lagi untuk menutup dan menyelesaikan tugas)</b>";
+
+			Debug.Log("Masuk ke Step 5: Dashboard Terbuka & Edukasi Aktif");
+			return; // Ditahan dulu di sini agar tidak langsung ganti scene pada klik pertama
 		}
 
-		Debug.Log("<color=yellow><b>[TUTORIAL BERES]</b></color> Masuk Panel Toko, Mengalihkan pemain ke Game Utama...");
-
-		// Pindah secara bersih ke SampleScene asli tempat kawanmu bekerja agar pemain bisa main bebas
-		// PENTING: Pastikan kata "SampleScene" ini sama persis dengan nama file scene utamamu di folder Assets
-		SceneManager.LoadScene("SampleScene");
+		// KLIK KEDUA (Saat sudah Step 5): Menutup panel, menamatkan tutorial, lalu pindah scene!
+		if (currentStep == 5)
+		{
+			if (tutorialGuideObject != null) tutorialGuideObject.SetActive(false);
+			Debug.Log("Tutorial tamat sepenuhnya via tombol Dashboard! Memuat SampleScene utama...");
+			SceneManager.LoadScene("SampleScene");
+		}
 	}
 }
