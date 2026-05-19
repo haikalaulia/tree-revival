@@ -1,4 +1,4 @@
-using System; // WAJIB ADA untuk menggunakan Action (Sistem Callback otomatis)
+using System; 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +10,22 @@ public class PlayerMovement : MonoBehaviour
 	public Rigidbody2D rb;
 	public Animator anim;
 
-	// Variabel Tambahan untuk Sistem Jalan Otomatis (Tanam Pohon di Gameplay)
+    // --- TAMBAHAN BARU ---
+    [HideInInspector] public bool isPlanting = false; 
+    // ---------------------
+
 	private Vector2 targetPosition;
 	private bool isMovingToTarget = false;
 	private Action onReachTargetAction;
 
 	void Update()
 	{
-		// 1. JALAN OTOMATIS: Jika sedang otomatis berjalan ke petak lahan
 		if (isMovingToTarget)
 		{
 			HandleAutoMovement();
-			return; // Menahan input keyboard sementara agar tidak bentrok
+			return; 
 		}
 
-		// 2. JALAN MANUAL (KEYBOARD): Kode asli kamu tetap utuh 100%
 		float horizontal = Input.GetAxis("Horizontal");
 		float vertical = Input.GetAxis("Vertical");
 
@@ -34,13 +35,16 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		}
 
-		anim.SetFloat("horizontal", Mathf.Abs(horizontal));
-		anim.SetFloat("vertical", vertical);
+        // --- MODIFIKASI: Hanya update animasi jika TIDAK sedang menanam ---
+        if (!isPlanting) 
+        {
+            anim.SetFloat("horizontal", Mathf.Abs(horizontal));
+            anim.SetFloat("vertical", vertical);
+        }
 
 		rb.linearVelocity = new Vector2(horizontal, vertical) * speed;
 	}
 
-	// Fungsi Internal: Menghitung arah pergerakan otomatis ke target tanah
 	void HandleAutoMovement()
 	{
 		Vector2 currentPos = transform.position;
@@ -57,20 +61,23 @@ public class PlayerMovement : MonoBehaviour
 				Flip();
 			}
 
-			// Sinkronisasi parameter animasi jalan milikmu
-			anim.SetFloat("horizontal", Mathf.Abs(direction.x));
-			anim.SetFloat("vertical", direction.y);
+            // --- MODIFIKASI ---
+            if (!isPlanting) {
+			    anim.SetFloat("horizontal", Mathf.Abs(direction.x));
+			    anim.SetFloat("vertical", direction.y);
+            }
 		}
 		else
 		{
-			// JIKA PLAYER SUDAH SAMPAI DI LOKASI TANAH
 			rb.linearVelocity = Vector2.zero;
-			isMovingToTarget = false; // Keyboard kamu langsung aktif kembali otomatis!
+			isMovingToTarget = false; 
 
-			anim.SetFloat("horizontal", 0);
-			anim.SetFloat("vertical", 0);
+            // --- MODIFIKASI ---
+            if (!isPlanting) {
+			    anim.SetFloat("horizontal", 0);
+			    anim.SetFloat("vertical", 0);
+            }
 
-			// Pemicu otomatis penanaman pohon
 			if (onReachTargetAction != null)
 			{
 				onReachTargetAction.Invoke();
@@ -79,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	// Fungsi Publik: Dipanggil dari script SoilClick kawanmu
 	public void PerintahJalanKeTanah(Vector2 koordinatTanah, Action fungsiTanamPohon)
 	{
 		targetPosition = koordinatTanah;

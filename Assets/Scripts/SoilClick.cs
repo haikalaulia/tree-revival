@@ -104,18 +104,39 @@ public class SoilClick : MonoBehaviour
 
     public void EksekusiJalanLaluTanam(Action fungsiAsliTanamPohon)
     {
-        PlayerMovement player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        PlayerMovement playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
 
-        if (player != null)
+        if (playerScript != null)
         {
-            player.PerintahJalanKeTanah(posisiGridTanam, () => {
-                if (fungsiAsliTanamPohon != null) fungsiAsliTanamPohon.Invoke();
-                Debug.Log("Pohon berhasil ditanam otomatis.");
+            playerScript.PerintahJalanKeTanah(posisiGridTanam, () => {
+                
+                // 1. Matikan input jalan (biar player gak geser)
+                playerScript.isPlanting = true;
+
+                // 2. Paksa animator diam (reset kecepatan ke 0 agar transisi lain tidak ganggu)
+                playerScript.anim.SetFloat("horizontal", 0);
+                playerScript.anim.SetFloat("vertical", 0);
+
+                // 3. Nyalakan Bool animasi mencangkul
+                playerScript.anim.SetBool("isPlanting", true);
+
+                // 4. Mulai proses kemunculan pohon
+                StartCoroutine(ProsesTanamBerjeda(fungsiAsliTanamPohon, playerScript));
             });
         }
-        else
-        {
-            if (fungsiAsliTanamPohon != null) fungsiAsliTanamPohon.Invoke();
-        }
+    }
+
+    private System.Collections.IEnumerator ProsesTanamBerjeda(Action fungsiTanam, PlayerMovement pScript)
+    {
+        // Sesuaikan angka ini dengan durasi animasi mencangkul kamu (misal 1 detik)
+        yield return new WaitForSeconds(1.0f);
+
+        if (fungsiTanam != null) fungsiTanam.Invoke();
+
+        // 5. Matikan Bool animasi (agar balik ke Idle)
+        pScript.anim.SetBool("isPlanting", false);
+
+        // 6. Buka kembali kontrol jalan
+        pScript.isPlanting = false;
     }
 }
