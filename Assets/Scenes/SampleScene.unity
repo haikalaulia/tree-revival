@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 23110436}
   - component: {fileID: 23110435}
   m_Layer: 5
-  m_Name: Bibit_Tembakau
+  m_Name: Bibit_Mangrove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,10 +371,10 @@ RectTransform:
   - {fileID: 665343911}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -62}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23110435
 MonoBehaviour:
@@ -1122,10 +1122,10 @@ RectTransform:
   - {fileID: 2076990274}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -342}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &52716701
 MonoBehaviour:
@@ -2581,7 +2581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &130449644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,20 +4630,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Kelapa
-  harga: 500
+  namaPohon: Nipah
+  harga: 100
   jenisPohon: 1
-  luasTajuk: 35
-  co2PerPohon: 1500
-  airPerPohon: 10
-  lapanganKerja: 1
+  luasTajuk: 10
+  co2PerPohon: 8
+  airPerPohon: 300
+  lapanganKerja: 2
   wilayahHarus: 2
-  minLembap: 70
-  maxLembap: 90
-  minNutrisi: 30
-  maxNutrisi: 80
+  minLembap: 75
+  maxLembap: 95
+  minNutrisi: 50
+  maxNutrisi: 100
   minSuhuDerajat: 24
-  maxSuhuDerajat: 32
+  maxSuhuDerajat: 30
   prefabBibit: {fileID: 8007981087855944155, guid: 4de8a164349624e49a6ab83b09914e1a, type: 3}
   prefabSedang: {fileID: 1106466482906245067, guid: 6f7dd845eab65d24ca3c4fd67e9b0fab, type: 3}
   prefabDewasa: {fileID: 1898992169551366309, guid: 48324a9bfac84db4998474550ee46d89, type: 3}
@@ -5728,19 +5728,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
   namaPohon: Rambutan
-  harga: 350
+  harga: 200
   jenisPohon: 1
-  luasTajuk: 40
-  co2PerPohon: 120.5
-  airPerPohon: 1200
-  lapanganKerja: 1
+  luasTajuk: 20
+  co2PerPohon: 10
+  airPerPohon: 450
+  lapanganKerja: 2
   wilayahHarus: 0
-  minLembap: 40
-  maxLembap: 85
-  minNutrisi: 40
-  maxNutrisi: 90
-  minSuhuDerajat: 22
-  maxSuhuDerajat: 35
+  minLembap: 50
+  maxLembap: 80
+  minNutrisi: 60
+  maxNutrisi: 100
+  minSuhuDerajat: 24
+  maxSuhuDerajat: 30
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 7970651105001286700, guid: 7d71fe6d403e28540a567c84023fa4a8, type: 3}
@@ -5910,8 +5910,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 11492551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.36229253}
-  m_AnchorMax: {x: 1, y: 0.6377075}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6977,20 +6977,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
-  harga: 150
-  jenisPohon: 0
-  luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
-  lapanganKerja: 1
-  wilayahHarus: 2
+  namaPohon: Durian
+  harga: 500
+  jenisPohon: 1
+  luasTajuk: 30
+  co2PerPohon: 15
+  airPerPohon: 600
+  lapanganKerja: 3
+  wilayahHarus: 1
   minLembap: 60
   maxLembap: 80
-  minNutrisi: 50
+  minNutrisi: 70
   maxNutrisi: 100
   minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  maxSuhuDerajat: 28
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
@@ -7715,20 +7715,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
-  harga: 150
-  jenisPohon: 0
-  luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
-  lapanganKerja: 1
+  namaPohon: Kopi
+  harga: 180
+  jenisPohon: 1
+  luasTajuk: 8
+  co2PerPohon: 7
+  airPerPohon: 300
+  lapanganKerja: 2
   wilayahHarus: 2
   minLembap: 60
-  maxLembap: 80
-  minNutrisi: 50
+  maxLembap: 85
+  minNutrisi: 55
   maxNutrisi: 100
-  minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  minSuhuDerajat: 16
+  maxSuhuDerajat: 24
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
@@ -8648,20 +8648,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mahoni
+  namaPohon: Mangga
   harga: 250
-  jenisPohon: 0
-  luasTajuk: 40
-  co2PerPohon: 295.73
-  airPerPohon: 1700
-  lapanganKerja: 1
+  jenisPohon: 1
+  luasTajuk: 25
+  co2PerPohon: 12
+  airPerPohon: 500
+  lapanganKerja: 2
   wilayahHarus: 0
-  minLembap: 40
-  maxLembap: 90
-  minNutrisi: 50
+  minLembap: 50
+  maxLembap: 80
+  minNutrisi: 65
   maxNutrisi: 100
-  minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  minSuhuDerajat: 24
+  maxSuhuDerajat: 31
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 5745174440478971801, guid: bad36dd546f459f40a3be706923ef470, type: 3}
@@ -11807,10 +11807,10 @@ RectTransform:
   - {fileID: 1996439054}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -482}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &700952126
 MonoBehaviour:
@@ -96409,20 +96409,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
-  harga: 150
+  namaPohon: Jati
+  harga: 350
   jenisPohon: 0
   luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
+  co2PerPohon: 20
+  airPerPohon: 600
   lapanganKerja: 1
-  wilayahHarus: 2
-  minLembap: 60
-  maxLembap: 80
-  minNutrisi: 50
+  wilayahHarus: 0
+  minLembap: 40
+  maxLembap: 65
+  minNutrisi: 25
   maxNutrisi: 100
-  minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  minSuhuDerajat: 25
+  maxSuhuDerajat: 35
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
@@ -96781,7 +96781,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.100006, y: 0}
-  m_SizeDelta: {x: 100, y: 964}
+  m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &836402254
 MonoBehaviour:
@@ -97397,10 +97397,10 @@ RectTransform:
   - {fileID: 250246503}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -202}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917919942
 MonoBehaviour:
@@ -98588,10 +98588,10 @@ RectTransform:
   - {fileID: 2004000032}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -762}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005770374
 MonoBehaviour:
@@ -100320,10 +100320,10 @@ RectTransform:
   - {fileID: 361156521}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -482}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179415490
 MonoBehaviour:
@@ -102248,20 +102248,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Kelapa
-  harga: 500
-  jenisPohon: 1
-  luasTajuk: 35
-  co2PerPohon: 1500
-  airPerPohon: 10
+  namaPohon: Rasamala
+  harga: 450
+  jenisPohon: 0
+  luasTajuk: 40
+  co2PerPohon: 35
+  airPerPohon: 900
   lapanganKerja: 1
-  wilayahHarus: 2
-  minLembap: 70
+  wilayahHarus: 1
+  minLembap: 60
   maxLembap: 90
   minNutrisi: 30
-  maxNutrisi: 80
-  minSuhuDerajat: 24
-  maxSuhuDerajat: 32
+  maxNutrisi: 100
+  minSuhuDerajat: 15
+  maxSuhuDerajat: 24
   prefabBibit: {fileID: 8007981087855944155, guid: 4de8a164349624e49a6ab83b09914e1a, type: 3}
   prefabSedang: {fileID: 1106466482906245067, guid: 6f7dd845eab65d24ca3c4fd67e9b0fab, type: 3}
   prefabDewasa: {fileID: 1898992169551366309, guid: 48324a9bfac84db4998474550ee46d89, type: 3}
@@ -103658,19 +103658,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
-  harga: 150
+  namaPohon: Mahoni
+  harga: 300
   jenisPohon: 0
   luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
+  co2PerPohon: 28
+  airPerPohon: 700
   lapanganKerja: 1
-  wilayahHarus: 2
-  minLembap: 60
-  maxLembap: 80
-  minNutrisi: 50
+  wilayahHarus: 0
+  minLembap: 50
+  maxLembap: 75
+  minNutrisi: 15
   maxNutrisi: 100
-  minSuhuDerajat: 20
+  minSuhuDerajat: 22
   maxSuhuDerajat: 30
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
@@ -105899,10 +105899,10 @@ RectTransform:
   - {fileID: 573721067}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -342}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1515424614
 MonoBehaviour:
@@ -106590,20 +106590,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Kelapa
-  harga: 500
-  jenisPohon: 1
-  luasTajuk: 35
-  co2PerPohon: 1500
-  airPerPohon: 10
+  namaPohon: Trembesi
+  harga: 400
+  jenisPohon: 0
+  luasTajuk: 50
+  co2PerPohon: 45
+  airPerPohon: 1000
   lapanganKerja: 1
-  wilayahHarus: 2
-  minLembap: 70
-  maxLembap: 90
-  minNutrisi: 30
-  maxNutrisi: 80
+  wilayahHarus: 0
+  minLembap: 50
+  maxLembap: 85
+  minNutrisi: 10
+  maxNutrisi: 100
   minSuhuDerajat: 24
-  maxSuhuDerajat: 32
+  maxSuhuDerajat: 33
   prefabBibit: {fileID: 8007981087855944155, guid: 4de8a164349624e49a6ab83b09914e1a, type: 3}
   prefabSedang: {fileID: 1106466482906245067, guid: 6f7dd845eab65d24ca3c4fd67e9b0fab, type: 3}
   prefabDewasa: {fileID: 1898992169551366309, guid: 48324a9bfac84db4998474550ee46d89, type: 3}
@@ -107560,10 +107560,10 @@ RectTransform:
   - {fileID: 1366817404}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -622}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1640101424
 MonoBehaviour:
@@ -107799,7 +107799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tembakau
+  m_text: Mangrove
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -108048,10 +108048,10 @@ RectTransform:
   - {fileID: 42325208}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -762}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692744666
 MonoBehaviour:
@@ -108496,10 +108496,10 @@ RectTransform:
   - {fileID: 1525709545}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -622}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782408707
 MonoBehaviour:
@@ -109023,10 +109023,10 @@ RectTransform:
   - {fileID: 400892330}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -62}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805321373
 MonoBehaviour:
@@ -109242,10 +109242,10 @@ RectTransform:
   - {fileID: 1165614780}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -30, y: -902}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1820643398
 MonoBehaviour:
@@ -110429,9 +110429,9 @@ RectTransform:
   m_Father: {fileID: 1130982354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1861260337
 MonoBehaviour:
@@ -111195,10 +111195,10 @@ RectTransform:
   - {fileID: 766641400}
   m_Father: {fileID: 836402253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -202}
-  m_SizeDelta: {x: 140, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914992428
 MonoBehaviour:
@@ -111290,20 +111290,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
-  harga: 150
-  jenisPohon: 0
-  luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
-  lapanganKerja: 1
-  wilayahHarus: 2
-  minLembap: 60
-  maxLembap: 80
-  minNutrisi: 50
+  namaPohon: Alpukat
+  harga: 300
+  jenisPohon: 1
+  luasTajuk: 22
+  co2PerPohon: 14
+  airPerPohon: 550
+  lapanganKerja: 2
+  wilayahHarus: 1
+  minLembap: 55
+  maxLembap: 85
+  minNutrisi: 60
   maxNutrisi: 100
-  minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  minSuhuDerajat: 18
+  maxSuhuDerajat: 28
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
@@ -111551,17 +111551,17 @@ MonoBehaviour:
   namaPohon: Mangrove
   harga: 150
   jenisPohon: 0
-  luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
+  luasTajuk: 15
+  co2PerPohon: 30
+  airPerPohon: 500
   lapanganKerja: 1
   wilayahHarus: 2
-  minLembap: 60
-  maxLembap: 80
-  minNutrisi: 50
+  minLembap: 70
+  maxLembap: 95
+  minNutrisi: 40
   maxNutrisi: 100
-  minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  minSuhuDerajat: 25
+  maxSuhuDerajat: 32
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
@@ -111830,20 +111830,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
+  namaPohon: Kelapa
   harga: 150
-  jenisPohon: 0
-  luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
-  lapanganKerja: 1
+  jenisPohon: 1
+  luasTajuk: 12
+  co2PerPohon: 10
+  airPerPohon: 400
+  lapanganKerja: 2
   wilayahHarus: 2
   minLembap: 60
-  maxLembap: 80
-  minNutrisi: 50
+  maxLembap: 90
+  minNutrisi: 30
   maxNutrisi: 100
-  minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  minSuhuDerajat: 26
+  maxSuhuDerajat: 32
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
@@ -118504,20 +118504,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb31b7d4f953c4bb669da2e8571d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TombolBibit
-  namaPohon: Mangrove
-  harga: 150
+  namaPohon: Cemara Laut
+  harga: 200
   jenisPohon: 0
-  luasTajuk: 25
-  co2PerPohon: 12.5
-  airPerPohon: 450
+  luasTajuk: 20
+  co2PerPohon: 15
+  airPerPohon: 400
   lapanganKerja: 1
   wilayahHarus: 2
-  minLembap: 60
+  minLembap: 50
   maxLembap: 80
-  minNutrisi: 50
+  minNutrisi: 20
   maxNutrisi: 100
-  minSuhuDerajat: 20
-  maxSuhuDerajat: 30
+  minSuhuDerajat: 26
+  maxSuhuDerajat: 34
   prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
   prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
   prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
@@ -119883,63 +119883,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145043647}
   m_CullTransparentMesh: 1
---- !u!1001 &7568357749592135675
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.1052
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.54343
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351201344555432403, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066498279912612198, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-      propertyPath: m_Name
-      value: NPC_PemanduEkowisata
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -119949,7 +119892,6 @@ SceneRoots:
   - {fileID: 1104410491}
   - {fileID: 894424358}
   - {fileID: 570914982}
-  - {fileID: 7568357749592135675}
   - {fileID: 1956337405}
   - {fileID: 1520542269}
   - {fileID: 577418307}
