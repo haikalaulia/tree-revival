@@ -12270,7 +12270,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a2c7a5e7ffbc8e49b6837a71971264e, type: 2}
+  - {fileID: 2100000, guid: 4cb9ec777b618314694e3672e2cf49e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95771,7 +95771,7 @@ RectTransform:
   m_Father: {fileID: 72006110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -98525,7 +98525,7 @@ RectTransform:
   m_Father: {fileID: 245739696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -102550,10 +102550,10 @@ MonoBehaviour:
   maxNutrisi: 100
   minSuhuDerajat: 15
   maxSuhuDerajat: 24
-  prefabBibit: {fileID: 8007981087855944155, guid: 4de8a164349624e49a6ab83b09914e1a, type: 3}
-  prefabSedang: {fileID: 1106466482906245067, guid: 6f7dd845eab65d24ca3c4fd67e9b0fab, type: 3}
-  prefabDewasa: {fileID: 1898992169551366309, guid: 48324a9bfac84db4998474550ee46d89, type: 3}
-  prefabMati: {fileID: 172345060795434978, guid: 7806db03460efed4dbcb274420e9f823, type: 3}
+  prefabBibit: {fileID: 3753563045845757793, guid: eb01b7e40a64f3147877877501883c39, type: 3}
+  prefabSedang: {fileID: 7337584054085474616, guid: fcf42412ba4ff9946870f9aff37ac038, type: 3}
+  prefabDewasa: {fileID: 1812638570517243576, guid: 81f7287bdd7b940408c68a6745f7ac4c, type: 3}
+  prefabMati: {fileID: 6540423707137888238, guid: 8d0bd0c988df0304abbcaa9d3d1a8408, type: 3}
 --- !u!114 &1322790861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106892,10 +106892,10 @@ MonoBehaviour:
   maxNutrisi: 100
   minSuhuDerajat: 24
   maxSuhuDerajat: 33
-  prefabBibit: {fileID: 8007981087855944155, guid: 4de8a164349624e49a6ab83b09914e1a, type: 3}
-  prefabSedang: {fileID: 1106466482906245067, guid: 6f7dd845eab65d24ca3c4fd67e9b0fab, type: 3}
-  prefabDewasa: {fileID: 1898992169551366309, guid: 48324a9bfac84db4998474550ee46d89, type: 3}
-  prefabMati: {fileID: 172345060795434978, guid: 7806db03460efed4dbcb274420e9f823, type: 3}
+  prefabBibit: {fileID: 6636336065278205597, guid: f54ed9537da73d44b8c6c11a7fbd2c5d, type: 3}
+  prefabSedang: {fileID: 6833809270740377530, guid: 37e065429e6533a4bb7894aa70244862, type: 3}
+  prefabDewasa: {fileID: 6343752878266938874, guid: dd9a36a9c2a5ee24292efb492d5bc6e7, type: 3}
+  prefabMati: {fileID: 1368422107980436523, guid: c167afa4b9a563a49ade2ed211922e06, type: 3}
 --- !u!114 &1563760466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108186,7 +108186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1678272712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108230,6 +108230,7 @@ MonoBehaviour:
   barCO2: {fileID: 594732162}
   barAir: {fileID: 680217352}
   barPekerjaan: {fileID: 200551987}
+  smoothSpeed: 3
   txtPersenTutupan: {fileID: 0}
   txtCO2: {fileID: 193905413}
   txtAir: {fileID: 426361152}
@@ -108412,7 +108413,7 @@ RectTransform:
   m_Father: {fileID: 346727027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -119712,7 +119713,7 @@ RectTransform:
   m_Father: {fileID: 1460993952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
