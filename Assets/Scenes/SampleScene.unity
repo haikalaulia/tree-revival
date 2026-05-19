@@ -6992,10 +6992,10 @@ MonoBehaviour:
   maxNutrisi: 100
   minSuhuDerajat: 20
   maxSuhuDerajat: 28
-  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
-  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
-  prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
-  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
+  prefabBibit: {fileID: 4847357990864620271, guid: 396cec30585f2e7488a5792f3eb06386, type: 3}
+  prefabSedang: {fileID: 2741694894267985835, guid: b38fbd6005a04774ab59beb8a053e4e7, type: 3}
+  prefabDewasa: {fileID: 8880947914146710147, guid: 85b0fda75c5b9294a93e6208ef86b7f1, type: 3}
+  prefabMati: {fileID: 5095054023962986274, guid: 9bde4eaa91688ba4da2d3327ebac5987, type: 3}
 --- !u!114 &444706825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7730,10 +7730,10 @@ MonoBehaviour:
   maxNutrisi: 100
   minSuhuDerajat: 16
   maxSuhuDerajat: 24
-  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
-  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
-  prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
-  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
+  prefabBibit: {fileID: 3216252999075598880, guid: c36c34c595c9b35428bb38d2c2d2d86d, type: 3}
+  prefabSedang: {fileID: 6280287724234644927, guid: 53431da04b7b90e469ecd18cbb259789, type: 3}
+  prefabDewasa: {fileID: 7614152493549000488, guid: e98040513d491bd40ab8df0983508cbc, type: 3}
+  prefabMati: {fileID: 6930868160085221702, guid: aa974e87bc9f29f428f1674cf1814b75, type: 3}
 --- !u!114 &488506487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96440,10 +96440,10 @@ MonoBehaviour:
   maxNutrisi: 100
   minSuhuDerajat: 25
   maxSuhuDerajat: 35
-  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
-  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
-  prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
-  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
+  prefabBibit: {fileID: 4505805819644844386, guid: 5662aa2cf13cc974187e005896df3930, type: 3}
+  prefabSedang: {fileID: 1315772087450835274, guid: 4498e023d2c870545bea5338e31d79bc, type: 3}
+  prefabDewasa: {fileID: 455400583762701583, guid: f984ac49f9a164c45b08314159540d08, type: 3}
+  prefabMati: {fileID: 1389992075938439770, guid: 2911188d6bae780409d7a43dc4fe90d1, type: 3}
 --- !u!114 &798227157
 MonoBehaviour:
   m_ObjectHideFlags: 0
