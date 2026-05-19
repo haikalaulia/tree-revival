@@ -10,14 +10,10 @@ public class PlayerMovement : MonoBehaviour
 	public Rigidbody2D rb;
 	public Animator anim;
 
-	// --- TAMBAHAN BARU DARI TIMMU ---
 	[HideInInspector] public bool isPlanting = false;
-	// ---------------------
 
-	// --- INTEGRASI SISTEM MOBILE ANALOG ---
 	[Header("Sistem Mobile Analog")]
-	public Joystick joystick; // Slot ini dijamin akan muncul di Inspector setelah di-save
-							  // --------------------------------------
+	public Joystick joystick;
 
 	private Vector2 targetPosition;
 	private bool isMovingToTarget = false;
@@ -31,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
 			return;
 		}
 
-		// --- MODIFIKASI HYBRID: Membaca input Analog (Mobile) atau Keyboard (Laptop) ---
 		float horizontal = 0f;
 		float vertical = 0f;
 
@@ -45,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 			horizontal = Input.GetAxis("Horizontal");
 			vertical = Input.GetAxis("Vertical");
 		}
-		// ------------------------------------------------------------------------------
 
 		if (horizontal > 0 && transform.localScale.x < 0 ||
 		horizontal < 0 && transform.localScale.x > 0)
@@ -53,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		}
 
-		// --- MODIFIKASI TIMMU: Hanya update animasi jika TIDAK sedang menanam ---
 		if (!isPlanting)
 		{
 			anim.SetFloat("horizontal", Mathf.Abs(horizontal));
@@ -79,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
 				Flip();
 			}
 
-			// --- MODIFIKASI TIMMU ---
 			if (!isPlanting)
 			{
 				anim.SetFloat("horizontal", Mathf.Abs(direction.x));
@@ -91,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
 			rb.linearVelocity = Vector2.zero;
 			isMovingToTarget = false;
 
-			// --- MODIFIKASI TIMMU ---
 			if (!isPlanting)
 			{
 				anim.SetFloat("horizontal", 0);

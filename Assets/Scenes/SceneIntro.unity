@@ -4103,6 +4103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashboardController
   panelDashboard: {fileID: 1678272711}
+  panelTenagaKerja: {fileID: 0}
 --- !u!4 &231493900
 Transform:
   m_ObjectHideFlags: 0
@@ -95557,7 +95558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoilClick
   dataTanah: {fileID: 11400000, guid: c552fdc14895c894da2e940f79b10019, type: 2}
-  sudahDitanami: 0
   posisiGridTanam: {x: 0, y: 0, z: 0}
 --- !u!19719996 &745146787
 TilemapCollider2D:
@@ -96782,7 +96782,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 231493899}
         m_TargetAssemblyTypeName: DashboardController, Assembly-CSharp
-        m_MethodName: TogglePanel
+        m_MethodName: ToggleDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -101574,6 +101574,8 @@ MonoBehaviour:
   facingDirection: 1
   rb: {fileID: 1263082568}
   anim: {fileID: 1263082573}
+  isPlanting: 0
+  joystick: {fileID: 0}
 --- !u!95 &1263082573
 Animator:
   serializedVersion: 7
@@ -103746,10 +103748,10 @@ MonoBehaviour:
   maxNutrisi: 60
   minSuhuDerajat: 20
   maxSuhuDerajat: 40
-  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
-  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
-  prefabDewasa: {fileID: 5745174440478971801, guid: bad36dd546f459f40a3be706923ef470, type: 3}
-  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
+  prefabBibit: {fileID: 2435860173692101909, guid: 56aff000248b7d94e8443dc9ca4091bc, type: 3}
+  prefabSedang: {fileID: 2435860173692101909, guid: 56aff000248b7d94e8443dc9ca4091bc, type: 3}
+  prefabDewasa: {fileID: 1599354913811935808, guid: b3fbf57149310d441871aed61daf5953, type: 3}
+  prefabMati: {fileID: 5758708295096521252, guid: 7ea9c7ebc40a33b4eb70d6f655702e10, type: 3}
 --- !u!114 &1370311920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108131,6 +108133,10 @@ MonoBehaviour:
   barCO2: {fileID: 594732162}
   barAir: {fileID: 680217352}
   barPekerjaan: {fileID: 200551987}
+  smoothSpeed: 2
+  targetCO2Max: 1000
+  targetAirMax: 100000
+  targetPekerjaanMax: 50
   txtPersenTutupan: {fileID: 0}
   txtCO2: {fileID: 193905413}
   txtAir: {fileID: 426361152}

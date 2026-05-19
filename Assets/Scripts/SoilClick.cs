@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SoilClick : MonoBehaviour
 {
@@ -10,12 +11,19 @@ public class SoilClick : MonoBehaviour
 
 	[HideInInspector] public Vector3 posisiGridTanam;
 
+	private void Awake()
+	{
+		if (SceneManager.GetActiveScene().name == "SceneIntro")
+		{
+			StartCoroutine(JalankanTanamOtomatisIntro());
+		}
+	}
+
 	private void OnMouseDown()
 	{
-		// 1. CEK BLOKIR UI (Sudah diperbaiki agar mendeteksi Joystick)
+		// 1. CEK BLOKIR UI (Mencegah klik tembus saat menyentuh tombol Dashboard/UI lainnya)
 		if (IsClickBlockedByUI()) return;
 
-		// 2. Tentukan posisi klik dunia (DEKLARASI HANYA SEKALI DI SINI)
 		Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Tilemap tilemap = GetComponent<Tilemap>();
 		if (tilemap != null)
@@ -29,28 +37,18 @@ public class SoilClick : MonoBehaviour
 			posisiGridTanam = mouseWorldPos;
 		}
 
-		// 3. CEK APAKAH SUDAH ADA POHON DI TITIK INI
 		if (CekApakahSudahAdaPohon(posisiGridTanam))
 		{
 			Debug.Log("Gagal: Titik ini sudah ada pohonnya!");
 			return;
 		}
 
-		// 4. CEK PANEL PENUGASAN / INTRO
+		// 2. CEK PANEL INTRO
 		GameObject panelIntroObj = GameObject.Find("Penugasan") ?? GameObject.Find("PanelIntro");
 		if (panelIntroObj != null && panelIntroObj.activeInHierarchy)
 			return;
 
-		// 5. CEK PRESISI TOMBOL DASHBOARD
-		GameObject btnDashboard = GameObject.Find("Btn_ToggleStatus");
-		if (btnDashboard != null)
-		{
-			Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(null, btnDashboard.transform.position);
-			float jarak = Vector2.Distance(Input.mousePosition, screenPoint);
-			if (jarak < 50f) return;
-		}
-
-		// 6. BUKA UI TOKO / TANAM
+		// 3. BUKA UI TOKO / TANAM
 		UIManagerToko uiToko = FindFirstObjectByType<UIManagerToko>();
 		if (uiToko != null)
 		{
@@ -61,35 +59,31 @@ public class SoilClick : MonoBehaviour
 			uiToko.SetTanahAktif(this);
 		}
 
-		// 7. TAMPILKAN PANEL INFO TANAH
+		// 4. TAMPILKAN PANEL INFO TANAH
 		PanelManager pm = FindFirstObjectByType<PanelManager>();
 		if (pm != null)
 			pm.TampilkanPanel(dataTanah);
 
-		// 8. HUBUNGKAN KE SISTEM TUTORIAL
 		if (TutorialManager.Instance != null)
 			TutorialManager.Instance.SelesaiStep1();
 	}
 
-	// ====================================================================================
-	// PERBAIKAN UTAMA: Mencegah klik tembus jika menyentuh UI BUTTON maupun JOYSTICK (IMAGE UI)
-	// ====================================================================================
 	private bool IsClickBlockedByUI()
 	{
 		if (UnityEngine.EventSystems.EventSystem.current == null) return false;
 
 		var eventData = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
 		eventData.position = Input.mousePosition;
-		var results = new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
+		var results = new List<UnityEngine.EventSystems.RaycastResult>();
 		UnityEngine.EventSystems.EventSystem.current.RaycastAll(eventData, results);
 
 		foreach (var result in results)
 		{
-			// JIKA SENTUHAN MENGENAI TOMBOL (Sistem Asli Kawanmu)
-			if (result.gameObject.GetComponent<UnityEngine.UI.Button>() != null)
+			// Jika klik mengenai asset UI apa pun (Button, Image, Text Dashboard), langsung blokir klik tanah tembus
+			if (result.gameObject.GetComponent<UnityEngine.UI.Button>() != null ||
+				result.gameObject.GetComponentInParent<UnityEngine.UI.Button>() != null)
 				return true;
 
-			// FIX MOBILE: JIKA SENTUHAN MENGENAI JOYSTICK (Mengecek nama objek atau komponen Joystick-nya)
 			if (result.gameObject.name == "Variable Joystick" || result.gameObject.GetComponentInParent<Joystick>() != null)
 				return true;
 		}
@@ -105,7 +99,7 @@ public class SoilClick : MonoBehaviour
 		{
 			if (Vector2.Distance(pohon.position, posisi) < 0.5f)
 			{
-				return true; // FIX: Sekarang mengembalikan nilai true jika ada pohon, sesuai fungsi aslinya
+				return true;
 			}
 		}
 		return false;
@@ -113,23 +107,16 @@ public class SoilClick : MonoBehaviour
 
 	public void EksekusiJalanLaluTanam(Action fungsiAsliTanamPohon)
 	{
-		PlayerMovement playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+		PlayerMovement playerScript = FindFirstObjectByType<PlayerMovement>();
 
 		if (playerScript != null)
 		{
 			playerScript.PerintahJalanKeTanah(posisiGridTanam, () => {
-
-				// 1. Matikan input jalan (biar player gak geser)
 				playerScript.isPlanting = true;
-
-				// 2. Paksa animator diam (reset kecepatan ke 0 agar transisi lain tidak ganggu)
 				playerScript.anim.SetFloat("horizontal", 0);
 				playerScript.anim.SetFloat("vertical", 0);
-
-				// 3. Nyalakan Bool animasi mencangkul
 				playerScript.anim.SetBool("isPlanting", true);
 
-				// 4. Mulai proses kemunculan pohon
 				StartCoroutine(ProsesTanamBerjeda(fungsiAsliTanamPohon, playerScript));
 			});
 		}
@@ -137,15 +124,41 @@ public class SoilClick : MonoBehaviour
 
 	private System.Collections.IEnumerator ProsesTanamBerjeda(Action fungsiTanam, PlayerMovement pScript)
 	{
-		// Sesuaikan angka ini dengan durasi animasi mencangkul kamu (misal 1 detik)
 		yield return new WaitForSeconds(1.0f);
 
 		if (fungsiTanam != null) fungsiTanam.Invoke();
 
-		// 5. Matikan Bool animasi (agar balik ke Idle)
 		pScript.anim.SetBool("isPlanting", false);
-
-		// 6. Buka kembali kontrol jalan
 		pScript.isPlanting = false;
+	}
+
+	private System.Collections.IEnumerator JalankanTanamOtomatisIntro()
+	{
+		yield return new WaitForSeconds(1.5f);
+
+		PlayerMovement playerScript = FindFirstObjectByType<PlayerMovement>();
+		UIManagerToko uiToko = FindFirstObjectByType<UIManagerToko>();
+
+		if (playerScript != null && uiToko != null)
+		{
+			uiToko.SetTanahAktif(this);
+
+			playerScript.isPlanting = true;
+			playerScript.anim.SetFloat("horizontal", 0);
+			playerScript.anim.SetFloat("vertical", 0);
+			playerScript.anim.SetBool("isPlanting", true);
+
+			yield return new WaitForSeconds(1.0f);
+
+			// Mencari tombol beli secara dinamis di Canvas toko kelompokmu
+			GameObject btnBeli = GameObject.Find("Dashboard") ?? GameObject.Find("Btn_BeliPohon") ?? GameObject.Find("Button_Tanam") ?? GameObject.Find("Btn_Tanam");
+			if (btnBeli != null && btnBeli.GetComponent<UnityEngine.UI.Button>() != null)
+			{
+				btnBeli.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+			}
+
+			playerScript.anim.SetBool("isPlanting", false);
+			playerScript.isPlanting = false;
+		}
 	}
 }
