@@ -1,14 +1,16 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class CameraZoom : MonoBehaviour
 {
     private Camera cam;
     
     [Header("Pengaturan Zoom")]
-    public float zoomSpeed = 5f;      // Kecepatan respon scroll
-    public float minZoom = 2f;       // Batas paling dekat
-    public float maxZoom = 12f;      // Batas paling jauh
-    public float smoothness = 10f;   // Kehalusan gerakan zoom
+    public float zoomSpeed = 5f;
+    public float minZoom = 2f;
+    public float maxZoom = 15f;
+    public float smoothness = 10f;
 
     private float targetZoom;
 
@@ -16,26 +18,49 @@ public class CameraZoom : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         if (cam == null) cam = Camera.main;
-        
-        // Ambil nilai awal kamera sebagai target awal
         targetZoom = cam.orthographicSize;
     }
 
     void Update()
     {
-        // 1. Ambil input dari roda mouse (Scroll Wheel)
+        // CEK APAKAH MOUSE DI ATAS UI
+        if (IsPointerOverUIElement())
+        {
+            return; // Jangan zoom kalau lagi di atas UI
+        }
+
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
         if (scrollInput != 0)
         {
-            // 2. Hitung target zoom baru
             targetZoom -= scrollInput * zoomSpeed;
-            
-            // 3. Batasi agar tidak terlalu dekat atau terlalu jauh
             targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
         }
 
-        // 4. Terapkan zoom secara halus (Lerp)
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime * smoothness);
+    }
+
+    // Fungsi deteksi UI yang lebih akurat untuk sistem baru
+    private bool IsPointerOverUIElement()
+    {
+        if (EventSystem.current == null) return false;
+
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        // LOGIKA BARU:
+        // Jika mouse menyentuh benda apa pun yang ada di Layer "UI", maka blokir zoom.
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.layer == LayerMask.NameToLayer("UI"))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
