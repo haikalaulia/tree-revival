@@ -2,12 +2,26 @@ using UnityEngine;
 
 public class DashboardController : MonoBehaviour
 {
-    public GameObject panelDashboard; // Tempat menaruh PanelDashBoard nanti
+    [Header("Panel Settings")]
+    public GameObject panelDashboard;
+    public GameObject panelTenagaKerja; // Tambahkan baris ini
 
-    public void TogglePanel()
+    public void ToggleDashboard()
     {
-        // Jika sedang aktif maka jadi tidak aktif, dan sebaliknya
-        bool isActive = panelDashboard.activeSelf;
-        panelDashboard.SetActive(!isActive);
+        if (panelDashboard != null)
+        {
+            bool isActive = panelDashboard.activeSelf;
+            panelDashboard.SetActive(!isActive);
+        }
+    }
+
+    // FUNGSI BARU UNTUK TENAGA KERJA
+    public void ToggleTenagaKerja()
+    {
+        if (panelTenagaKerja != null)
+        {
+            bool isActive = panelTenagaKerja.activeSelf;
+            panelTenagaKerja.SetActive(!isActive);
+        }
     }
 }
