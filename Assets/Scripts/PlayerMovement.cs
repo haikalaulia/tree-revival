@@ -1,4 +1,4 @@
-using System; 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +10,14 @@ public class PlayerMovement : MonoBehaviour
 	public Rigidbody2D rb;
 	public Animator anim;
 
-    // --- TAMBAHAN BARU ---
-    [HideInInspector] public bool isPlanting = false; 
-    // ---------------------
+	// --- TAMBAHAN BARU DARI TIMMU ---
+	[HideInInspector] public bool isPlanting = false;
+	// ---------------------
+
+	// --- INTEGRASI SISTEM MOBILE ANALOG ---
+	[Header("Sistem Mobile Analog")]
+	public Joystick joystick; // Slot ini dijamin akan muncul di Inspector setelah di-save
+							  // --------------------------------------
 
 	private Vector2 targetPosition;
 	private bool isMovingToTarget = false;
@@ -23,11 +28,24 @@ public class PlayerMovement : MonoBehaviour
 		if (isMovingToTarget)
 		{
 			HandleAutoMovement();
-			return; 
+			return;
 		}
 
-		float horizontal = Input.GetAxis("Horizontal");
-		float vertical = Input.GetAxis("Vertical");
+		// --- MODIFIKASI HYBRID: Membaca input Analog (Mobile) atau Keyboard (Laptop) ---
+		float horizontal = 0f;
+		float vertical = 0f;
+
+		if (joystick != null)
+		{
+			horizontal = joystick.Horizontal;
+			vertical = joystick.Vertical;
+		}
+		else
+		{
+			horizontal = Input.GetAxis("Horizontal");
+			vertical = Input.GetAxis("Vertical");
+		}
+		// ------------------------------------------------------------------------------
 
 		if (horizontal > 0 && transform.localScale.x < 0 ||
 		horizontal < 0 && transform.localScale.x > 0)
@@ -35,12 +53,12 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		}
 
-        // --- MODIFIKASI: Hanya update animasi jika TIDAK sedang menanam ---
-        if (!isPlanting) 
-        {
-            anim.SetFloat("horizontal", Mathf.Abs(horizontal));
-            anim.SetFloat("vertical", vertical);
-        }
+		// --- MODIFIKASI TIMMU: Hanya update animasi jika TIDAK sedang menanam ---
+		if (!isPlanting)
+		{
+			anim.SetFloat("horizontal", Mathf.Abs(horizontal));
+			anim.SetFloat("vertical", vertical);
+		}
 
 		rb.linearVelocity = new Vector2(horizontal, vertical) * speed;
 	}
@@ -61,22 +79,24 @@ public class PlayerMovement : MonoBehaviour
 				Flip();
 			}
 
-            // --- MODIFIKASI ---
-            if (!isPlanting) {
-			    anim.SetFloat("horizontal", Mathf.Abs(direction.x));
-			    anim.SetFloat("vertical", direction.y);
-            }
+			// --- MODIFIKASI TIMMU ---
+			if (!isPlanting)
+			{
+				anim.SetFloat("horizontal", Mathf.Abs(direction.x));
+				anim.SetFloat("vertical", direction.y);
+			}
 		}
 		else
 		{
 			rb.linearVelocity = Vector2.zero;
-			isMovingToTarget = false; 
+			isMovingToTarget = false;
 
-            // --- MODIFIKASI ---
-            if (!isPlanting) {
-			    anim.SetFloat("horizontal", 0);
-			    anim.SetFloat("vertical", 0);
-            }
+			// --- MODIFIKASI TIMMU ---
+			if (!isPlanting)
+			{
+				anim.SetFloat("horizontal", 0);
+				anim.SetFloat("vertical", 0);
+			}
 
 			if (onReachTargetAction != null)
 			{
