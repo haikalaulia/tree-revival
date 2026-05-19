@@ -12,6 +12,12 @@ public class SoilClick : MonoBehaviour
 
 	private void OnMouseDown()
 	{
+		// Jika mouse sedang berada di atas objek UI (tombol, panel, dll), 
+        // batalkan fungsi klik tanah ini.
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return; 
+        }
 		// ========================================================
 		// PERBAIKAN: CEK APAKAH PANEL INTRO SEDANG TERBUKA
 		// ========================================================
