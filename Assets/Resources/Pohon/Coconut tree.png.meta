@@ -216,7 +216,7 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 96
-        width: 96
+        width: 32
         height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -584,6 +584,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Coconut tree_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d60ac1b0ef66b41a73b7d9a1c42ed1
+      internalID: -361592308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coconut tree_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da6d78d94e21564a9e75ca06c899def
+      internalID: 1238946044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -611,7 +655,9 @@ TextureImporter:
       Coconut tree_16: -2496222391176119881
       Coconut tree_17: 5009719739912559576
       Coconut tree_18: 7683762213839235327
+      Coconut tree_19: -361592308
       Coconut tree_2: -481021601936317175
+      Coconut tree_20: 1238946044
       Coconut tree_3: -4066960731720779587
       Coconut tree_4: -5040086963035590352
       Coconut tree_5: 708036599079901922
