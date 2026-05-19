@@ -3227,7 +3227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -289.6839, y: -12.039993}
+  m_AnchoredPosition: {x: -289.6839, y: -12.039978}
   m_SizeDelta: {x: 118.7356, y: 21.539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172017676
@@ -5911,7 +5911,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 11492551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.3575644}
+  m_AnchorMin: {x: 0, y: 0.35756436}
   m_AnchorMax: {x: 1, y: 0.64243555}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -8518,7 +8518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraZoom
   zoomSpeed: 5
   minZoom: 3
-  maxZoom: 12
+  maxZoom: 15
   smoothness: 10
 --- !u!1 &525515598
 GameObject:
@@ -8680,10 +8680,10 @@ MonoBehaviour:
   maxNutrisi: 100
   minSuhuDerajat: 24
   maxSuhuDerajat: 31
-  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
-  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
-  prefabDewasa: {fileID: 5745174440478971801, guid: bad36dd546f459f40a3be706923ef470, type: 3}
-  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
+  prefabBibit: {fileID: 5432552141017690075, guid: be3076de71fb9174b9ff98bebae0a414, type: 3}
+  prefabSedang: {fileID: 2872264592383410252, guid: 6c9c80ddd5ec2ac4895638dcc31fe1e2, type: 3}
+  prefabDewasa: {fileID: 3012480368214569396, guid: d3b2e32e0cc267248844be51df5caa99, type: 3}
+  prefabMati: {fileID: 4618969012174779027, guid: 49b1a5e32d8b83d45a4172672edf738c, type: 3}
 --- !u!1 &527471124
 GameObject:
   m_ObjectHideFlags: 0
@@ -10266,7 +10266,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 386944168}
   m_HandleRect: {fileID: 386944167}
   m_Direction: 2
-  m_Value: 0.5
+  m_Value: 0.49999994
   m_Size: 0.2848712
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -95698,8 +95698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cd5f399047c5e40ab958e5ee613420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoilClick
-  dataTanah: {fileID: 11400000, guid: c552fdc14895c894da2e940f79b10019, type: 2}
-  sudahDitanami: 0
+  dataTanah: {fileID: 11400000, guid: ada7276713523ea4994a65028f182618, type: 2}
   posisiGridTanam: {x: 0, y: 0, z: 0}
 --- !u!19719996 &745146787
 TilemapCollider2D:
@@ -96875,7 +96874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -165.61134, y: -12.039993}
+  m_AnchoredPosition: {x: -165.61134, y: -12.039978}
   m_SizeDelta: {x: 129.4131, y: 21.539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &865700460
@@ -100966,7 +100965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -405.39612, y: -12.039993}
+  m_AnchoredPosition: {x: -405.39612, y: -12.039978}
   m_SizeDelta: {x: 112.6827, y: 21.539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204144031
@@ -111851,10 +111850,10 @@ MonoBehaviour:
   maxNutrisi: 100
   minSuhuDerajat: 25
   maxSuhuDerajat: 32
-  prefabBibit: {fileID: 1000591548287725086, guid: 3b42d3e5dcb51614ebe0b08d07beb75f, type: 3}
-  prefabSedang: {fileID: 3010013820823470805, guid: 8d21475c443b1444da9b12e3b38eeb0e, type: 3}
-  prefabDewasa: {fileID: 3526033876048428016, guid: 401c1acf74630e442aab20f693de4a21, type: 3}
-  prefabMati: {fileID: 420301751294758658, guid: ebfd29500c1e4e649a85fd849d09e864, type: 3}
+  prefabBibit: {fileID: 5367604386322143172, guid: 809c4ddb1237a17408dd6d4059d02f08, type: 3}
+  prefabSedang: {fileID: 1382337193963798284, guid: 1195722f7bde8f948898d17da4506019, type: 3}
+  prefabDewasa: {fileID: 6233335334087576584, guid: 9899940b1ede8394188382b9b1dc66dc, type: 3}
+  prefabMati: {fileID: 8158209602079657441, guid: 8c1331821d9e4c142ad3dd34e2293cfb, type: 3}
 --- !u!1 &1933026359
 GameObject:
   m_ObjectHideFlags: 0
