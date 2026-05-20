@@ -753,6 +753,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 246163283085770346, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 594783768619722772, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_text
+      value: 'MISI SELESAI: WILAYAH PESISIR PULIH!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 594783768619722772, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_margin.z
+      value: -45.559265
+      objectReference: {fileID: 0}
+    - target: {fileID: 594783768619722772, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 676803430094798137, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -764,6 +780,10 @@ PrefabInstance:
     - target: {fileID: 1615793221518129515, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.y
       value: 20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007290654449547342, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_text
+      value: PINDAH KE WILAYAH DATARAN TINGGI
       objectReference: {fileID: 0}
     - target: {fileID: 3430623640381032814, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,6 +869,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -13.6
       objectReference: {fileID: 0}
+    - target: {fileID: 7014873390675831114, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014873390675831114, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 137
+      objectReference: {fileID: 0}
     - target: {fileID: 7148264112011626369, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -892,6 +920,10 @@ PrefabInstance:
     - target: {fileID: 8196319036841236756, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272759942872497781, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: namaSceneTujuan
+      value: Scene Map 3 Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

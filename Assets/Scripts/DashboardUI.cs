@@ -66,11 +66,24 @@ public class DashboardUI : MonoBehaviour
 		if (targetTutupanBar >= 0.99f && !panelSudahMuncul)
 		{
 			if (panelPindahWilayah != null)
-			{
-				panelPindahWilayah.SetActive(true);
-				panelSudahMuncul = true;
-				Time.timeScale = 0f;
-			}
+    {
+        	panelPindahWilayah.SetActive(true);
+        
+        	// --- TAMBAHKAN BARIS INI AGAR STATISTIK TERISI OTOMATIS ---
+        	// Mencari teks bernama "statistik" di dalam panel
+        	TextMeshProUGUI txtStat = panelPindahWilayah.transform.Find("statistik").GetComponent<TextMeshProUGUI>();
+        	if(txtStat != null)
+        	{
+            	txtStat.text = "Hasil Restorasi:\n" + 
+                           "- CO2 Teresorbsi: " + ui.totalCO2.ToString("F0") + " Kg\n" +
+                           "- Total Pohon: " + ui.jumlahPohon + " Batang\n" +
+                           "- Lapangan Kerja: " + ui.totalLapanganKerja + " Orang";
+        }
+        	// ---------------------------------------------------------
+
+        	panelSudahMuncul = true;
+        	Time.timeScale = 0f;
+    		}
 		}
 
 		// --- UPDATE TEKS PERSENTASE ---
@@ -111,4 +124,25 @@ public class DashboardUI : MonoBehaviour
 		Time.timeScale = 1f;
 		SceneManager.LoadScene(namaSceneTujuan);
 	}
+
+	public void TombolStayKlik()
+    {
+        // 1. Sembunyikan panel popup-nya
+        if (panelPindahWilayah != null) 
+            panelPindahWilayah.SetActive(false);
+            
+        // 2. Jalankan kembali waktu game (Pause dimatikan)
+        Time.timeScale = 1f;
+
+        // 3. Matikan flag agar panel ini tidak muncul terus-menerus
+        panelSudahMuncul = true; 
+
+        Debug.Log("Pemain memilih untuk tetap merawat Arbor Valley di level ini.");
+    }
+
+	public void KeluarPermainan()
+    {
+        Debug.Log("Game Tamat! Keluar dari aplikasi...");
+        Application.Quit(); // Menutup game (hanya berfungsi di hasil build .exe/.apk)
+    }
 }
