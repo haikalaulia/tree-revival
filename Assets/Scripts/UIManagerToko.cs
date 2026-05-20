@@ -37,6 +37,7 @@ public class UIManagerToko : MonoBehaviour
 	public float totalAir = 0;
 	public int totalLapanganKerja = 0;
 	public int jmlBerbuah = 0;
+	public int jmlPohonPenjaga = 0;
 	public bool adaPeneliti = false;
 
 	[Header("Sistem Luas Lahan")]
@@ -218,9 +219,13 @@ public class UIManagerToko : MonoBehaviour
 		totalCO2 += info.co2PerPohon * multiplier;
 		totalAir += info.airPerPohon;
 
-		if (info.jenisPohon == JenisPohon.Berbuah)
+		if (info.jenisPohon == JenisPohon.PenjagaHutan)
 		{
-			jmlBerbuah++;
+			jmlPohonPenjaga++; // Hitung pohon pelindung (Mahoni, Jati, dll)
+		}
+		else if (info.jenisPohon == JenisPohon.Berbuah)
+		{
+			jmlBerbuah++; // Hitung pohon buah (Mangga, Kelapa, dll)
 		}
 
 		GameObject folder = GameObject.Find("pohon");

@@ -94,7 +94,7 @@ public class DashboardUI : MonoBehaviour
 		txtPekerjaan.text = ui.totalLapanganKerja + " Orang";
 
 		if (txtJmlPenjaga != null)
-			txtJmlPenjaga.text = "Penjaga: " + ui.jmlPenjaga + " / " + gdm.targetPenjaga;
+			txtJmlPenjaga.text = "Penjaga: " + ui.jmlPohonPenjaga + " / " + gdm.targetPenjaga;
 
 		if (txtJmlBuah != null)
 			txtJmlBuah.text = "Berbuah: " + ui.jmlBerbuah + " / " + gdm.targetBuah;
