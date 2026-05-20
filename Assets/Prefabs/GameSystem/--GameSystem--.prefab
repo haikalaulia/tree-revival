@@ -24124,8 +24124,8 @@ MonoBehaviour:
   barPekerjaan: {fileID: 4802069792655064725}
   smoothSpeed: 3
   targetPersenHutan: 0.05
-  targetCO2Max: 300
-  targetAirMax: 5000
+  targetCO2Max: 350
+  targetAirMax: 8000
   targetPekerjaanMax: 20
   panelPindahWilayah: {fileID: 246163283085770346}
   panelSudahMuncul: 0
@@ -24397,10 +24397,10 @@ MonoBehaviour:
   - {fileID: 5351687784418858846}
   - {fileID: 1615793221518129515}
   manager: {fileID: 997422482521151041}
-  maxLawanDiMap: 4
-  jedaKritis: 25
-  jedaWaspada: 60
-  jedaAman: 120
+  maxLawanDiMap: 1
+  jedaKritis: 50
+  jedaWaspada: 80
+  jedaAman: 130
 --- !u!1 &7232666350227746405
 GameObject:
   m_ObjectHideFlags: 0

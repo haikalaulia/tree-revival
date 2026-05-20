@@ -773,6 +773,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 997422482521151041, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: maxPetani
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 997422482521151041, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: maxPemandu
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 997422482521151041, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: maxPenjaga
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 997422482521151041, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: uangPemain
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 997422482521151041, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: maxPeneliti
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1615793221518129515, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.6
@@ -881,6 +901,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7726615639101639595, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 909921671}
+    - target: {fileID: 7726615639101639595, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: deadlineHari
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8196319036841236756, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x
       value: 222.8116
@@ -922,8 +950,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8272759942872497781, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: targetAirMax
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272759942872497781, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: targetCO2Max
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272759942872497781, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: namaSceneTujuan
       value: Scene Map 3 Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272759942872497781, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: targetPersenHutan
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272759942872497781, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: targetPekerjaanMax
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139858644856503208, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: jedaAman
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139858644856503208, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: jedaKritis
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139858644856503208, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: jedaWaspada
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139858644856503208, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: maxLawanDiMap
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6380,6 +6380,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 641225930}
+    - target: {fileID: 7726615639101639595, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: deadlineHari
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726615639101639595, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: batasHariGagal
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8196319036841236756, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x
       value: 163.25081
