@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1228b5e8b46cd6e40ac1cec996da7f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCFollower
-  targetYangDiikuti: {fileID: 351201344555432403}
+  targetYangDiikuti: {fileID: 0}
   speed: 1.4
   jarakBerhenti: 0.8
 --- !u!95 &5055332256249473500
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1228b5e8b46cd6e40ac1cec996da7f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCFollower
-  targetYangDiikuti: {fileID: 7655128940230727442}
+  targetYangDiikuti: {fileID: 0}
   speed: 1.4
   jarakBerhenti: 1
 --- !u!95 &6143145116514799494
