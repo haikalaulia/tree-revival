@@ -102,12 +102,28 @@ public class UIManagerToko : MonoBehaviour
 	public string AmbilStatusWilayah()
 	{
 		if (luasLahanTotal <= 0) return "DATA ERROR";
-		float persen = (totalLuasTajuk / luasLahanTotal) * 100f;
 
-		if (persen < 25 || AmbilPersenPenjaga() < 60) return "KRITIS";
-		if (persen < 50) return "WASPADA";
-		if (persen < 75) return "AMAN";
-		return "OPTIMAL";
+		// 1. HITUNG SKOR LINGKUNGAN (Hanya 3 Faktor Alam)
+		// Kita bagi dengan target agar mendapatkan nilai 0.0 - 1.0
+		float skorTutupan = (totalLuasTajuk / luasLahanTotal) / 0.05f;
+		float skorCO2 = totalCO2 / 300f;
+		float skorAir = totalAir / 5000f;
+
+		// 2. PEMBATAS (Clamp)
+		skorTutupan = Mathf.Clamp01(skorTutupan);
+		skorCO2 = Mathf.Clamp01(skorCO2);
+		skorAir = Mathf.Clamp01(skorAir);
+
+		// 3. HITUNG RATA-RATA DARI 3 FAKTOR (Tanpa Pekerjaan)
+		float rataRataSkor = (skorTutupan + skorCO2 + skorAir) / 3f;
+		float persenFinal = rataRataSkor * 100f;
+
+		// 4. SYARAT STATUS YANG LEBIH KETAT (Ditingkatkan angkanya)
+		// Sebelumnya AMAN di 50%, sekarang kita naikkan standarnya
+		if (persenFinal < 35) return "KRITIS";   // 0 - 34%
+		if (persenFinal < 70) return "WASPADA";  // 35 - 69%
+		if (persenFinal < 90) return "AMAN";     // 70 - 89% (Butuh perjuangan lebih)
+		return "OPTIMAL";                        // > 90%
 	}
 
 	// --- FUNGSI UI & SISTEM ---
