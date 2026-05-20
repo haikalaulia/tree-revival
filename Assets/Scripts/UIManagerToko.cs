@@ -140,23 +140,41 @@ public class UIManagerToko : MonoBehaviour
 
 	void HitungLuasLahanOtomatis()
 	{
-		GameObject objekGround = GameObject.Find("ground");
-		if (objekGround != null)
+		// Mencari SEMUA objek yang memiliki komponen Tilemap di scene
+		Tilemap[] semuaTilemap = FindObjectsByType<Tilemap>(FindObjectsSortMode.None);
+		int jumlahTileTotal = 0;
+
+		foreach (Tilemap tm in semuaTilemap)
 		{
-			Tilemap tilemapGround = objekGround.GetComponent<Tilemap>();
-			if (tilemapGround != null)
+			// Cek apakah nama objek mengandung kata "ground" 
+			// (Ini akan otomatis mendeteksi ground_rendah dan ground_pesisir)
+			if (tm.name.ToLower().Contains("ground"))
 			{
-				int jumlahTile = 0;
-				tilemapGround.CompressBounds();
-				BoundsInt bounds = tilemapGround.cellBounds;
+				tm.CompressBounds();
+				BoundsInt bounds = tm.cellBounds;
+
+				// Hitung setiap kotak/tile yang terisi gambarnya
 				foreach (var pos in bounds.allPositionsWithin)
 				{
-					if (tilemapGround.HasTile(pos)) jumlahTile++;
+					if (tm.HasTile(pos)) jumlahTileTotal++;
 				}
-				float nilaiPerTile = 10000f / 3000f;
-				luasLahanTotal = jumlahTile * nilaiPerTile;
-				targetSerapanAir = luasLahanTotal * 2f;
 			}
+		}
+
+		// Hitung luas berdasarkan total tile yang terkumpul dari semua layer ground
+		if (jumlahTileTotal > 0)
+		{
+			float nilaiPerTile = 10000f / 3000f;
+			luasLahanTotal = jumlahTileTotal * nilaiPerTile;
+			targetSerapanAir = luasLahanTotal * 2f;
+
+			Debug.Log("<color=green><b>[SISTEM TILE MULTI-LAYER]</b></color>");
+			Debug.Log("Total Tile Terdeteksi: " + jumlahTileTotal);
+			Debug.Log("Luas Lahan Gabungan: " + (luasLahanTotal / 10000f).ToString("F2") + " Ha");
+		}
+		else
+		{
+			Debug.LogError("UIManagerToko: Tidak menemukan objek dengan nama mengandung 'ground'!");
 		}
 	}
 
