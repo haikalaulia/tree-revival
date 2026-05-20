@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8261215009535988808}
   - component: {fileID: 482133813649884662}
   - component: {fileID: 1183552815891054237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rasamala_Bibit
   m_TagString: Pohon
   m_Icon: {fileID: 0}

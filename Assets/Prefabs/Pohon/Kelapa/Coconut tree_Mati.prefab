@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8666692266053662596}
   - component: {fileID: 3588594771280356911}
   - component: {fileID: 6029251635584885247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coconut tree_Mati
   m_TagString: Pohon
   m_Icon: {fileID: 0}

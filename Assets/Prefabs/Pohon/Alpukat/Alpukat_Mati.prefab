@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6078011199329202853}
   - component: {fileID: 907845635962618485}
   - component: {fileID: 4676321182074531001}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alpukat_Mati
   m_TagString: Pohon
   m_Icon: {fileID: 0}

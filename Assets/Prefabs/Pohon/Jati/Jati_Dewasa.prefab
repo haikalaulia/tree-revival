@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8777877856636313838}
   - component: {fileID: 5694954456600559644}
   - component: {fileID: 8761917194569608602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jati_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

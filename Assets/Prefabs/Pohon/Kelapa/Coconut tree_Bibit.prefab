@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8737810158355131455}
   - component: {fileID: 2933202725066324822}
   - component: {fileID: 5233477529209311589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coconut tree_Bibit
   m_TagString: Pohon
   m_Icon: {fileID: 0}

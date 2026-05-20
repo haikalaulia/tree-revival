@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4540194102041191366}
   - component: {fileID: 265118684208695331}
   - component: {fileID: 7652212970343450700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trembesi_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

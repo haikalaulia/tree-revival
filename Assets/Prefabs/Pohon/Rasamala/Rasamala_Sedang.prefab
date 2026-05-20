@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6797594577031658432}
   - component: {fileID: 7794131944814790929}
   - component: {fileID: 5197627594695868204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rasamala_Sedang
   m_TagString: Pohon
   m_Icon: {fileID: 0}

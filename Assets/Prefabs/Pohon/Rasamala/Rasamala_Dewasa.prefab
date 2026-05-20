@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5414559049203532706}
   - component: {fileID: 2373006448906310025}
   - component: {fileID: 2036158145716603711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rasamala_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

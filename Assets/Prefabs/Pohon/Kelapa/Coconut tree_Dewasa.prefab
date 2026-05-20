@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7977526564398752593}
   - component: {fileID: 8598930356182308537}
   - component: {fileID: 3959124393230212675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coconut tree_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

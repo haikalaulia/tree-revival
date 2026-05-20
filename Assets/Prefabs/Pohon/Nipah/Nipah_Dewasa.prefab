@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5922954415717468581}
   - component: {fileID: 5216271821146647746}
   - component: {fileID: 7161484890004035590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nipah_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

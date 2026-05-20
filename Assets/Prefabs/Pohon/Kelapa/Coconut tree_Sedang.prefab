@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2461545283081838421}
   - component: {fileID: 8055889045853014477}
   - component: {fileID: 6808014614120664507}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coconut tree_Sedang
   m_TagString: Pohon
   m_Icon: {fileID: 0}

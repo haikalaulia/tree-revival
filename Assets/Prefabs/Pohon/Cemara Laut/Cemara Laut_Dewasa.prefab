@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 653304288319871596}
   - component: {fileID: 5338373650996857177}
   - component: {fileID: 2909120413129286452}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cemara Laut_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

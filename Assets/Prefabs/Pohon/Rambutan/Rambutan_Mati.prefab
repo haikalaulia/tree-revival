@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4505739810211139798}
   - component: {fileID: 8248785265523883543}
   - component: {fileID: 6836069982581293101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rambutan_Mati
   m_TagString: Pohon
   m_Icon: {fileID: 0}

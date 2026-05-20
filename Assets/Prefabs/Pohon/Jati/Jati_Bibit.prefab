@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6591089736358126802}
   - component: {fileID: 3632927027160824388}
   - component: {fileID: 7347597795369920638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jati_Bibit
   m_TagString: Pohon
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2362653347001228802}
   - component: {fileID: 7672504331666370011}
   - component: {fileID: 2836959012413827147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Durian_Bibit
   m_TagString: Pohon
   m_Icon: {fileID: 0}

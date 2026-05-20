@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2229229834746346972}
   - component: {fileID: 3396962280288507514}
   - component: {fileID: 8486857339955692288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mango Tree_Bibit
   m_TagString: Pohon
   m_Icon: {fileID: 0}
