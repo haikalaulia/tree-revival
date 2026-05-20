@@ -1,53 +1,115 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class NPCFarmer : MonoBehaviour
 {
-    public UIManagerToko manager;
-    public int uangPerPohonBerbuah = 100; // Satu pohon berbuah menghasilkan Rp 100
-    public GameObject dialogCanvas;
+    [Header("Pengaturan Ekonomi")]
+    public int pendapatanPerPohon = 100;
+    private int hariTerakhirGajian = 0;
 
-    private int hariTerakhirDibayar = 0;
+    [Header("Pengaturan Gerak (Patroli)")]
+    public float speed = 1.2f;
+    public float radiusPatroli = 4f; 
+    public float waktuDiam = 3f;
+    private Vector3 posisiAwal;
+    private Vector3 targetTujuan;
+    private float timerDiam;
+    private bool sedangJalan = false;
+
+    [Header("Referensi")]
+    private UIManagerToko manager;
+    private Animator anim;
+    public GameObject dialogCanvas;
+    public TMPro.TMP_Text txtDialog;
 
     void Start()
     {
         manager = FindFirstObjectByType<UIManagerToko>();
-        if(dialogCanvas != null) dialogCanvas.SetActive(false);
+        anim = GetComponent<Animator>();
+        posisiAwal = transform.position;
         
-        // Daftarkan hari saat dia mulai bekerja
-        hariTerakhirDibayar = manager.hariKe;
+        if(dialogCanvas != null) dialogCanvas.SetActive(false);
+        if (manager != null) hariTerakhirGajian = manager.hariKe;
+
+        CariTujuanBaru();
     }
 
     void Update()
     {
-        // LOGIKA: Setiap kali hari berganti, berikan uang hasil panen
-        if (manager.hariKe > hariTerakhirDibayar)
+        if (manager == null) return;
+
+        // 1. LOGIKA GAJIAN (Harian)
+        if (manager.hariKe > hariTerakhirGajian)
         {
-            KasihHasilPanen();
-            hariTerakhirDibayar = manager.hariKe;
+            BerikanHasilPanen();
+            hariTerakhirGajian = manager.hariKe;
+        }
+
+        // 2. LOGIKA GERAK PATROLI
+        float jarakKeTujuan = Vector2.Distance(transform.position, targetTujuan);
+
+        if (jarakKeTujuan > 0.1f)
+        {
+            sedangJalan = true;
+            transform.position = Vector2.MoveTowards(transform.position, targetTujuan, speed * Time.deltaTime);
+
+            // Update Animasi
+            Vector2 arah = (targetTujuan - transform.position).normalized;
+            UpdateAnimation(arah, true);
+        }
+        else
+        {
+            // Sudah sampai: Berhenti sejenak
+            sedangJalan = false;
+            UpdateAnimation(Vector2.zero, false);
+
+            timerDiam += Time.deltaTime;
+            if (timerDiam >= waktuDiam)
+            {
+                CariTujuanBaru();
+                timerDiam = 0;
+            }
         }
     }
 
-    void KasihHasilPanen()
+    void CariTujuanBaru()
     {
-        // Hitung: Jumlah pohon berbuah x Rp 100
-        int totalHasil = manager.jmlBerbuah * uangPerPohonBerbuah;
-        
-        if (totalHasil > 0)
+        // Petani akan berkeliling secara acak di sekitar titik spawn-nya
+        float acakX = Random.Range(-radiusPatroli, radiusPatroli);
+        float acakY = Random.Range(-radiusPatroli, radiusPatroli);
+        targetTujuan = posisiAwal + new Vector3(acakX, acakY, 0);
+    }
+
+    void BerikanHasilPanen()
+    {
+        int totalDuit = manager.jmlBerbuah * pendapatanPerPohon;
+        if (totalDuit > 0)
         {
-            manager.uangPemain += totalHasil;
-            Debug.Log("Petani: Berhasil panen! Kamu dapat Rp " + totalHasil);
-            // Nanti bisa tambah teks melayang "+ Rp XXX" di atas kepala petani
+            manager.uangPemain += totalDuit;
+            if(txtDialog != null) txtDialog.text = "Hasil panen hari ini: Rp " + totalDuit + "!";
         }
     }
 
-    // Interaksi dialog standar
+    void UpdateAnimation(Vector2 arah, bool isWalking)
+    {
+        if (anim != null)
+        {
+            anim.SetBool("isWalking", isWalking);
+            if (isWalking)
+            {
+                anim.SetFloat("moveX", arah.x);
+                anim.SetFloat("moveY", arah.y);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) dialogCanvas.SetActive(true);
+        if (other.CompareTag("Player") && dialogCanvas != null) dialogCanvas.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) dialogCanvas.SetActive(false);
+        if (other.CompareTag("Player") && dialogCanvas != null) dialogCanvas.SetActive(false);
     }
 }
