@@ -99,6 +99,7 @@ MonoBehaviour:
   prefabNPC: {fileID: 9066498279912612198, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
   daftarLokasiMuncul:
   - {fileID: 3430623640381032814}
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 2793314276637519843}
 --- !u!1 &33952144228073366
 GameObject:
@@ -16694,6 +16695,7 @@ MonoBehaviour:
   prefabNPC: {fileID: 5990260537048033093, guid: a1cc1a6b710e8e84d8d8aac5757a6dc0, type: 3}
   daftarLokasiMuncul:
   - {fileID: 5443798329834723783}
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 5666737582286780947}
 --- !u!1 &4747784663819809488
 GameObject:
@@ -21554,7 +21556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9ab72e56d088b419141ffcf855dad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameDisasterManager
-  deadlineHari: 15
+  deadlineHari: 10
   targetJumlahPohon: 10
   targetAir: 5000
   targetCO2: 300
@@ -24867,6 +24869,7 @@ MonoBehaviour:
   prefabNPC: {fileID: 283559322854013802, guid: a6ed45876fe5fcd408a88e0b9414bbec, type: 3}
   daftarLokasiMuncul:
   - {fileID: 6567248693042291194}
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 7061062430561228435}
 --- !u!1 &7522161043265352242
 GameObject:
@@ -28079,6 +28082,7 @@ MonoBehaviour:
   daftarLokasiMuncul:
   - {fileID: 4010125386909303576}
   - {fileID: 5588791925624615169}
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 6696975186704749287}
 --- !u!1 &8459141675446681016
 GameObject:
