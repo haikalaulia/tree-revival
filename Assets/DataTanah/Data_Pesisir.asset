@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d231d58f1afba74888c82a715c55692, type: 3}
   m_Name: Data_Pesisir
   m_EditorClassIdentifier: Assembly-CSharp::SoilProperty
-  namaWilayah: 
-  kelembapan: 0
-  nutrisi: 0
-  suhu: 0
+  namaWilayah: Pesisir
+  kelembapan: 85
+  nutrisi: 50
+  suhu: 30
