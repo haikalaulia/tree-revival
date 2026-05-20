@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
+using NUnit.Framework.Internal;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DashboardUI : MonoBehaviour
 {
@@ -105,6 +106,6 @@ public class DashboardUI : MonoBehaviour
 	public void TombolLanjutKlik()
 	{
 		Time.timeScale = 1f;
-		SceneManager.LoadScene(namaSceneTujuan);
+		SceneManager.LoadScene("Scene Map 2 Test");
 	}
 }
