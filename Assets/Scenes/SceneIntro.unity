@@ -1809,7 +1809,8 @@ MonoBehaviour:
   namaNPC: Penjaga
   hargaRekrut: 3000
   prefabNPC: {fileID: 8190646364365268440, guid: ad587bfc7ccd6f8488b0861f8d55bafe, type: 3}
-  lokasiMuncul: {fileID: 577418307}
+  daftarLokasiMuncul: []
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 420667829}
 --- !u!114 &86206024
 MonoBehaviour:
@@ -2317,7 +2318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Buah: 40%'
+  m_text: 'Buah: 40'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 897953a296e09a9448e68357821b0b86, type: 2}
   m_sharedMaterial: {fileID: -8457833733278100095, guid: 897953a296e09a9448e68357821b0b86, type: 2}
@@ -3216,7 +3217,8 @@ MonoBehaviour:
   namaNPC: Pemandu
   hargaRekrut: 2500
   prefabNPC: {fileID: 9066498279912612198, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-  lokasiMuncul: {fileID: 527471125}
+  daftarLokasiMuncul: []
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 371224418}
 --- !u!114 &186509644
 MonoBehaviour:
@@ -12028,7 +12030,8 @@ MonoBehaviour:
   namaNPC: Petani
   hargaRekrut: 1500
   prefabNPC: {fileID: 5990260537048033093, guid: a1cc1a6b710e8e84d8d8aac5757a6dc0, type: 3}
-  lokasiMuncul: {fileID: 1520542269}
+  daftarLokasiMuncul: []
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 2009127830}
 --- !u!114 &722814501
 MonoBehaviour:
@@ -95557,7 +95560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cd5f399047c5e40ab958e5ee613420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoilClick
-  dataTanah: {fileID: 11400000, guid: c552fdc14895c894da2e940f79b10019, type: 2}
+  dataTanah: {fileID: 11400000, guid: ada7276713523ea4994a65028f182618, type: 2}
   posisiGridTanam: {x: 0, y: 0, z: 0}
 --- !u!19719996 &745146787
 TilemapCollider2D:
@@ -97012,7 +97015,7 @@ MonoBehaviour:
   textInstruksi: {fileID: 1453873636}
   targetTanah: {fileID: 263055183}
   targetBtnToko: {fileID: 682572110}
-  targetBtnBeliBibit: {fileID: 0}
+  targetBtnBeliBibit: {fileID: 1370311918}
   targetBtnBukaDashboard: {fileID: 865700459}
   targetIsiDashboard: {fileID: 1678272712}
 --- !u!4 &881626810
@@ -97463,7 +97466,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 921768773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 881626809}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: MulaiStep1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &921768773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98868,7 +98883,7 @@ MonoBehaviour:
   - {fileID: 1887098892}
   uangPemain: 10000
   jumlahPohon: 0
-  hariKe: 1
+  hariKe: 60
   jmlPeneliti: 0
   jmlPetani: 0
   jmlPenjaga: 0
@@ -98885,6 +98900,7 @@ MonoBehaviour:
   totalAir: 0
   totalLapanganKerja: 0
   jmlBerbuah: 0
+  jmlPohonPenjaga: 0
   adaPeneliti: 0
   luasLahanTotal: 0
   totalLuasTajuk: 0
@@ -107633,7 +107649,8 @@ MonoBehaviour:
   namaNPC: Peneliti
   hargaRekrut: 2000
   prefabNPC: {fileID: 283559322854013802, guid: a6ed45876fe5fcd408a88e0b9414bbec, type: 3}
-  lokasiMuncul: {fileID: 1956337405}
+  daftarLokasiMuncul: []
+  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 1399777488}
 --- !u!114 &1617824821
 MonoBehaviour:
@@ -108268,6 +108285,7 @@ MonoBehaviour:
   barAir: {fileID: 680217352}
   barPekerjaan: {fileID: 200551987}
   smoothSpeed: 2
+  targetPersenHutan: 0.05
   targetCO2Max: 1000
   targetAirMax: 100000
   targetPekerjaanMax: 50
@@ -108281,6 +108299,8 @@ MonoBehaviour:
   txtStatus: {fileID: 167121493}
   txtPersenPenjaga: {fileID: 2099943878}
   txtPersenBuah: {fileID: 121478724}
+  txtJmlPenjaga: {fileID: 0}
+  txtJmlBuah: {fileID: 0}
 --- !u!114 &1678272714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119973,7 +119993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Penjaga: 60%
+  m_text: 'Penjaga: 60
 
 '
   m_isRightToLeft: 0

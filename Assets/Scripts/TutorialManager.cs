@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // WAJIB ADA untuk menggunakan TextMeshPro
-using UnityEngine.SceneManagement; // WAJIB ADA untuk memindahkan Scene di akhir tutorial
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -11,12 +11,12 @@ public class TutorialManager : MonoBehaviour
 	public GameObject tutorialGuideObject;
 	public TextMeshProUGUI textInstruksi;
 
-	[Header("Target Positions")]
+	[Header("Target Positions (Atur Offset di bawah)")]
 	public Transform targetTanah;
-	public RectTransform targetBtnToko;        // Tombol Tanam (Panel Analisis)
-	public RectTransform targetBtnBeliBibit;    // Tombol Beli Mangrove (Panel Toko)
-	public RectTransform targetBtnBukaDashboard;// Tombol untuk membuka Dashboard (Hijau di pojok kanan atas)
-	public RectTransform targetIsiDashboard;    // Panel Informasi Dashboard yang muncul setelah diklik
+	public RectTransform targetBtnToko;
+	public RectTransform targetBtnBeliBibit;
+	public RectTransform targetBtnBukaDashboard;
+	public RectTransform targetIsiDashboard;
 
 	private int currentStep = 0;
 	private Camera mainCamera;
@@ -33,34 +33,35 @@ public class TutorialManager : MonoBehaviour
 
 	void Update()
 	{
-		if (!tutorialGuideObject.activeSelf) return;
+		if (tutorialGuideObject == null || !tutorialGuideObject.activeSelf) return;
 
-		// Step 1: Mengikuti posisi tanah di World Space
+		// Step 1: Posisi di Tanah
 		if (currentStep == 1 && targetTanah != null)
 		{
 			Vector3 screenPos = mainCamera.WorldToScreenPoint(targetTanah.position);
 			tutorialGuideObject.transform.position = screenPos + new Vector3(0, 120, 0);
 		}
 
-		// Step 2: Mengunci posisi di Tombol Tanam (Panel Analisis)
+		// Step 2: Posisi di Tombol Tanam
 		if (currentStep == 2 && targetBtnToko != null)
 		{
 			tutorialGuideObject.transform.position = targetBtnToko.position + new Vector3(-80f, 0f, 0);
 		}
 
-		// Step 3: Mengunci posisi di Tombol Beli Mangrove (Panel Toko)
+		// Step 3: Posisi di Tombol Beli Bibit
 		if (currentStep == 3 && targetBtnBeliBibit != null)
 		{
-			tutorialGuideObject.transform.position = targetBtnBeliBibit.position + new Vector3(0f, 60f, 0);
+			// UBAH ANGKA INI UNTUK MENGGESER PANAH BIBIT
+			tutorialGuideObject.transform.position = targetBtnBeliBibit.position + new Vector3(-50f, 0f, 0);
 		}
 
-		// Step 4: Menunjuk Tombol Buka Dashboard (Pojok Kanan Atas)
+		// Step 4: Posisi di Tombol Dashboard
 		if (currentStep == 4 && targetBtnBukaDashboard != null)
 		{
 			tutorialGuideObject.transform.position = targetBtnBukaDashboard.position + new Vector3(-80f, 0f, 0);
 		}
 
-		// Step 5: Menunjuk ke Isi Informasi Dashboard (Menggunakan koordinat pas dari kamu)
+		// Step 5: Posisi di Isi Dashboard
 		if (currentStep == 5 && targetIsiDashboard != null)
 		{
 			tutorialGuideObject.transform.position = targetIsiDashboard.position + new Vector3(-200f, -60f, 0);
@@ -92,37 +93,31 @@ public class TutorialManager : MonoBehaviour
 		}
 	}
 
-	// Dipanggil saat Tombol Beli Mangrove diklik
 	public void SelesaiStep3()
 	{
 		if (currentStep == 3)
 		{
 			currentStep = 4;
 			if (textInstruksi != null) textInstruksi.text = "Pohon berhasil ditanam! Sekarang, klik tombol <b>Dashboard</b> untuk melihat status kondisi lingkungan lahanmu!";
-			Debug.Log("Masuk ke Step 4: Suruh klik Dashboard");
 		}
 	}
 
-	// SINKRONISASI BARU: Fungsi tunggal untuk mengontrol klik tombol Dashboard
 	public void KlikTombolDashboard()
 	{
-		// KLIK PERTAMA (Saat masih Step 4): Membuka panel & mengubah instruksi ke edukasi bencana
 		if (currentStep == 4)
 		{
 			currentStep = 5;
 			if (textInstruksi != null)
-				textInstruksi.text = "Perhatikan Dashboard! Pastikan Rasio Pohon Penjaga tetap 60% dan Total Air memenuhi target lahan agar tidak terjadi Bencana Alam! \n\n<b>(Klik tombol Dashboard sekali lagi untuk menutup dan menyelesaikan tugas)</b>";
-
-			Debug.Log("Masuk ke Step 5: Dashboard Terbuka & Edukasi Aktif");
-			return; // Ditahan dulu di sini agar tidak langsung ganti scene pada klik pertama
+				textInstruksi.text = "Periksa Dashboard! Capai target Tutupan Lahan minimal 60% dan pastikan ketersediaan Air cukup untuk menjaga lingkungan dari risiko bencana! \n\n(Klik tombol Dashboard sekali lagi untuk menutup dan menyelesaikan tugas";
+			return;
 		}
 
-		// KLIK KEDUA (Saat sudah Step 5): Menutup panel, menamatkan tutorial, lalu pindah scene!
 		if (currentStep == 5)
 		{
 			if (tutorialGuideObject != null) tutorialGuideObject.SetActive(false);
-			Debug.Log("Tutorial tamat sepenuhnya via tombol Dashboard! Memuat SampleScene utama...");
-			SceneManager.LoadScene("SampleScene");
+
+			// Ubah nama scene di dalam tanda petik di bawah ini:
+			SceneManager.LoadScene("Scene Map 1 Test");
 		}
 	}
 }
