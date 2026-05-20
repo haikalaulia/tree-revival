@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCResearcher
   speed: 1.5
-  radiusPatroli: 8
+  radiusPatroli: 16
   waktuDiam: 4
   globalManager: {fileID: 0}
   dialogCanvas: {fileID: 2848078540274843267}
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 283559322854013802}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7d6c32dd08e21934aba3fd1befd821ef, type: 2}
+  m_Controller: {fileID: 9100000, guid: a4cc3abf36dfb664f827c2f5dd1246ef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

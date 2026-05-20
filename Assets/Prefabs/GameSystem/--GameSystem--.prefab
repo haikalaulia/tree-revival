@@ -97,7 +97,8 @@ MonoBehaviour:
   namaNPC: Pemandu
   hargaRekrut: 2500
   prefabNPC: {fileID: 9066498279912612198, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
-  daftarLokasiMuncul: []
+  daftarLokasiMuncul:
+  - {fileID: 3430623640381032814}
   tombolRekrut: {fileID: 2793314276637519843}
 --- !u!1 &33952144228073366
 GameObject:
@@ -16691,7 +16692,8 @@ MonoBehaviour:
   namaNPC: Petani
   hargaRekrut: 1500
   prefabNPC: {fileID: 5990260537048033093, guid: a1cc1a6b710e8e84d8d8aac5757a6dc0, type: 3}
-  daftarLokasiMuncul: []
+  daftarLokasiMuncul:
+  - {fileID: 5443798329834723783}
   tombolRekrut: {fileID: 5666737582286780947}
 --- !u!1 &4747784663819809488
 GameObject:
@@ -24863,7 +24865,8 @@ MonoBehaviour:
   namaNPC: Peneliti
   hargaRekrut: 2000
   prefabNPC: {fileID: 283559322854013802, guid: a6ed45876fe5fcd408a88e0b9414bbec, type: 3}
-  daftarLokasiMuncul: []
+  daftarLokasiMuncul:
+  - {fileID: 6567248693042291194}
   tombolRekrut: {fileID: 7061062430561228435}
 --- !u!1 &7522161043265352242
 GameObject:
