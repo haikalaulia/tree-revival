@@ -6276,9 +6276,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 169214957655375163, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_Name
+      value: Titik_Muncul_NPC_PembalakLiar_1
+      objectReference: {fileID: 0}
     - target: {fileID: 676803430094798137, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615793221518129515, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615793221518129515, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 3430623640381032814, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6296,6 +6308,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4180413565095974021, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180413565095974021, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4505357233933897148, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_Name
       value: --GameSystem--
@@ -6303,6 +6323,14 @@ PrefabInstance:
     - target: {fileID: 5171443247176888539, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351687784418858846, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351687784418858846, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 5443798329834723783, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x

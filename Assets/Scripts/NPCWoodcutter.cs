@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public class NPCWoodcutter : MonoBehaviour
 {
+    [Header("Misi Pembalak")]
+    public int maxPohonBolehDitebang = 1; // Atur berapa pohon yang dicuri sebelum dia pulang
+    private int jumlahSudahDitebang = 0;
+
+    [Header("Pengaturan Gerak")]
     public float speed = 2f;
     public float waktuTebang = 3f; 
     public float waktuSabar = 10f; 
-    
-    // --- TAMBAHAN BARU: SENSOR JARAK ---
-    public float jarakPandangLawan = 5f; // Dia baru lari kalau penjaga berjarak 5 meter
-    // ------------------------------------
+    public float jarakPandangLawan = 5f; 
 
     private float timerSabar;
     private UIManagerToko manager;
@@ -34,28 +36,29 @@ public class NPCWoodcutter : MonoBehaviour
     {
         if (manager == null) return;
 
-        // --- 1. MODIFIKASI LOGIKA DETEKSI PENJAGA (BERDASARKAN JARAK) ---
-        // Cari semua penjaga yang ada di peta
+        // 1. LOGIKA DETEKSI PENJAGA
         NPCGuard[] semuaPenjaga = Object.FindObjectsByType<NPCGuard>(FindObjectsSortMode.None);
-        
         foreach (NPCGuard p in semuaPenjaga)
         {
-            float jarakKePenjaga = Vector2.Distance(transform.position, p.transform.position);
-            
-            // Jika ada satu saja penjaga yang masuk radius jarak pandang
-            if (jarakKePenjaga < jarakPandangLawan)
+            if (Vector2.Distance(transform.position, p.transform.position) < jarakPandangLawan)
             {
                 sedangKabur = true;
             }
         }
 
-        // Jika status sudah "Kabur", laksanakan fungsi pulang
+        // --- TAMBAHAN: CEK KUOTA TEBANG ---
+        // Jika sudah mencapai batas tebang, paksa status jadi sedangKabur agar dia pulang
+        if (jumlahSudahDitebang >= maxPohonBolehDitebang)
+        {
+            sedangKabur = true;
+        }
+        // ---------------------------------
+
         if (sedangKabur)
         {
             JalanPulang();
             return;
         }
-        // ----------------------------------------------------------------
 
         // 2. LOGIKA MENCARI POHON
         if (targetPohon == null)
@@ -65,10 +68,7 @@ public class NPCWoodcutter : MonoBehaviour
             { 
                 BerhentiDiTempat(); 
                 timerSabar += Time.deltaTime;
-                if(timerSabar >= waktuSabar)
-                {
-                    sedangKabur = true;
-                }
+                if(timerSabar >= waktuSabar) sedangKabur = true;
                 return; 
             }
         }
@@ -93,9 +93,31 @@ public class NPCWoodcutter : MonoBehaviour
         }
     }
 
+    System.Collections.IEnumerator ProsesMenebang()
+    {
+        sedangMenebang = true;
+        BerhentiDiTempat(); 
+        
+        Debug.Log("Pembalak mulai menebang...");
+        yield return new WaitForSeconds(waktuTebang);
+
+        if (targetPohon != null)
+        {
+            Destroy(targetPohon.gameObject);
+            manager.jumlahPohon--; 
+
+            // --- TAMBAHAN: HITUNG JUMLAH YANG BERHASIL DITEBANG ---
+            jumlahSudahDitebang++;
+            Debug.Log("Pembalak: Berhasil menebang " + jumlahSudahDitebang + " pohon.");
+            // -----------------------------------------------------
+        }
+
+        sedangMenebang = false;
+        targetPohon = null; 
+    }
+
     void JalanPulang()
     {
-        // Gunakan kecepatan lari 1.5x lebih cepat saat kabur
         float lariCepat = speed * 1.5f;
         float jarakKeGerbang = Vector2.Distance(transform.position, posisiAwal);
 
@@ -116,26 +138,10 @@ public class NPCWoodcutter : MonoBehaviour
         }
     }
 
-    // Fungsi tambahan untuk membantu visualisasi di Editor Unity
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, jarakPandangLawan);
-    }
-
-    // Fungsi lainnya (Menebang, CariPohon, Berhenti) tetap sama
-    System.Collections.IEnumerator ProsesMenebang()
-    {
-        sedangMenebang = true;
-        BerhentiDiTempat(); 
-        yield return new WaitForSeconds(waktuTebang);
-        if (targetPohon != null)
-        {
-            Destroy(targetPohon.gameObject);
-            manager.jumlahPohon--; 
-        }
-        sedangMenebang = false;
-        targetPohon = null; 
     }
 
     void CariPohonPintar()
