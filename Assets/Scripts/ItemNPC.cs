@@ -5,10 +5,13 @@ public class ItemNPC : MonoBehaviour
 {
     public string namaNPC;
     public int hargaRekrut;
-    public GameObject prefabNPC; // Masukkan Prefab NPC dari folder
-    public Transform lokasiMuncul; // Titik di mana NPC akan muncul (misal: gerbang masuk)
+    public GameObject prefabNPC; 
+    
+    [Header("Sistem Banyak Titik Muncul")]
+    public Transform[] daftarLokasiMuncul; // Masukkan Kabin 1 dan Kabin 2 di sini
+    private int indeksLokasiSekarang = 0;
 
-    public Button tombolRekrut; // Tombol untuk merekrut NPC ini
+    public Button tombolRekrut; 
     private UIManagerToko manager; 
 
     void Start() {
@@ -28,15 +31,27 @@ public class ItemNPC : MonoBehaviour
         if (manager.uangPemain >= hargaRekrut && kuotaTersedia) {
             manager.uangPemain -= hargaRekrut;
 
+            // --- LOGIKA PENENTUAN POSISI MUNCUL ---
+            Vector3 posisiTujuan = transform.position; // Default posisi kartu sendiri jika lupa isi kotak
+
+            if (daftarLokasiMuncul.Length > 0)
+            {
+                // Pilih lokasi berdasarkan urutan indeks
+                posisiTujuan = daftarLokasiMuncul[indeksLokasiSekarang].position;
+                
+                // Geser angka indeks untuk pembeli berikutnya (0 -> 1 -> 0)
+                indeksLokasiSekarang = (indeksLokasiSekarang + 1) % daftarLokasiMuncul.Length;
+            }
+            // --------------------------------------
+
+            // Munculkan NPC di posisi kabin yang dipilih
+            Instantiate(prefabNPC, posisiTujuan, Quaternion.identity);
+
             // Tambah angka ke manager sesuai jenis
             if(namaNPC == "Peneliti") { manager.jmlPeneliti++; manager.adaPeneliti = true; }
             else if(namaNPC == "Petani") manager.jmlPetani++;
             else if(namaNPC == "Penjaga") manager.jmlPenjaga++;
             else if(namaNPC == "Pemandu") manager.jmlPemandu++;
-
-            // Munculkan NPC
-            Vector3 posisi = (lokasiMuncul != null) ? lokasiMuncul.position : Vector3.zero;
-            Instantiate(prefabNPC, posisi, Quaternion.identity);
 
             manager.TutupToko(); 
         } else {
@@ -46,21 +61,19 @@ public class ItemNPC : MonoBehaviour
 
     void Update()
     {
-    if (manager == null) return;
+        if (manager == null) return;
 
-    if (namaNPC == "Penjaga")
+        if (namaNPC == "Penjaga")
         {
-        float persen = (manager.totalLuasTajuk / manager.luasLahanTotal) * 100f;
-        if(tombolRekrut != null)
-            tombolRekrut.interactable = (persen >= 40 && manager.uangPemain >= hargaRekrut);
+            float persen = (manager.totalLuasTajuk / manager.luasLahanTotal) * 100f;
+            if(tombolRekrut != null)
+                tombolRekrut.interactable = (persen >= 40 && manager.uangPemain >= hargaRekrut);
         }
-    
-    else if (namaNPC == "Pemandu")
+        else if (namaNPC == "Pemandu")
         {
-        string status = manager.AmbilStatusWilayah();
-        // Tombol hanya menyala jika status AMAN atau OPTIMAL
-        if(tombolRekrut != null)
-            tombolRekrut.interactable = (status == "AMAN" || status == "OPTIMAL") && manager.uangPemain >= hargaRekrut;
+            string status = manager.AmbilStatusWilayah();
+            if(tombolRekrut != null)
+                tombolRekrut.interactable = (status == "AMAN" || status == "OPTIMAL") && manager.uangPemain >= hargaRekrut;
         }
     }
 }
