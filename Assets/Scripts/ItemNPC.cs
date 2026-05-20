@@ -8,8 +8,11 @@ public class ItemNPC : MonoBehaviour
     public GameObject prefabNPC; 
     
     [Header("Sistem Banyak Titik Muncul")]
-    public Transform[] daftarLokasiMuncul; // Masukkan Kabin 1 dan Kabin 2 di sini
+    public Transform[] daftarLokasiMuncul; 
     private int indeksLokasiSekarang = 0;
+
+    [Header("Syarat Level Dinamis")]
+    public float targetHutanLevel = 0.05f; // SAMAKAN DENGAN DASHBOARD (Isi 0.05 untuk 5%)
 
     public Button tombolRekrut; 
     private UIManagerToko manager; 
@@ -21,7 +24,6 @@ public class ItemNPC : MonoBehaviour
    public void KlikRekrut() {
         if (manager == null) return;
 
-        // Tentukan apakah kuota masih ada berdasarkan nama NPC
         bool kuotaTersedia = false;
         if (namaNPC == "Peneliti" && manager.jmlPeneliti < manager.maxPeneliti) kuotaTersedia = true;
         else if (namaNPC == "Petani" && manager.jmlPetani < manager.maxPetani) kuotaTersedia = true;
@@ -31,31 +33,21 @@ public class ItemNPC : MonoBehaviour
         if (manager.uangPemain >= hargaRekrut && kuotaTersedia) {
             manager.uangPemain -= hargaRekrut;
 
-            // --- LOGIKA PENENTUAN POSISI MUNCUL ---
-            Vector3 posisiTujuan = transform.position; // Default posisi kartu sendiri jika lupa isi kotak
-
+            Vector3 posisiTujuan = transform.position; 
             if (daftarLokasiMuncul.Length > 0)
             {
-                // Pilih lokasi berdasarkan urutan indeks
                 posisiTujuan = daftarLokasiMuncul[indeksLokasiSekarang].position;
-                
-                // Geser angka indeks untuk pembeli berikutnya (0 -> 1 -> 0)
                 indeksLokasiSekarang = (indeksLokasiSekarang + 1) % daftarLokasiMuncul.Length;
             }
-            // --------------------------------------
 
-            // Munculkan NPC di posisi kabin yang dipilih
             Instantiate(prefabNPC, posisiTujuan, Quaternion.identity);
 
-            // Tambah angka ke manager sesuai jenis
             if(namaNPC == "Peneliti") { manager.jmlPeneliti++; manager.adaPeneliti = true; }
             else if(namaNPC == "Petani") manager.jmlPetani++;
             else if(namaNPC == "Penjaga") manager.jmlPenjaga++;
             else if(namaNPC == "Pemandu") manager.jmlPemandu++;
 
             manager.TutupToko(); 
-        } else {
-            Debug.Log("Gagal Rekrut: Uang tidak cukup atau Kuota Penuh!");
         }
     }
 
@@ -65,9 +57,15 @@ public class ItemNPC : MonoBehaviour
 
         if (namaNPC == "Penjaga")
         {
-            float persen = (manager.totalLuasTajuk / manager.luasLahanTotal) * 100f;
+            // --- RUMUS BARU AGAR SINKRON DENGAN DASHBOARD ---
+            // Kita hitung persentase berdasarkan target 5% lahan
+            float persenDashboard = (manager.totalLuasTajuk / manager.luasLahanTotal) / targetHutanLevel * 100f;
+            
             if(tombolRekrut != null)
-                tombolRekrut.interactable = (persen >= 40 && manager.uangPemain >= hargaRekrut);
+            {
+                // Tombol menyala jika angka di Bar Dashboard sudah menyentuh/melewati 40%
+                tombolRekrut.interactable = (persenDashboard >= 40f && manager.uangPemain >= hargaRekrut);
+            }
         }
         else if (namaNPC == "Pemandu")
         {
