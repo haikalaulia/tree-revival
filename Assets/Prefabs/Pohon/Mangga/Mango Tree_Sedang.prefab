@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2738969457865209765}
   - component: {fileID: 1693748888104134015}
   - component: {fileID: 6771458465461552529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mango Tree_Sedang
   m_TagString: Pohon
   m_Icon: {fileID: 0}

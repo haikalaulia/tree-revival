@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8084029495494938748}
   - component: {fileID: 6623434035216849859}
   - component: {fileID: 8976191792552580022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kopi_Mati
   m_TagString: Pohon
   m_Icon: {fileID: 0}

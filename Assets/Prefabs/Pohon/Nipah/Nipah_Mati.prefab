@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8889686664081648465}
   - component: {fileID: 713306002879535955}
   - component: {fileID: 3949971314216159236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nipah_Mati
   m_TagString: Pohon
   m_Icon: {fileID: 0}

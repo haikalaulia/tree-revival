@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3274723668571394679}
   - component: {fileID: 775863592498827794}
   - component: {fileID: 4487075331923891859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Durian_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

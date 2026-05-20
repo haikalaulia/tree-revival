@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4459267786488673745}
   - component: {fileID: 7489795397976539886}
   - component: {fileID: 6115448084149762911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trembesi_Bibit
   m_TagString: Pohon
   m_Icon: {fileID: 0}

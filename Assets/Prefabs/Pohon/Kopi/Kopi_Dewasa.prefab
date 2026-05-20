@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8143212009427888381}
   - component: {fileID: 3317540626756573857}
   - component: {fileID: 4232993478589269917}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kopi_Dewasa
   m_TagString: Pohon
   m_Icon: {fileID: 0}

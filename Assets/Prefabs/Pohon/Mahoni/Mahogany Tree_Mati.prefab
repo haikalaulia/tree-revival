@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1678679331120470934}
   - component: {fileID: 3463298512432872561}
   - component: {fileID: 7771674790457827812}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mahogany Tree_Mati
   m_TagString: Pohon
   m_Icon: {fileID: 0}

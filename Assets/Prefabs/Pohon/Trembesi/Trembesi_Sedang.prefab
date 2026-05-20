@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 544890187306693194}
   - component: {fileID: 7112492303420655731}
   - component: {fileID: 817922172174072512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trembesi_Sedang
   m_TagString: Pohon
   m_Icon: {fileID: 0}

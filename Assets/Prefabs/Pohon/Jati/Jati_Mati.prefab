@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5741450785874799969}
   - component: {fileID: 4147706629948277165}
   - component: {fileID: 4654546375742964732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jati_Mati
   m_TagString: Pohon
   m_Icon: {fileID: 0}
