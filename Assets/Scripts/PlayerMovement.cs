@@ -27,19 +27,25 @@ public class PlayerMovement : MonoBehaviour
 			return;
 		}
 
-		float horizontal = 0f;
-		float vertical = 0f;
+		// --- MODIFIKASI DIMULAI DI SINI ---
+		
+		// 1. Ambil input dari Keyboard (WASD / Panah)
+		float hKey = Input.GetAxis("Horizontal");
+		float vKey = Input.GetAxis("Vertical");
 
-		if (joystick != null)
-		{
-			horizontal = joystick.Horizontal;
-			vertical = joystick.Vertical;
-		}
-		else
-		{
-			horizontal = Input.GetAxis("Horizontal");
-			vertical = Input.GetAxis("Vertical");
-		}
+		// 2. Ambil input dari Joystick
+		float hJoy = (joystick != null) ? joystick.Horizontal : 0;
+		float vJoy = (joystick != null) ? joystick.Vertical : 0;
+
+		// 3. Gabungkan keduanya
+		float horizontal = hKey + hJoy;
+		float vertical = vKey + vJoy;
+
+		// 4. Batasi agar tidak lebih dari 1 (agar tidak lari super cepat jika keduanya ditekan)
+		horizontal = Mathf.Clamp(horizontal, -1f, 1f);
+		vertical = Mathf.Clamp(vertical, -1f, 1f);
+
+		// --- MODIFIKASI SELESAI ---
 
 		if (horizontal > 0 && transform.localScale.x < 0 ||
 		horizontal < 0 && transform.localScale.x > 0)

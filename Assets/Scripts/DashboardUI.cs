@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement; // Wajib untuk pindah scene
+using UnityEngine.SceneManagement;
 
 public class DashboardUI : MonoBehaviour
 {
 	private UIManagerToko ui;
+    private GameDisasterManager gdm; // Tambahkan referensi ke script GameManager temanmu
 
 	[Header("Slider Bars")]
 	public Slider barTutupan;
@@ -24,7 +25,7 @@ public class DashboardUI : MonoBehaviour
 	[Header("UI Pindah Wilayah")]
 	public GameObject panelPindahWilayah;
 	public bool panelSudahMuncul = false;
-	public string namaSceneTujuan = "NamaSceneKamu"; // Ubah sesuai nama scene kamu
+	public string namaSceneTujuan = "NamaSceneKamu"; 
 
 	[Header("Angka & Status")]
 	public TextMeshProUGUI txtPersenTutupan;
@@ -37,9 +38,14 @@ public class DashboardUI : MonoBehaviour
 	public TextMeshProUGUI txtPersenPenjaga;
 	public TextMeshProUGUI txtPersenBuah;
 
+	[Header("Jumlah Real")]
+	public TextMeshProUGUI txtJmlPenjaga; 
+	public TextMeshProUGUI txtJmlBuah;
+
 	void Start()
 	{
 		ui = Object.FindFirstObjectByType<UIManagerToko>();
+        gdm = Object.FindFirstObjectByType<GameDisasterManager>(); // Cari script GameManager otomatis
 
 		if (panelPindahWilayah != null)
 			panelPindahWilayah.SetActive(false);
@@ -47,54 +53,39 @@ public class DashboardUI : MonoBehaviour
 
 	void Update()
 	{
-		if (ui == null) return;
+		if (ui == null || gdm == null) return;
 
-		// --- CHEAT MODE: Tekan L ---
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			ui.totalLuasTajuk = ui.luasLahanTotal;
-			Debug.Log("Cheat Aktif: Tutupan 100%");
-		}
-
+		// --- LOGIKA PROGRESS BAR (Tetap Sama) ---
 		float targetTutupan = (ui.totalLuasTajuk / ui.luasLahanTotal);
-
-		// --- LOGIKA PANEL ---
-		if (targetTutupan >= 0.99f && !panelSudahMuncul)
-		{
-			if (panelPindahWilayah != null)
-			{
-				panelPindahWilayah.SetActive(true);
-				panelSudahMuncul = true;
-				Time.timeScale = 0f; // Pause game
-			}
-		}
-
-		// --- UPDATE SLIDER & TEKS ---
 		barTutupan.value = Mathf.Lerp(barTutupan.value, targetTutupan, Time.deltaTime * smoothSpeed);
 		barCO2.value = Mathf.Lerp(barCO2.value, (ui.totalCO2 / targetCO2Max), Time.deltaTime * smoothSpeed);
 		barAir.value = Mathf.Lerp(barAir.value, (ui.totalAir / targetAirMax), Time.deltaTime * smoothSpeed);
 		barPekerjaan.value = Mathf.Lerp(barPekerjaan.value, ((float)ui.totalLapanganKerja / (float)targetPekerjaanMax), Time.deltaTime * smoothSpeed);
 
+		// --- UPDATE TEKS PERSENTASE ---
 		if (txtPersenTutupan != null)
 			txtPersenTutupan.text = (targetTutupan * 100f).ToString("F0") + "%";
 
-		txtCO2.text = ui.totalCO2.ToString("F0") + " Ton";
+		float persenCO2 = (ui.totalCO2 / targetCO2Max) * 100f;
+		txtCO2.text = persenCO2.ToString("F0") + "%";
 		txtAir.text = ui.totalAir.ToString("N0") + " L";
 		txtPekerjaan.text = ui.totalLapanganKerja + " Orang";
 
-		float pPenjaga = ui.AmbilPersenPenjaga();
-		float pBuah = (ui.jumlahPohon == 0) ? 0 : 100f - pPenjaga;
+		// --- UPDATE JUMLAH REAL (PENJAGA & BUAH) DENGAN TARGET ---
+        // Format: "Penjaga: 3 / 6"
+		if (txtJmlPenjaga != null)
+			txtJmlPenjaga.text = "Penjaga: " + ui.jmlPenjaga + " / " + gdm.targetPenjaga;
 
-		txtPersenPenjaga.text = "Penjaga: " + pPenjaga.ToString("F0") + "%";
-		txtPersenBuah.text = "Buah: " + pBuah.ToString("F0") + "%";
+		if (txtJmlBuah != null)
+			txtJmlBuah.text = "Berbuah: " + ui.jmlBerbuah + " / " + gdm.targetBuah;
 
+		// --- UPDATE STATUS WILAYAH ---
 		txtStatus.text = "STATUS: " + ui.AmbilStatusWilayah();
 	}
 
-	// --- FUNGSI TOMBOL LANJUT ---
 	public void TombolLanjutKlik()
 	{
-		Time.timeScale = 1f; // Aktifkan waktu kembali
-		SceneManager.LoadScene(namaSceneTujuan); // Pindah Scene
+		Time.timeScale = 1f;
+		SceneManager.LoadScene(namaSceneTujuan);
 	}
 }

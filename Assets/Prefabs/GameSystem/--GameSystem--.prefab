@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 7847244121022611969}
   - component: {fileID: 4816371259710170282}
   m_Layer: 5
-  m_Name: Text_Rasio_Penjaga
+  m_Name: Text_JmlPohon_Penjaga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Penjaga: 60%
+  m_text: 'Penjaga: 0 / 0
 
 '
   m_isRightToLeft: 0
@@ -4881,7 +4881,7 @@ RectTransform:
   m_Father: {fileID: 5037577680989744394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11005,7 +11005,7 @@ GameObject:
   - component: {fileID: 2368478281864617368}
   - component: {fileID: 3566800599956447074}
   m_Layer: 5
-  m_Name: Text_Rasio_Buah
+  m_Name: Text_JmlPohon_Buah
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11058,7 +11058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Buah: 40%'
+  m_text: 'Berbuah: 0 / 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 897953a296e09a9448e68357821b0b86, type: 2}
   m_sharedMaterial: {fileID: -8457833733278100095, guid: 897953a296e09a9448e68357821b0b86, type: 2}
@@ -15384,7 +15384,7 @@ RectTransform:
   m_Father: {fileID: 1547596552860857797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21455,12 +21455,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9ab72e56d088b419141ffcf855dad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameDisasterManager
-  deadlineHari: 10
+  deadlineHari: 15
   targetJumlahPohon: 10
   targetAir: 13500
-  targetCO2: 100
-  targetPenjaga: 9
-  targetBuah: 6
+  targetCO2: 300
+  targetPenjaga: 2
+  targetBuah: 3
   panelHitam: {fileID: 174509225123882164}
   textPesanBencana: {fileID: 8268557742032688261}
   panelNotif: {fileID: 5242416398040972420}
@@ -23359,7 +23359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5843080146209292012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23442,9 +23442,9 @@ MonoBehaviour:
   barAir: {fileID: 4851466979554834613}
   barPekerjaan: {fileID: 4802069792655064725}
   smoothSpeed: 3
-  targetCO2Max: 1000
-  targetAirMax: 100000
-  targetPekerjaanMax: 50
+  targetCO2Max: 300
+  targetAirMax: 13500
+  targetPekerjaanMax: 20
   panelPindahWilayah: {fileID: 246163283085770346}
   panelSudahMuncul: 0
   namaSceneTujuan: NamaSceneKamu
@@ -23455,6 +23455,8 @@ MonoBehaviour:
   txtStatus: {fileID: 4478046897310825504}
   txtPersenPenjaga: {fileID: 4816371259710170282}
   txtPersenBuah: {fileID: 3566800599956447074}
+  txtJmlPenjaga: {fileID: 4816371259710170282}
+  txtJmlBuah: {fileID: 3566800599956447074}
 --- !u!95 &159820947263919490
 Animator:
   serializedVersion: 7
@@ -26668,7 +26670,7 @@ RectTransform:
   m_Father: {fileID: 7606092718996303107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28971,7 +28973,7 @@ RectTransform:
   m_Father: {fileID: 8677484884744713764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -31034,11 +31036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -100
+      value: -135.7
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -80
+      value: -132.6
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -31059,6 +31061,22 @@ PrefabInstance:
     - target: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: joystickType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087804030458062, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087804030458062, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

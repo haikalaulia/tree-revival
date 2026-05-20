@@ -214,7 +214,8 @@ public class UIManagerToko : MonoBehaviour
 
 		// KALKULASI LINGKUNGAN (Hanya untuk pohon, bukan NPC)
 		float multiplier = adaPeneliti ? 1.5f : 1f;
-		totalCO2 += (info.co2PerPohon / 1000f) * multiplier;
+		// Sekarang CO2 dihitung dalam satuan KG murni, bukan TON
+		totalCO2 += info.co2PerPohon * multiplier;
 		totalAir += info.airPerPohon;
 
 		if (info.jenisPohon == JenisPohon.Berbuah)
