@@ -24102,6 +24102,7 @@ MonoBehaviour:
   - {fileID: 5351687784418858846}
   - {fileID: 1615793221518129515}
   manager: {fileID: 997422482521151041}
+  maxLawanDiMap: 4
   jedaKritis: 25
   jedaWaspada: 60
   jedaAman: 120
