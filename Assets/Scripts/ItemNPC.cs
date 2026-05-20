@@ -11,8 +11,7 @@ public class ItemNPC : MonoBehaviour
     public Transform[] daftarLokasiMuncul; 
     private int indeksLokasiSekarang = 0;
 
-    [Header("Syarat Level Dinamis")]
-    public float targetHutanLevel = 0.05f; // SAMAKAN DENGAN DASHBOARD (Isi 0.05 untuk 5%)
+    // Variabel targetHutanLevel di sini DIHAPUS karena sudah pindah ke UIManagerToko
 
     public Button tombolRekrut; 
     private UIManagerToko manager; 
@@ -57,14 +56,21 @@ public class ItemNPC : MonoBehaviour
 
         if (namaNPC == "Penjaga")
         {
-            // --- RUMUS BARU AGAR SINKRON DENGAN DASHBOARD ---
-            // Kita hitung persentase berdasarkan target 5% lahan
-            float persenDashboard = (manager.totalLuasTajuk / manager.luasLahanTotal) / targetHutanLevel * 100f;
+            // --- CARI DASHBOARD UNTUK MENGINTIP TARGETNYA ---
+            DashboardUI dash = FindFirstObjectByType<DashboardUI>();
             
-            if(tombolRekrut != null)
+            if (dash != null)
             {
-                // Tombol menyala jika angka di Bar Dashboard sudah menyentuh/melewati 40%
-                tombolRekrut.interactable = (persenDashboard >= 40f && manager.uangPemain >= hargaRekrut);
+                // Mengambil targetPersenHutan dari DashboardUI
+                float targetHutan = dash.targetPersenHutan;
+                
+                // Hitung persentase bar dashboard
+                float persenDashboard = (manager.totalLuasTajuk / manager.luasLahanTotal) / targetHutan * 100f;
+                
+                if(tombolRekrut != null)
+                {
+                    tombolRekrut.interactable = (persenDashboard >= 40f && manager.uangPemain >= hargaRekrut);
+                }
             }
         }
         else if (namaNPC == "Pemandu")
