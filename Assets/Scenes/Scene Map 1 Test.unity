@@ -6419,7 +6419,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2189281714829370061, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1280938076}
   m_SourcePrefab: {fileID: 100100000, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
 --- !u!1 &641225922
 GameObject:
@@ -6836,6 +6839,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1280938072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2189281714829370061, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+  m_PrefabInstance: {fileID: 577155766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1280938076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280938072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d44c4d55b7c554fa6d78c0a88a1cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeRemover
+  modeHapusAktif: 0
+  manager: {fileID: 0}
 --- !u!1 &1376107355
 GameObject:
   m_ObjectHideFlags: 0
