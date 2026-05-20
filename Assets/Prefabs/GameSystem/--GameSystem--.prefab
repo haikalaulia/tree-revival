@@ -99,7 +99,6 @@ MonoBehaviour:
   prefabNPC: {fileID: 9066498279912612198, guid: d6faeab4749f4dc4dbfb662455255e6d, type: 3}
   daftarLokasiMuncul:
   - {fileID: 3430623640381032814}
-  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 2793314276637519843}
 --- !u!1 &33952144228073366
 GameObject:
@@ -603,7 +602,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -139.2008, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11206,7 +11205,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -139.20056, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -16713,7 +16712,6 @@ MonoBehaviour:
   prefabNPC: {fileID: 5990260537048033093, guid: a1cc1a6b710e8e84d8d8aac5757a6dc0, type: 3}
   daftarLokasiMuncul:
   - {fileID: 5443798329834723783}
-  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 5666737582286780947}
 --- !u!1 &4747784663819809488
 GameObject:
@@ -21712,11 +21710,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameDisasterManager
   deadlineHari: 10
-  targetJumlahPohon: 10
-  targetAir: 5000
-  targetCO2: 300
-  targetPenjaga: 2
-  targetBuah: 3
+  syaratRasioPenjaga: 60
+  syaratRasioBerbuah: 40
+  batasHariGagal: 6
+  counterHariGagal: 0
   panelHitam: {fileID: 174509225123882164}
   textPesanBencana: {fileID: 8268557742032688261}
   panelNotif: {fileID: 5242416398040972420}
@@ -23843,8 +23840,6 @@ MonoBehaviour:
   txtAir: {fileID: 7340212338870221034}
   txtPekerjaan: {fileID: 512022036825682020}
   txtStatus: {fileID: 4478046897310825504}
-  txtPersenPenjaga: {fileID: 4816371259710170282}
-  txtPersenBuah: {fileID: 3566800599956447074}
   txtJmlPenjaga: {fileID: 4816371259710170282}
   txtJmlBuah: {fileID: 3566800599956447074}
 --- !u!95 &159820947263919490
@@ -25157,7 +25152,6 @@ MonoBehaviour:
   prefabNPC: {fileID: 283559322854013802, guid: a6ed45876fe5fcd408a88e0b9414bbec, type: 3}
   daftarLokasiMuncul:
   - {fileID: 6567248693042291194}
-  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 7061062430561228435}
 --- !u!1 &7522161043265352242
 GameObject:
@@ -28370,7 +28364,6 @@ MonoBehaviour:
   daftarLokasiMuncul:
   - {fileID: 4010125386909303576}
   - {fileID: 5588791925624615169}
-  targetHutanLevel: 0.05
   tombolRekrut: {fileID: 6696975186704749287}
 --- !u!1 &8459141675446681016
 GameObject:

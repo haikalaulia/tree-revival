@@ -6284,6 +6284,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 997422482521151041, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: targetHutanLevel
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1615793221518129515, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1
@@ -6372,18 +6376,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7
       objectReference: {fileID: 0}
-    - target: {fileID: 6931524151809433805, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -730
-      objectReference: {fileID: 0}
-    - target: {fileID: 6931524151809433805, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -127
-      objectReference: {fileID: 0}
     - target: {fileID: 7726615639101639595, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 641225930}
+    - target: {fileID: 7726615639101639595, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
+      propertyPath: deadlineHari
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8196319036841236756, guid: 41a4858a223cf7340b28633946c1d524, type: 3}
       propertyPath: m_LocalPosition.x
       value: 163.25081
