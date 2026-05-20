@@ -273,10 +273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee205007c79bb6b4f9144cf7e2e0972c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCWoodcutter
+  maxPohonBolehDitebang: 2
   speed: 2
   waktuTebang: 3
   waktuSabar: 10
-  jarakPandangLawan: 6
+  jarakPandangLawan: 5
 --- !u!95 &2163351033129195949
 Animator:
   serializedVersion: 7
