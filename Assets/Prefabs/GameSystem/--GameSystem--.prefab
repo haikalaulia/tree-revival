@@ -7892,7 +7892,7 @@ MonoBehaviour:
   manager: {fileID: 997422482521151041}
   layerPohon:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &2190773658353292559
 GameObject:
   m_ObjectHideFlags: 0
@@ -22951,7 +22951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -670, y: -138}
+  m_AnchoredPosition: {x: -709, y: -124}
   m_SizeDelta: {x: 101.5462, y: 21.539001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1468425186559903140
